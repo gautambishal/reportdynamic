@@ -1,0 +1,644 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	
+	
+    	
+			<meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
+		
+    	
+	
+	<base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/">
+	<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js" >.</script>
+	
+	<script language="JavaScript" type="text/javascript">
+    <!--
+    function addLoadEvent(func) {
+    	  var oldonload = window.onload;
+    	  if (typeof window.onload != 'function') {
+    	    window.onload = func;
+    	  } else {
+    	    window.onload = function () {
+    	      if (oldonload) {
+    	        oldonload();
+    	      }
+    	      func();
+    	  }
+    	}
+    }  	
+	-->  
+    </script>
+    
+	
+
+
+
+
+
+	
+<title>			
+	
+	
+		
+		Aid Management Platform
+		Error Page
+	
+</title>
+	
+	<!-- Scripts  -->
+	
+	<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
+	<link href="/TEMPLATE/ampTemplate/css/ampPrint.css" rel="stylesheet" type="text/css" media="print"></link>
+	<link rel="stylesheet" href="tabs/css/bootstrap.css">
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/node_modules/amp-boilerplate/dist/amp-boilerplate.js"></script>
+	
+
+	 
+	
+</head>
+
+
+<BODY leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
+<div id="amp-header"></div>
+<div class="headerTop">
+	
+		
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
+<script language="JavaScript1.2" type="text/javascript" src="/repository/aim/view/scripts/dscript120.js"></script>
+<script language="JavaScript1.2" type="text/javascript" src="/repository/aim/view/scripts/dscript120_ar_style.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/arFunctions.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/ajaxtabs/ajaxtabs.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/ajax.js"></script>
+
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-common.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicContent.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-modalMessage.js"></script>
+
+	<!-- Stylesheet of AMP -->
+	<link href="/TEMPLATE/ampTemplate/css_2/amp.css" rel="stylesheet" type="text/css"></link>
+	<link href="/TEMPLATE/ampTemplate/css_2/yui_tabs.css" rel="stylesheet" type="text/css"></link>
+	<link href="/TEMPLATE/ampTemplate/css_2/yui_datatable.css" rel="stylesheet" type="text/css"></link>
+	<link href="/TEMPLATE/ampTemplate/css_2/desktop_yui_tabs.css" rel="stylesheet" type="text/css"></link>
+	<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/tabview/assets/tabview-core.css"> 
+	
+	
+		 
+    <!-- Individual YUI CSS files --> 
+	<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/container/assets/container.css"> 
+	<link href="/TEMPLATE/ampTemplate/css_2/yui_popins.css" rel="stylesheet" type="text/css"></link>
+	
+	 
+	<!-- Individual YUI JS files --> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/yahoo-dom-event/yahoo-dom-event.js"></script> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dragdrop/dragdrop-min.js"></script> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/animation/animation-min.js"></script> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/connection/connection-min.js"></script> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/container/container-min.js"></script> 
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/menu/menu-min.js"></script>
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dom/dom-min.js"></script>
+	
+	<!-- Jquery Base Library -->
+	<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery-min.js"></script>
+	
+<script type="text/javascript">
+	var YAHOOAmp 	= YAHOO;
+</script>  
+        
+
+
+	<script language=javascript>
+	function showUserProfile(id){
+		
+		//openURLinWindow("/aim/userProfile.do~edit=true~id="+id,480, 350);
+		var param = "~edit=true~id="+id;
+		previewWorkspaceframe('/aim/default/userProfile.do',param);
+	}
+	function canExit(){
+	    if(typeof quitRnot1 == 'function') {
+	        return quitRnot1('');
+	    }
+	    else{
+	        return true;
+	    }
+	
+	}	
+</script>
+
+
+<!-- Prevent Skype Highlighter -->
+<META name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1; IE=8">
+<style>
+#components_dots table tr td {font-size:11px;}
+table tr td {font-size:11px;}
+</style>
+
+
+
+
+
+
+ 
+ 	
+ 
+ 
+
+
+
+
+<script type="text/javascript">
+	function selectwkspace(id){
+		var a;
+		var url = "/selectTeam.do?id="+id;
+		document.location.href=url;
+	}
+</script>
+
+
+
+	
+	
+</div>
+
+
+
+<!-- Dependencies -->
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/element/element-min.js"></script> 
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/tabview/tabview-min.js"></script>
+
+<script type="text/javascript">
+    //''
+    function canExit() {
+        if (typeof quitRnot1 == 'function') {
+            return quitRnot1('');
+        } else{
+            return true;
+        }
+
+    }
+</script>
+
+
+<div id="myUserFilterWrapper" style="display: none;">
+	<div id="customUser" class="invisible-item" class="content">
+		
+<script type="text/javascript">
+	var contentLocal;
+
+	YAHOO.namespace("YAHOO.amptab");
+	YAHOO.amptab.init = function() {
+	    		var tabView = new YAHOO.widget.TabView('tabview_container');
+	};
+
+	YAHOO.amptab.handleClose = function() {
+		
+	}
+		
+    var myPanelWorkspaceframe = new YAHOO.widget.Panel("newmyPWorkspaceframe", {
+		width:"600px",
+		height:"600px",
+	    fixedcenter: true,
+	    constraintoviewport: true,
+	    underlay:"none",
+	    close:true,
+	    visible:false,
+	    modal:true,
+	    draggable:true,
+	    context: ["tl", "bl"]
+	    }
+	     );
+
+    myPanelWorkspaceframe.beforeHideEvent.subscribe(YAHOO.amptab.handleClose);
+	
+	function initScriptsWorkspaceframe() {
+		//alert('initScriptsWorkspaceframe');
+		var msgP8='\nMember Details';
+		myPanelWorkspaceframe.setHeader(msgP8);
+		myPanelWorkspaceframe.setBody("The Panel is a powerful UI control");
+		myPanelWorkspaceframe.render(document.body);
+		panelFirstShow = 1;
+	}
+	
+	function showPWorkspaceframe() {
+		initScriptsWorkspaceframe();
+		//alert('showPWorkspaceframe');
+		contentLocal = document.createElement('div');
+		contentLocal.setAttribute('id', 'myPWorkspaceframeContent');
+		contentLocal.setAttribute('class', 'content');
+		contentLocal.innerHTML = '<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><p align="center"><img align="top" src="/repository/aim/view/scripts/ajaxtabs/loading.gif" /><font size="3"><b>Loading...</b></font></p>';
+            contentLocal.style.height = "700px";
+            contentLocal.style.width = "594px";
+            contentLocal.style.overflow="scroll";
+			myPanelWorkspaceframe.setBody(contentLocal);
+			panelFirstShow = 0;
+		myPanelWorkspaceframe.show();
+	}
+	function hidePWorkspaceframe() {
+		myPanelWorkspaceframe.hide();
+	}
+
+
+    var responseSuccessWorkspaceframe = function(o){ 
+	/* Please see the Success Case section for more
+	 * details on the response object's properties.
+	 * o.tId
+	 * o.status
+	 * o.statusText
+	 * o.getResponseHeader[ ]
+	 * o.getAllResponseHeaders
+	 * o.responseText
+	 * o.responseXML
+	 * o.argument
+	 */
+		var response = o.responseText;
+		//alert(response);
+		//var content = document.getElementById("myPWorkspaceframeContent");
+		contentLocal.innerHTML = response;
+	}
+		 
+	var responseFailureWorkspaceframe = function(o){ 
+	// Access the response object's properties in the 
+	// same manner as listed in responseSuccess( ). 
+	// Please see the Failure Case section and 
+	// Communication Error sub-section for more details on the 
+	// response object's properties.
+		alert("Connection Failure!"); 
+	}  
+	var WorkspaceframeCallback = 
+	{ 
+		success:responseSuccessWorkspaceframe, 
+		failure:responseFailureWorkspaceframe 
+	};
+
+	function previewWorkspaceframe(action,params)
+	{
+        showPWorkspaceframe();
+		YAHOO.util.Connect.asyncRequest("POST", action+params, WorkspaceframeCallback, '');
+	}
+
+	function addLoadEvent(func) {
+  	  var oldonload = window.onload;
+  	  if (typeof window.onload != 'function') {
+  	    window.onload = func;
+  	  } else {
+  	    window.onload = function () {
+  	      if (oldonload) {
+  	        oldonload();
+  	      }
+  	      func();
+  	  }
+  	}
+  }  	
+	/*var currentWorkspaceframe = window.onload;
+	window.onload = function() {
+        currentWorkspaceframe.apply(currentWorkspaceframe);
+   	};*/
+   	addLoadEvent(initScriptsWorkspaceframe);
+
+</script>
+<style type="text/css">
+	.mask {
+	  -moz-opacity: 0.8;
+	  opacity:.80;
+	  filter: alpha(opacity=80);
+	  background-color:#2f2f2f;
+	}
+</style>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function SwitchLanguageMenu(value) {
+	if(typeof quitRnot1 != 'function'||quitRnot1('WARNING : The document has not been saved. Please press OK to continue or Cancel to save the document.')!=false){
+            var referrer = document.location.href;
+            if (referrer.indexOf("wicket") > -1){
+                //In Wicket we must erase the pageId
+                referrer = referrer.substring(0, referrer.indexOf("?"));
+            	var wicketLanguageChange = 'If you switch the current language the Activity changes will be lost.';
+                var wantContinue='Are you sure you want to continue?';
+               	 window.onbeforeunload = null;
+               	 confirm (wicketLanguageChange+"\n"+wantContinue);
+
+            }
+            var newLoc = value + referrer;
+
+            if(navigator.appName.indexOf('Microsoft Internet Explorer') > -1){ //Workaround to allow HTTP REFERER to be sent in IE (AMP-12638)
+        		var referLink = document.createElement('a');
+        		referLink.href = newLoc;
+        		referLink.target = "_self";
+        		document.body.appendChild(referLink);
+        		referLink.click();
+
+        	}
+        	else{
+        		//change the language
+        		window.location.href = newLoc;
+        	}
+
+        }
+}
+
+
+	function newAddActivity() {
+		selectedLevelId=0; 
+		window.location.href="/wicket/onepager/activity/new";	
+	}
+	
+	function addActivity() {
+		selectedLevelId=0; 
+		window.location.href="/aim/addActivity.do~pageId=1~reset=true~resetMessages=true~action=create~activityLevelId="+selectedLevelId;	
+	}
+	
+	function openGIS() {
+		openNewWindowWithMenubar(1100, 800);
+		popupPointer.location.href = "/gis/showGisDashboard.do";
+	}
+
+function addMessage(fillTypesAndLevels) {
+	window.location.href="/message/messageActions.do?editingMessage=false&actionType="+fillTypesAndLevels;
+}
+
+
+</script>
+
+
+
+	<div class="breadcrump_1">&nbsp;</div>
+	<div style="width:1000px;margin:0 auto;">
+		<table width="100%" id="homelayout">
+			<tr><td>		
+				
+
+
+
+
+
+
+
+
+<html>
+<body bgcolor="#ffffff">
+<form name="exceptionReportForm" method="post" action="/exception/exceptionReport.do">
+
+<script language="JavaScript">
+<!--
+    
+    function toggleLayer(whichLayer){
+		var elem, vis;
+		if( document.getElementById ) // this is the way the standards work
+			elem = document.getElementById( whichLayer );
+		else 
+			if( document.all ) // this is the way old msie versions work
+				elem = document.all[whichLayer];
+			else 
+				if( document.layers ) // this is the way nn4 works
+					elem = document.layers[whichLayer];
+		vis = elem.style;
+		// if the style.display value is blank we try to figure it out here
+		if(vis.display==''&&elem.offsetWidth!=undefined&&elem.offsetHeight!=undefined)
+			vis.display = (elem.offsetWidth!=0&&elem.offsetHeight!=0)?'block':'none';
+		vis.display = (vis.display==''||vis.display=='block')?'none':'block';
+	}
+
+	var responseSuccess = function(o){ 
+	/* Please see the Success Case section for more
+	 * details on the response object's properties.
+	 * o.tId
+	 * o.status
+	 * o.statusText
+	 * o.getResponseHeader[ ]
+	 * o.getAllResponseHeaders
+	 * o.responseText
+	 * o.responseXML
+	 * o.argument
+	 */
+		var response = o.responseText; 
+		var content = document.getElementById("docDiv");
+	    //response = response.split("<!")[0];
+		content.innerHTML = response;
+	}
+		 
+	var responseFailure = function(o){ 
+		alert("Connection Failure!"); 
+	}
+	  
+	var callback = 
+	{ 
+		success:responseSuccess, 
+		failure:responseFailure 
+	};
+	
+	function addContract(){
+	    var postString = 'rand=1552538185044';
+		YAHOOAmp.util.Connect.asyncRequest("POST", "/exception/getConfluenceDocs.do", callback, postString);
+	}
+
+
+	var current2 = window.onload;
+	window.onload = function() {
+        current2.apply(current2);
+		//addContract();
+	};
+	
+-->    
+</script>
+
+  <input type="hidden" name="exceptionInfo.sourceURL" value="https://amis.mof.gov.np/exceptionHandle.do">
+  <input type="hidden" name="exceptionInfo.exceptionCode" value="404">
+  <input type="hidden" name="exceptionInfo.errorMessage" value="The required instance TEMPLATE:ampTemplate was not found[ URI:/TEMPLATE/ampTemplate/, URL:https://amis.mof.gov.np/exceptionHandle.do]">
+  <input type="hidden" name="exceptionInfo.siteId" value="3">
+  <input type="hidden" name="exceptionInfo.siteKey" value="amp">
+  <input type="hidden" name="exceptionInfo.siteName" value="AMP Demo">
+  <input type="hidden" name="exceptionInfo.stackTrace" value="">
+  <input type="hidden" name="name" value="">
+  <input type="hidden" name="email" value="">
+  <table width="100%">
+    <tr>
+      <td align="center">
+        	<table width="85%" cellpadding="5">
+        		<tr>
+        			<td width="120px" valign="top" >
+        				<img alt="AMP Error Image" src="../ampTemplate/images/exceptionImg.jpg" />
+        			</td>
+        			<td align="left" valign="middle" style="background-color: #F0F0F0">
+        				<br/>
+        				<span style="font-size:14px">
+				        	<b>The Aid Management Platform has temporarily encountered an issue. We apologize for any inconvenience.</b><br/>
+				        	
+				        	<br/>
+				        	<!-- 
+				        	<u>Issue Information</u><br/>
+				        	Issue Description:
+				        	 
+				        	
+				        		"n/a"
+				        	
+				        	<br/>
+				        	
+				        	<br/>
+				        	 -->
+				        	<hr/><br/>
+				        	To resume normal operation of the Aid Management Platform please choose one of the following actions:<br />
+				        		<li>Go Back to the
+				        			<a href="">
+					        			previous page
+				        			</a>
+				        		</li> 
+				        		<li>Go to the 
+					        		
+										
+									
+									
+										
+				                              <a href="/showDesktop.do" >
+				                                 Desktop
+				                              </a>
+										
+									
+								</li>
+							<br/>
+							View the	
+				        		<a href="javascript:toggleLayer('devInfo');"> Developer notes</a> for this issue 
+				        </span>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td width="120px">&nbsp;
+        				
+        			</td>
+        			<td style="background-color: #F0F0F0">
+       					<div id="devInfo" style="display: none;"  >
+       						<div style="display: none;">
+							<fieldset>
+					          <legend>
+					       		<a href="javascript:toggleLayer('docDiv');" style="color:#FFFFFF;">
+				            		Suggested Documentation
+						        </a>
+					          </legend>
+					          <div id="docDiv" style="display: block;">
+						          <p align="center">
+						          	  <img src="/TEMPLATE/ampTemplate/images/ajax-loader.gif" alt="loading..."/>
+						          </p>
+							  </div>
+							</fieldset>
+							</div>
+							
+							<fieldset>
+					          <legend>
+					          	<a href="javascript:toggleLayer('errMsg');" style="color:#FFFFFF;">
+				            		Exception details
+					            </a>
+					          </legend>
+					          
+					          <div id="errMsg" style="display: block;">
+						          <table width="100%" border="0">
+						            <tr>
+						              <td>Error Message:</td>
+						              <td>
+						                <b>
+						                  <font color="red">
+						                    The required instance TEMPLATE:ampTemplate was not found[ URI:/TEMPLATE/ampTemplate/, URL:https://amis.mof.gov.np/exceptionHandle.do]
+						                  </font>
+						                </b>
+						              </td>
+						            </tr>
+						            
+						            
+							            <tr>
+							              <td>Status code:</td>
+							              <td>404</td>
+									    </tr>
+								    
+								    <tr>
+								      <td>Site:</td>
+								      <td>
+								        AMP Demo
+								        (#
+								        3
+								        /
+								        amp
+								        )
+								      </td>
+								    </tr>
+								    <tr>
+								      <td>Module instance:</td>
+								      <td>
+								        
+								        :
+								        
+								      </td>
+								    </tr>
+								    <tr>
+								      <td width="100%" colspan="2">&nbsp;</td>
+								    </tr>
+								</table>
+							</div>
+							</fieldset>
+							
+							
+
+						</div>
+        			</td>
+        		</tr>
+        	</table>
+      		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      </td>
+</table></form>
+</body>
+</html>
+
+			</td></tr>
+		</table>
+    </div>
+    <div class="footerText" >
+    	
+
+
+
+<div id="amp-footer" style="footer"></div>
+
+<script type="text/javascript" src="/repository/aim/view/scripts/jquery-ui-1.11.0/jquery-ui.min.js"> </script>
+<script src="/repository/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var boilerplate = new window.boilerplate({
+    showAdminFooter: true,
+    showLogin: false,
+    loginDropdown: true
+  });
+</script>
+
+
+
+
+    </div>    
+
+
+</body>
+</html>

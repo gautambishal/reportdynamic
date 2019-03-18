@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html class=" gecko linux js gecko linux js">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
+
+
+    <!-- base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/" -->
+    <script type="text/javascript" defer="defer" async="" src="createdreport_files/piwik.js"></script>
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/EnterHitBinder.js">.</script>
+
+    <script language="JavaScript" type="text/javascript">
+        <!--
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function () {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        }
+
+        -->
+    </script>
+
+
+    <title>
+
+
+        Aid Management Platform
+        - Public Team Reports
+
+    </title>
+
+    <!-- Scripts  -->
+
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/common.js"></script>
+    <link href="createdreport_files/ampPrint.css" rel="stylesheet" type="text/css" media="print">
+    <link rel="stylesheet" href="createdreport_files/bootstrap.css">
+    <script type="text/javascript" src="createdreport_files/amp-boilerplate.js"></script>
+
+
+</head>
+
+
+<body topmargin="0" rightmargin="0" leftmargin="0" bottommargin="0">
+<iframe id="_yuiResizeMonitor" title="Text Resize Monitor"
+        style="position: absolute; visibility: visible; background-color: transparent; border-width: 0px; width: 2em; height: 2em; left: 0px; top: -29px;"></iframe>
+<div class="yui-panel-container yui-overlay-hidden" id="newmyPWorkspaceframe_c"
+     style="visibility: hidden; left: 377px; top: 10px; z-index: 2;">
+    <div id="newmyPWorkspaceframe" class="yui-module yui-overlay yui-panel"
+         style="visibility: inherit; width: 600px; height: 600px;">
+        <div class="hd" style="cursor: move;" id="newmyPWorkspaceframe_h">
+            Member Details
+        </div>
+        <div class="bd" style="height: 578px;">The Panel is a powerful UI control</div>
+        <a class="container-close" href="#">Close</a></div>
+</div>
+<div id="amp-header"><!-- inline styles used so we can relocate amp-boilerplate module-->
+    <style>
+        /* This directory and then Dashboard & GIS need
+         * to be rebuilt with their respective browserify-processes to see
+         * changes from this filter-popup due to brfs, see readme.md
+         */
+        #amp-header {
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #amp-header .navbar-header > button.navbar-toggle {
+            /* fix contracted menu icon to not block map*/
+            padding: 2px;
+            margin: 4px;
+        }
+
+        #amp-header .container-fluid.ampUserLoggedIn ul.ampPublic,
+        #amp-header .container.ampUserLoggedIn ul.ampPublic {
+            display: none !important;
+        }
+
+        #amp-header .container-fluid.ampUserLoggedIn ul.ampUserLoggedIn,
+        #amp-header .container.ampUserLoggedIn ul.ampUserLoggedIn {
+            display: inherit !important;
+        }
+
+        #amp-header .container-fluid ul.ampPublic,
+        #amp-header .container ul.ampPublic {
+            display: inherit !important;
+        }
+
+        #amp-header .container-fluid ul.ampUserLoggedIn,
+        #amp-header .container ul.ampUserLoggedIn {
+            display: none !important;
+        }
+
+        div#amp-header nav div.container,
+        div#amp-header nav div.navbar-collapse a,
+        div#amp-header nav div.container-fluid,
+        div#amp-header nav div.navbar-collapse a {
+            font-size: 12px;
+        }
+
+        div#amp-header .navbar-brand {
+            font-size: 16px !important;
+            color: #E69923;
+            text-shadow: 1px 1px 5px #CCC;
+            white-space: nowrap;
+            padding-bottom: 8px;
+        }
+
+        div#amp-header .double-row .navbar-brand {
+            padding-top: 8px;
+            height: 41px;
+        }
+
+        /* Several places in AMP include things that will set this
+         * back to gigantic margins.
+         * 8px feels like generous padding
+         * 5px is slightly tight.
+         *
+         */
+        div#amp-header .single-row .nav > li > a {
+            padding-right: 6px;
+            padding-left: 6px;
+        }
+
+        div#amp-header .double-row .nav > li > a {
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 8px;
+            padding-top: 9px;
+        }
+
+        div#amp-header .double-row #AmpMenus.nav > li:nth-child(1) > a {
+            /* For first element, eliminate padding to ensure is flush. */
+            padding-left: 0;
+        }
+
+        div#amp-header .workspace-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        div#amp-header .user-url {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* limit size of top level menu to prevent translations that are too long
+         * Apply to a span so that that caret doesn't get chopped off.
+         */
+        /* max-width:
+         * 141px is generous, fits ÉTUDES ET DOCUMENTS
+         * 124px is minimum to include 3 words (Ministry of ??...)
+         * 117px fits TABLEAUX DE BORD
+         *
+         * div.ampUserLoggedIn in selector makes this effective ONLY when logged in
+         * single-row selector only when using that mode
+         */
+        #amp-header div.ampUserLoggedIn .single-row ul#AmpMenus > .dropdown > a > span.dropdown-text {
+            max-width: 141px;
+        }
+
+        #amp-header ul#AmpMenus > .dropdown > a > span.dropdown-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #3E6C94;
+            text-rendering: optimizeLegibility;
+        }
+
+        #amp-header ul#AmpMenus > .dropdown > a > span.caret {
+            /* bump up caret to the height of the truncate-able inline-block next to it */
+            padding-bottom: 11px;
+            color: rgb(11, 12, 26);
+        }
+
+        #amp-header .container-fluid.no-gutters,
+        #amp-header .container.no-gutters {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        /* No gutters creates space for 1 gridsquare logo.
+         * http://julienmelissas.com/no-gutter-column-trick-for-bootstrap/
+         */
+        #amp-header .container-fluid .row.no-gutters,
+        #amp-header .container .row.no-gutters {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        #amp-header .container-fluid .row.no-gutters > [class^="col-"],
+        #amp-header .container-fluid .row.no-gutters > [class*=" col-"],
+        #amp-header .container .row.no-gutters > [class^="col-"],
+        #amp-header .container .row.no-gutters > [class*="col-"] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        #amp-header nav > .container-fluid > div.row:nth-child(1),
+        #amp-header nav > .container > div.row:nth-child(1) {
+            background-color: #FFF;
+        }
+
+        #amp-header nav > .container > div.row:nth-child(2),
+        #amp-header nav > .container-fluid > div.row:nth-child(2) {
+            border-top: 1px solid #EDEDED;
+            background-color: #F7F7F7;
+        }
+
+        #amp-header .container-fluid,
+        #amp-header .container {
+            background-color: #FFF; /* Fixes gray area in gutter of single-row */
+        }
+
+        /* There is a second set of gutters on the navbar itself. */
+        div#amp-header .navbar-collapse.no-gutters {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        /* These four styles avoids setting hard max-widths on these items */
+        #amp-header .ampLoggedInMenus {
+            width: 95%; /* account for scrollbar */
+            text-shadow: 1px 1px 1px #AAA;
+        }
+
+        /* give a bit of extra width to workspace */
+        #amp-header ul.nav.navbar-nav.ampLoggedInMenus li:nth-child(1) {
+            text-align: right;
+        }
+
+        /* user name */
+        #amp-header ul.nav.navbar-nav.ampLoggedInMenus li:nth-child(2) {
+            text-align: center;
+        }
+
+        /* Logout */
+        #amp-header ul.nav.navbar-nav.ampLoggedInMenus li:nth-child(3) {
+            white-space: nowrap; /* prevent translations of logout from wrapping */
+        }
+
+        div#amp-header div#logincontainer {
+            padding-left: 140px; /* IE9 fix that works everywhere: make room for green login button */
+        }
+
+        div#amp-header .login_here {
+            margin-top: 3px !important; /* override 7 other specs in amp-wicket, and various copies of amp.css */
+        }
+
+        html.ie9 div#amp-header .login_here {
+            margin-top: -11px !important; /* override 7 other specs in amp-wicket, and various copies of amp.css */
+        }
+
+        /******/
+        .scrollable-menu {
+            height: auto;
+            max-height: 400px;
+            overflow-x: hidden;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #cccccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #ffffff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function switchTranslation(url) {
+            $('#backUrl').val(document.location.href);
+            document.modeSwitchForm.action = url;
+            document.modeSwitchForm.submit();
+        }
+    </script>
+    <form name="modeSwitchForm" method="post" action="/translation/switchMode.do" style="display:none;">
+        <input name="backUrl" id="backUrl" value="" type="hidden">
+    </form>
+
+
+    <nav class="navbar navbar-default double-row" role="navigation">
+        <div class="container-fluid no-gutters ampUserLoggedIn">
+            <div class="row no-gutters">
+                <!-- .ampUserLoggedIn hides public version-->
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header col-sm-1 col-sm-offset-1">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://amis.mof.gov.np/aim" data-i18n="[title]amp.common:platform"
+                       title="Aid Management Platform">
+          <span>
+            <img class="flag" src="createdreport_files/displayFlag.html" width="30" height="20">
+          </span>
+                        <span data-i18n="amp.common:platform-short">AMP</span></a>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="collapse navbar-collapse row no-gutters" id="bs-example-navbar-collapse-1">
+                        <!-- To change workspace/user truncation length, edit the offset and grid number below:-->
+                        <div class="col-sm-offset-5 col-sm-7">
+                            <ul class="row no-gutters nav navbar-nav ampUserLoggedIn ampLoggedInMenus">
+                                <li id="header-workspace-li" class="col-sm-9 col-md-6"><a title="Verification Workspace"
+                                                                                          class="workspace-name"
+                                                                                          id="header-workspace">Verification
+                                    Workspace</a></li>
+                                <li id="header-name" class="hidden-xs hidden-sm col-md-4">
+                                    <a class="user-url" href="javascript:showUserProfile(1052)">
+                                        <span id="header-first-name">Info</span>&nbsp;<span id="header-last-name">Developers</span>
+                                    </a>
+                                </li>
+                                <li id="header-logout" class="col-sm-2"><a data-i18n="amp.common:title-logout"
+                                                                           href="https://amis.mof.gov.np/aim/j_spring_logout">Log
+                                    out</a></li>
+                            </ul>
+
+                            <!-- div#logincontainer with anchors gets appended here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-sm-11 col-sm-offset-1">
+                    <ul id="AmpMenus" class="nav navbar-nav menus">
+
+                        <!-- File -->
+
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="DESKTOP">DESKTOP&nbsp;</span><span
+                                    class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/aim" title="" onclick="return canExit()"
+                                       class="2nd-level-item">My Desktop</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/reportWizard.do?tab=true&amp;reset=true"
+                                       title="Create Tab" onclick="return canExit()" class="2nd-level-item">Add Tab</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/viewTeamReports.do?tabs=true&amp;reset=true"
+                                       title="Click here to view More Tabs" onclick="return canExit()"
+                                       class="2nd-level-item">Tab Manager</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown dropdown-submenu">
+                                    <a href="javascript:;" title="" onclick="return canExit()" class="2nd-level-item">Change
+                                        workspace</a>
+
+
+                                    <ul class="children dropdown-menu scrollable-menu" role="menu">
+
+
+                                        <li class="menu-item"><a href="https://amis.mof.gov.np/selectTeam.do?id=1442"
+                                                                 onclick="return canExit()" class="3rd-level-item"
+                                                                 title="Test-Infodev">Test-Infodev</a></li>
+
+
+                                        <li class="menu-item"><a href="https://amis.mof.gov.np/selectTeam.do?id=1461"
+                                                                 onclick="return canExit()" class="3rd-level-item"
+                                                                 title="Verification Workspace">Verification
+                                            Workspace</a></li>
+
+
+                                    </ul>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="REPORTS">REPORTS&nbsp;</span><span
+                                    class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown dropdown-submenu">
+                                    <a href="javascript:;" title="" onclick="return canExit()" class="2nd-level-item">Reports</a>
+
+
+                                    <ul class="children dropdown-menu scrollable-menu" role="menu">
+
+
+                                        <li class="menu-item"><a
+                                                href="https://amis.mof.gov.np/viewTeamReports.do?tabs=false&amp;reset=true&amp;onlyFavourites=false"
+                                                onclick="return canExit()" class="3rd-level-item"
+                                                title="View all reports">All Reports</a></li>
+
+
+                                        <li class="menu-item"><a
+                                                href="https://amis.mof.gov.np/viewTeamReports.do?tabs=false&amp;reset=true&amp;onlyFavourites=true"
+                                                onclick="return canExit()" class="3rd-level-item"
+                                                title="View favorite reports">Favourite Reports</a></li>
+
+
+                                    </ul>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/reportWizard.do?tabs=false&amp;reset=true"
+                                       title="Create Report" onclick="return canExit()" class="2nd-level-item">Report
+                                        Generator</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/reportWizard.do?tabs=false&amp;reset=true&amp;type=5"
+                                       title="Click here to view Pledges Reports" onclick="return canExit()"
+                                       class="2nd-level-item">Pledges Reports</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/saikuui/index.html#query/new_query"
+                                       title="Saiku" onclick="return canExit()" class="2nd-level-item" target="_blank">Saiku</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="DOCUMENT MANAGER">DOCUMENT MANAGER&nbsp;</span><span
+                                    class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/contentrepository/documentManager.do" title=""
+                                       onclick="return canExit()" class="2nd-level-item">View Resources</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="CALENDAR">CALENDAR&nbsp;</span><span
+                                    class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/calendar/showCalendarView.do?filterInUse=false"
+                                       title="" onclick="return canExit()" class="2nd-level-item">View Calendar</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/calendar/showCalendarEvent.do~selectedCalendarTypeId=0~method=new"
+                                       title="" onclick="return canExit()" class="2nd-level-item">Add Event</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="DASHBOARDS">DASHBOARDS&nbsp;</span><span
+                                    class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/esrigis/mainmap.do?reset=true" title=""
+                                       onclick="return canExit()" class="2nd-level-item">Map</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/gisModule/dist/index.html"
+                                       title="" onclick="return canExit()" class="2nd-level-item" target="_blank">NEW
+                                        GIS</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/dashboard/build/index.html"
+                                       title="" onclick="return canExit()" class="2nd-level-item" target="_blank">NEW
+                                        DASHBOARD (BETA)</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/visualization/dashboardLauncher.do" title=""
+                                       onclick="return canExit()" class="2nd-level-item">Dashboard Generator</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/visualization/launchDashboard.do?reset=true&amp;id=1"
+                                       title="" onclick="return canExit()" class="2nd-level-item">DONOR DASHBOARD</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/visualization/launchDashboard.do?reset=true&amp;id=2"
+                                       title="" onclick="return canExit()" class="2nd-level-item">REGION DASHBOARD</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/visualization/launchDashboard.do?reset=true&amp;id=3"
+                                       title="" onclick="return canExit()" class="2nd-level-item">SECTOR DASHBOARD</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="TOOLS">TOOLS&nbsp;</span><span class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown dropdown-submenu">
+                                    <a href="javascript:;" title="" onclick="return canExit()" class="2nd-level-item">Language</a>
+
+
+                                    <ul class="children dropdown-menu scrollable-menu" role="menu">
+
+
+                                        <li class="menu-item"><a
+                                                href="https://amis.mof.gov.np/rest/translations/languages/en"
+                                                onclick="return canExit()" class="3rd-level-item language"
+                                                title="English">English</a></li>
+
+
+                                    </ul>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/aim/workspaceOverview.do~tId=-1~dest=teamLead"
+                                       title="" onclick="return canExit()" class="2nd-level-item">Workspace Info</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/importer" title="" onclick="return canExit()"
+                                       class="2nd-level-item" target="_blank">IATI Importer</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/search/search.do?reset=true" title=""
+                                       onclick="return canExit()" class="2nd-level-item">Search</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/aim/addressBook.do?actionType=viewAddressBook&amp;reset=true"
+                                       title="" onclick="return canExit()" class="2nd-level-item">Address Book</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="dropdown-text" title="HELP">HELP&nbsp;</span><span class="caret"></span>
+                            </a>
+
+                            <ul class="children dropdown-menu" role="menu">
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/help/admin/help.do~blankPage=true" title=""
+                                       onclick="return canExit()" class="2nd-level-item popup">AMP Help</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="https://amis.mof.gov.np/help/glossary.do" title=""
+                                       onclick="return canExit()" class="2nd-level-item">Glossary</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="mailto:NA" title="" onclick="return canExit()" class="2nd-level-item">WRITE
+                                        EMAIL TO SUPPORT TEAM</a>
+
+
+                                </li>
+
+
+                                <li class="dropdown ">
+                                    <a href="javascript:;" title="" onclick="return canExit()"
+                                       class="2nd-level-item about-amp">About AMP</a>
+
+
+                                </li>
+
+
+                            </ul>
+
+                            <!--
+                            <li class="menu-item dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <ul class="children dropdown-menu scrollable-menu" role="menu">
+                                  <li class="menu-item first-of-type" id="yui-gen4" groupindex="0" index="0">
+                              <a class="yuiampmenuitemlabel yuimenuitemlabel" href="/selectTeam.do?id=680" onclick="return canExit()">
+                                Academy of Sciences
+                              </a>
+                            </li>-->
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+</div>
+<div class="headerTop">
+
+
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/util.js"></script>
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/common.js"></script>
+    <script language="JavaScript1.2" type="text/javascript" src="createdreport_files/dscript120.js"></script>
+    <script language="JavaScript1.2" type="text/javascript" src="createdreport_files/dscript120_ar_style.js"></script>
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/arFunctions.js"></script>
+    <script language="JavaScript" type="text/javascript" src="createdreport_files/ajaxtabs.js"></script>
+    <script type="text/javascript" src="createdreport_files/ajax.js"></script>
+
+    <script type="text/javascript" src="createdreport_files/dhtmlSuite-common.js"></script>
+    <script type="text/javascript" src="createdreport_files/dhtmlSuite-dynamicContent.js"></script>
+    <script type="text/javascript" src="createdreport_files/dhtmlSuite-modalMessage.js"></script>
+
+    <!-- Stylesheet of AMP -->
+    <link href="createdreport_files/amp.css" rel="stylesheet" type="text/css">
+    <link href="createdreport_files/yui_tabs.css" rel="stylesheet" type="text/css">
+    <link href="createdreport_files/yui_datatable.css" rel="stylesheet" type="text/css">
+    <link href="createdreport_files/desktop_yui_tabs.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="createdreport_files/tabview-core.css">
+
+
+    <!-- Individual YUI CSS files -->
+    <link rel="stylesheet" type="text/css" href="createdreport_files/container.css">
+    <link href="createdreport_files/yui_popins.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Individual YUI JS files -->
+    <script type="text/javascript" src="createdreport_files/yahoo-dom-event.js"></script>
+    <script type="text/javascript" src="createdreport_files/dragdrop-min.js"></script>
+    <script type="text/javascript" src="createdreport_files/animation-min.js"></script>
+    <script type="text/javascript" src="createdreport_files/connection-min.js"></script>
+    <script type="text/javascript" src="createdreport_files/container-min.js"></script>
+    <script type="text/javascript" src="createdreport_files/menu-min.js"></script>
+    <script type="text/javascript" src="createdreport_files/dom-min.js"></script>
+
+    <!-- Jquery Base Library -->
+    <script type="text/javascript" src="createdreport_files/jquery-min.js"></script>
+
+    <script type="text/javascript">
+        var YAHOOAmp = YAHOO;
+    </script>
+
+
+    <script language="javascript">
+        function showUserProfile(id) {
+
+            //openURLinWindow("/aim/userProfile.do~edit=true~id="+id,480, 350);
+            var param = "~edit=true~id=" + id;
+            previewWorkspaceframe('/aim/default/userProfile.do', param);
+        }
+
+        function canExit() {
+            if (typeof quitRnot1 == 'function') {
+                return quitRnot1('');
+            }
+            else {
+                return true;
+            }
+
+        }
+    </script>
+
+
+    <!-- Prevent Skype Highlighter -->
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=8">
+    <style>
+        #components_dots table tr td {
+            font-size: 11px;
+        }
+
+        table tr td {
+            font-size: 11px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        function selectwkspace(id) {
+            var a;
+            var url = "/selectTeam.do?id=" + id;
+            document.location.href = url;
+        }
+    </script>
+
+
+</div>
+
+
+<!-- Dependencies -->
+<script type="text/javascript" src="createdreport_files/element-min.js"></script>
+<script type="text/javascript" src="createdreport_files/tabview-min.js"></script>
+
+<script type="text/javascript">
+    //''
+    function canExit() {
+        if (typeof quitRnot1 == 'function') {
+            return quitRnot1('');
+        } else {
+            return true;
+        }
+
+    }
+</script>
+
+
+<div id="myUserFilterWrapper" style="display: none;">
+    <div id="customUser" class="invisible-item">
+
+        <script type="text/javascript">
+            var contentLocal;
+
+            YAHOO.namespace("YAHOO.amptab");
+            YAHOO.amptab.init = function () {
+                var tabView = new YAHOO.widget.TabView('tabview_container');
+            };
+
+            YAHOO.amptab.handleClose = function () {
+
+            }
+
+            var myPanelWorkspaceframe = new YAHOO.widget.Panel("newmyPWorkspaceframe", {
+                    width: "600px",
+                    height: "600px",
+                    fixedcenter: true,
+                    constraintoviewport: true,
+                    underlay: "none",
+                    close: true,
+                    visible: false,
+                    modal: true,
+                    draggable: true,
+                    context: ["tl", "bl"]
+                }
+            );
+
+            myPanelWorkspaceframe.beforeHideEvent.subscribe(YAHOO.amptab.handleClose);
+
+            function initScriptsWorkspaceframe() {
+                //alert('initScriptsWorkspaceframe');
+                var msgP8 = '\nMember Details';
+                myPanelWorkspaceframe.setHeader(msgP8);
+                myPanelWorkspaceframe.setBody("The Panel is a powerful UI control");
+                myPanelWorkspaceframe.render(document.body);
+                panelFirstShow = 1;
+            }
+
+            function showPWorkspaceframe() {
+                initScriptsWorkspaceframe();
+                //alert('showPWorkspaceframe');
+                contentLocal = document.createElement('div');
+                contentLocal.setAttribute('id', 'myPWorkspaceframeContent');
+                contentLocal.setAttribute('class', 'content');
+                contentLocal.innerHTML = '<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><p align="center"><img align="top" src="/repository/aim/view/scripts/ajaxtabs/loading.gif" /><font size="3"><b>Loading...</b></font></p>';
+                contentLocal.style.height = "700px";
+                contentLocal.style.width = "594px";
+                contentLocal.style.overflow = "scroll";
+                myPanelWorkspaceframe.setBody(contentLocal);
+                panelFirstShow = 0;
+                myPanelWorkspaceframe.show();
+            }
+
+            function hidePWorkspaceframe() {
+                myPanelWorkspaceframe.hide();
+            }
+
+
+            var responseSuccessWorkspaceframe = function (o) {
+                /* Please see the Success Case section for more
+                 * details on the response object's properties.
+                 * o.tId
+                 * o.status
+                 * o.statusText
+                 * o.getResponseHeader[ ]
+                 * o.getAllResponseHeaders
+                 * o.responseText
+                 * o.responseXML
+                 * o.argument
+                 */
+                var response = o.responseText;
+                //alert(response);
+                //var content = document.getElementById("myPWorkspaceframeContent");
+                contentLocal.innerHTML = response;
+            }
+
+            var responseFailureWorkspaceframe = function (o) {
+                // Access the response object's properties in the
+                // same manner as listed in responseSuccess( ).
+                // Please see the Failure Case section and
+                // Communication Error sub-section for more details on the
+                // response object's properties.
+                alert("Connection Failure!");
+            }
+            var WorkspaceframeCallback =
+                {
+                    success: responseSuccessWorkspaceframe,
+                    failure: responseFailureWorkspaceframe
+                };
+
+            function previewWorkspaceframe(action, params) {
+                showPWorkspaceframe();
+                YAHOO.util.Connect.asyncRequest("POST", action + params, WorkspaceframeCallback, '');
+            }
+
+            function addLoadEvent(func) {
+                var oldonload = window.onload;
+                if (typeof window.onload != 'function') {
+                    window.onload = func;
+                } else {
+                    window.onload = function () {
+                        if (oldonload) {
+                            oldonload();
+                        }
+                        func();
+                    }
+                }
+            }
+
+            /*var currentWorkspaceframe = window.onload;
+            window.onload = function() {
+                currentWorkspaceframe.apply(currentWorkspaceframe);
+               };*/
+            addLoadEvent(initScriptsWorkspaceframe);
+
+        </script>
+        <style type="text/css">
+            .mask {
+                -moz-opacity: 0.8;
+                opacity: .80;
+                filter: alpha(opacity=80);
+                background-color: #2f2f2f;
+            }
+        </style>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function SwitchLanguageMenu(value) {
+        if (typeof quitRnot1 != 'function' || quitRnot1('WARNING : The document has not been saved. Please press OK to continue or Cancel to save the document.') != false) {
+            var referrer = document.location.href;
+            if (referrer.indexOf("wicket") > -1) {
+                //In Wicket we must erase the pageId
+                referrer = referrer.substring(0, referrer.indexOf("?"));
+                var wicketLanguageChange = 'If you switch the current language the Activity changes will be lost.';
+                var wantContinue = 'Are you sure you want to continue?';
+                window.onbeforeunload = null;
+                confirm(wicketLanguageChange + "\n" + wantContinue);
+
+            }
+            var newLoc = value + referrer;
+
+            if (navigator.appName.indexOf('Microsoft Internet Explorer') > -1) { //Workaround to allow HTTP REFERER to be sent in IE (AMP-12638)
+                var referLink = document.createElement('a');
+                referLink.href = newLoc;
+                referLink.target = "_self";
+                document.body.appendChild(referLink);
+                referLink.click();
+
+            }
+            else {
+                //change the language
+                window.location.href = newLoc;
+            }
+
+        }
+    }
+
+
+    function newAddActivity() {
+        selectedLevelId = 0;
+        window.location.href = "/wicket/onepager/activity/new";
+    }
+
+    function addActivity() {
+        selectedLevelId = 0;
+        window.location.href = "/aim/addActivity.do~pageId=1~reset=true~resetMessages=true~action=create~activityLevelId=" + selectedLevelId;
+    }
+
+    function openGIS() {
+        openNewWindowWithMenubar(1100, 800);
+        popupPointer.location.href = "/gis/showGisDashboard.do";
+    }
+
+    function addMessage(fillTypesAndLevels) {
+        window.location.href = "/message/messageActions.do?editingMessage=false&actionType=" + fillTypesAndLevels;
+    }
+
+
+</script>
+
+
+<div class="breadcrump_1">&nbsp;</div>
+<div style="width:1000px;margin:0 auto;">
+    <table id="homelayout" width="100%">
+        <tbody>
+        <tr>
+            <td>
+                <!-- this is for the nice tooltip widgets -->
+                <div id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></div>
+
+                <script language="JavaScript1.2" type="text/javascript"
+                        src="createdreport_files/dscript120.js"></script>
+                <script language="JavaScript1.2" type="text/javascript"
+                        src="createdreport_files/dscript120_ar_style.js"></script>
+                <script language="JavaScript" type="text/javascript" src="createdreport_files/arFunctions.js"></script>
+
+                <!-- CSS -->
+                <link href="createdreport_files/tabview-core.css" type="text/css" rel="stylesheet">
+                <!-- Commenting this out as they have a wrong path anyway, missing /
+                <link href='TEMPLATE/ampTemplate/css_2/amp.css' rel='stylesheet' type='text/css'>
+                <link href='TEMPLATE/ampTemplate/css_2/tabs.css' rel='stylesheet' type='text/css'>
+                -->
+                <link href="createdreport_files/container.css" type="text/css" rel="stylesheet">
+                <link href="createdreport_files/tabview.css" type="text/css" rel="stylesheet">
+                <link type="text/css" rel="stylesheet" href="createdreport_files/yui_tabs.css">
+
+                <form name="aimTeamReportsForm" method="post" action="/aim/viewTeamReports.do"><input name="action"
+                                                                                                      value=""
+                                                                                                      type="hidden">
+                    <!-- BREADCRUMP START -->
+                    <div class="breadcrump">
+                        <div class="centering">
+                            <div class="breadcrump_cont" style="visibility: hidden">
+                                <span class="sec_name">Report Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BREADCRUMP END -->
+
+                    <script type="text/javascript">
+                        <!--
+                        function popup(mylink, windowname) {
+                            if (!window.focus)
+                                return true;
+
+                            var href;
+                            if (typeof(mylink) == 'string')
+                                href = mylink;
+                            else
+                                href = mylink.href;
+
+                            if (windowname == "") {
+                                windowname = "popup" + new Date().getTime();
+                            }
+
+                            var openedWindow = window.open('', windowname, 'channelmode=no,directories=no,menubar=no,resizable=yes,status=no,toolbar=no,scrollbars=yes,location=yes');
+                            if (navigator.appName.indexOf('Microsoft Internet Explorer') > -1) { //Workaround to allow HTTP REFERER to be sent in IE (AMP-12638)
+                                var referLink = document.createElement('a');
+                                referLink.href = href;
+                                referLink.target = windowname;
+                                document.body.appendChild(referLink);
+                                referLink.click();
+                            }
+                            else {
+                                openedWindow.location = href;
+                            }
+                            return false;
+                        }
+
+                        //-->
+
+                        function confirmFunc() {
+                            return confirm("Are you sure you want to delete the selected report?");
+
+
+                            return false;
+                        }
+
+                        function activate(id) {
+                            var number = 0;
+                            $.ajax({
+                                type: 'GET',
+                                url: '/aim/getTabPositionSize.do',
+                                cache: false,
+                                success: function (data, msg) {
+                                    number = parseInt(data);
+                                    if (number < 5) {
+                                        $(".activateTab" + id).hide();
+                                        $(".savePosition" + id).show();
+                                    }
+                                    else {
+                                        alert("");
+                                    }
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    alert('Error, cannot get tab list.');
+                                }
+                            });
+
+                            return false;
+                        }
+
+                        function showHidePositions(id, selectedPosition) {
+                            $.ajax({
+                                url: '/aim/getTakenTabPositions.do',
+                                cache: false,
+                                type: 'get',
+                                success: function (data, status) {
+                                    updateChangesAppliedInfo(id);
+                                    var arrayPosition = jQuery.parseJSON(data);
+                                    var selects = $("select[class^='savePositionDropDow']");
+                                    for (var j = 0; j < selects.length; j++) {
+                                        var index = 1;
+                                        var select = selects[j];
+                                        var val = select.options[select.selectedIndex].value;
+                                        select.options.length = 0;
+                                        select.options[0] = new Option("None", "-1", true, false);
+                                        for (var label = 1; label <= 5; label++) {
+                                            var selected = false;
+                                            var skip = false;
+                                            var currvalue = label - 1;
+                                            for (var l = 0; l < arrayPosition.length; l++) {
+                                                if (currvalue == arrayPosition[l].position) {
+                                                    if (val == arrayPosition[l].position) {
+                                                        skip = false;
+                                                        selected = true;
+                                                    }
+                                                    else {
+                                                        skip = true;
+                                                    }
+                                                    break;
+                                                }
+                                            }
+                                            if (!skip) {
+                                                select.options[index] = new Option(label, currvalue, false, selected);
+                                                index++;
+                                            }
+
+                                        }
+                                    }
+                                    if (id != null) {
+                                        if (selectedPosition == -1) {
+                                            $(".activateTab" + id).show();
+                                            $(".savePosition" + id).hide();
+                                        }
+                                    }
+                                    $("select[class^='savePositionDropDow']").removeAttr('disabled');
+                                },
+                                error: function (xhr, desc, err) {
+                                    alert("unable to perform action!");
+                                }
+                            });
+
+                        }
+
+                        function updateProcessingChangesInfo(id) {
+                            var processingChangesStr = "<img src='/TEMPLATE/ampTemplate/images/amploading.gif' width='10' height='10' />" +
+                                "applying changes";
+                            updateStatusInfo(id, processingChangesStr, "black");
+                        }
+
+                        function updateChangesAppliedInfo(id) {
+                            var changesAppliedStr = "<b>changes applied</b>";
+                            updateStatusInfo(id, changesAppliedStr, "green");
+                        }
+
+                        function updateStatusInfo(id, statusStr, color) {
+                            if (id == null) return;
+                            var savePositionStatusInfoDiv = $(".savePositionStatusInfo" + id);
+                            savePositionStatusInfoDiv.html(statusStr);
+                            savePositionStatusInfoDiv.css("color", color);
+                            savePositionStatusInfoDiv.css("white-space", "nowrap");
+                        }
+
+                        function savePosition(id) {
+                            updateProcessingChangesInfo(id);
+                            var selectId = "select.savePositionDropDown" + id;
+                            var selectedPosition = $(selectId + " option:selected").val();
+                            $("select[class^='savePositionDropDow']").attr('disabled', 'disabled');
+                            $.ajax({
+                                url: '/aim/saveTabPosition.do',
+                                type: 'post',
+                                data: {position: selectedPosition, reportId: id},
+                                success: function (data, status) {
+                                    showHidePositions(id, selectedPosition);
+                                },
+                                error: function (xhr, desc, err) {
+                                    alert("unable to perform action!");
+                                }
+                            });
+
+                        }
+
+                        $(document).ready(function () {
+                            $("select[class^='savePositionDropDow']").attr('disabled', 'disabled');
+                            showHidePositions();
+                        });
+
+                        function submitForm(action) {
+                            document.aimTeamReportsForm.action.value = action;
+                            document.aimTeamReportsForm.submit();
+
+                        }
+
+                    </script>
+
+                    <!-- File left to avoid errors on pages that still include it -->
+                    <table align="center">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div id="content" class="yui-skin-sam">
+                                    <div id="demo" class="yui-navset" style="width: 1000px;">
+                                        <ul class="yui-nav" id="MyTabs">
+                                            <li class="selected">
+                                                <a rel="Tab_Name" href="#" id="Tab-tab tertiary" onclick="return false;"
+                                                   style="background-color: #f2f2f2; background-repeat: no-repeat; background-image: none;">
+                                                    <div>Report Manager</div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div id="Tab_Name" class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+                                             style="background-color: #F2F2F2; padding: 5px; border: 1px solid rgb(208, 208, 208);">
+                                            <table align="center">
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table style="width: 970px; border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; border-right: 2px solid #CCCCCC;"
+                                                                           bgcolor="#FFFFFF">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <table cellspacing="6" cellpadding="6">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td id="reportsearchform">
+                                                                                            Report Title: <input
+                                                                                                name="keyword"
+                                                                                                type="text"><select
+                                                                                                name="selectedReportCategory"
+                                                                                                class="dropdwn_sm"
+                                                                                                id="repCat">
+                                                                                            <option value="0"
+                                                                                                    selected="selected">
+                                                                                                Please select a category
+                                                                                                from below
+                                                                                            </option>
+                                                                                            <option value="261">On
+                                                                                                Budget
+                                                                                            </option>
+                                                                                            <option value="262">Off
+                                                                                                Budget
+                                                                                            </option>
+                                                                                            <option value="271">
+                                                                                                general
+                                                                                            </option>
+                                                                                            <option value="272">Public
+                                                                                            </option>
+                                                                                        </select>
+                                                                                        </td>
+                                                                                        <td id="reportsearchform1">
+                                                                                            <input value="Search"
+                                                                                                   onclick="submitForm('search')"
+                                                                                                   type="button">
+                                                                                        </td>
+                                                                                        <td id="reportsearchform2">
+                                                                                            <input value="Clear"
+                                                                                                   onclick="submitForm('clear')"
+                                                                                                   type="button">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="filtered"
+                                                                                     style="float: right; font-size: 11px;">
+                                                                                    <span><img
+                                                                                            src="createdreport_files/bullet_grey_sq.gif"
+                                                                                            style="vertical-align: baseline;"
+                                                                                            border="0"></span>
+                                                                                    <span>Not filtered Report&nbsp;
+										                       				<img src="createdreport_files/bullet_green_sq.gif"
+                                                                                 style="vertical-align: baseline; margin-left: 8px;"
+                                                                                 border="0"></span>
+                                                                                    <span>Filtered Report&nbsp;
+										                   					<img src="createdreport_files/edit.gif"
+                                                                                 style="vertical-align: bottom; margin-left: 8px;"
+                                                                                 border="0"></span>
+                                                                                    <span>Edit Report&nbsp;
+										                   					<img src="createdreport_files/trash_12.gif"
+                                                                                 style="vertical-align: bottom; margin-left: 8px;"
+                                                                                 border="0"></span>
+                                                                                    <span>Delete Report&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                                                </div>
+                                                                                <table>
+                                                                                    <tbody>
+                                                                                    <tr style="font-size: 11px; font-family: Aria, sans-serif;">
+                                                                                        <td>
+                                                                                            <!--1&nbsp;of&nbsp;1-->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td valign="top">
+                                                                                <table>
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <table class="inside"
+                                                                                                   style="font-size:11px; font-family: Arial,sans-serif; background-color: white;"
+                                                                                                   width="950px">
+                                                                                                <tbody>
+                                                                                                <tr>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        &nbsp;
+
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <a href="https://amis.mof.gov.np/aim/viewTeamReports.do~sortBy=1"><b>Report
+                                                                                                            Title</b></a>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>
+                                                                                                            <a href="https://amis.mof.gov.np/aim/viewTeamReports.do~sortBy=3">Owner</a></b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>
+                                                                                                            <a href="https://amis.mof.gov.np/aim/viewTeamReports.do~sortBy=5">Update
+                                                                                                                Date</a></b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>Type</b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>Category</b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>Grouping</b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>Fields</b>
+                                                                                                    </td>
+                                                                                                    <td class="inside_header"
+                                                                                                        align="center">
+                                                                                                        <b>Action</b>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr onmouseout="setPointer(this, 0, 'out', '#ffffff', '#a5bcf2', '#FFFF00');"
+                                                                                                    onmouseover="setPointer(this, 0, 'over', '#ffffff', '#a5bcf2', '#FFFF00');">
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 10px; padding-left: 10px;"
+                                                                                                        bgcolor="#ffffff"
+                                                                                                        align="center">
+                                                                                                        <img src="createdreport_files/bullet_grey_sq.gif"
+                                                                                                             border="0"
+                                                                                                             align="middle">
+                                                                                                    </td>
+
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 15px; padding-left: 15px;"
+                                                                                                        bgcolor="#ffffff">
+                                                                                                        <a href="https://amis.mof.gov.np/aim/viewNewAdvancedReport.do~view=reset&amp;widget=false&amp;resetSettings=true~ampReportId=5365"
+                                                                                                           styleclass="h-box"
+                                                                                                           onclick="return popup(this,'');"
+                                                                                                           title="Click here to view the Report">
+                                                                                                            <b>
+                                                                                                                <p style="max-width: 400px;white-space: normal"
+                                                                                                                   title="myfirstreport">
+                                                                                                                    myfirstreport</p>
+                                                                                                            </b>
+                                                                                                        </a>
+
+
+                                                                                                        <p style="max-width: 400px;white-space: normal"
+                                                                                                           title="">
+                                                                                                        </p>
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 15px; padding-left: 15px; font-size: 11px;"
+                                                                                                        bgcolor="#ffffff"
+                                                                                                        align="center">
+                                                                                                        <p style="white-space: nowrap">
+                                                                                                            <i>Info
+                                                                                                                Developers</i>
+                                                                                                        </p>
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 15px; padding-left: 15px; font-size: 11px;"
+                                                                                                        bgcolor="#ffffff"
+                                                                                                        align="center">
+                                                                                                        <p style="white-space: nowrap">
+                                                                                                            14/03/2019</p>
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 8px; padding-left: 8px; font-size: 11px;"
+                                                                                                        bgcolor="#ffffff">
+                                                                                                        <div style="white-space: nowrap">
+                                                                                                            <ul>
+                                                                                                                <li>
+                                                                                                                    donor
+                                                                                                                </li>
+                                                                                                                <li>
+                                                                                                                    Annual
+                                                                                                                </li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </td>
+
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 10px; padding-left: 10px;  font-size: 11px; "
+                                                                                                        bgcolor="#ffffff">
+                                                                                                        On budget
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 10px; padding-left: 10px;  font-size: 11px; width: 20%;"
+                                                                                                        bgcolor="#ffffff">
+                                                                                                        <ul>
+                                                                                                        </ul>
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 10px; padding-left: 10px; font-size: 11px; width: 150px;"
+                                                                                                        width="200"
+                                                                                                        bgcolor="#ffffff"
+                                                                                                        align="center">
+                                                                                                        <div style="position:relative;display:none;"
+                                                                                                             id="report-5365">
+                                                                                                            <ul>
+                                                                                                                <li>
+                                                                                                                    AMP
+                                                                                                                    ID
+                                                                                                                    ,
+                                                                                                                    Climate
+                                                                                                                    Change
+                                                                                                                    Relevance
+                                                                                                                </li>
+                                                                                                                <li>
+                                                                                                                    Activity
+                                                                                                                    Created
+                                                                                                                    On
+                                                                                                                    ,
+                                                                                                                    Activity
+                                                                                                                    updated
+                                                                                                                    by
+                                                                                                                </li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                        <span align="center"
+                                                                                                              style="text-transform: capitalize;"
+                                                                                                              onmouseover="stm(['Project Information',document.getElementById('report-5365').innerHTML],Style[0])"
+                                                                                                              onmouseout="htm()">[ <u
+                                                                                                                style="text-transform:capitalize;">Project Information</u> ]&nbsp;</span>
+                                                                                                        <div style="position:relative;display:none;"
+                                                                                                             id="measure-5365">
+                                                                                                            <ul>
+                                                                                                                <li>
+                                                                                                                    Actual
+                                                                                                                    Commitments
+                                                                                                                </li>
+                                                                                                                <li>
+                                                                                                                    Actual
+                                                                                                                    Disbursements
+                                                                                                                </li>
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                        <span align="center"
+                                                                                                              style="text-transform: capitalize;white-space: no-wrap;"
+                                                                                                              onmouseover="stm(['Financial Information',document.getElementById('measure-5365').innerHTML],Style[1])"
+                                                                                                              onmouseout="htm()">[ <u>Financial Information</u> ]<br></span>
+                                                                                                    </td>
+                                                                                                    <td class="inside"
+                                                                                                        style="padding-right: 15px; padding-left: 15px; font-size: 11px;"
+                                                                                                        bgcolor="#ffffff"
+                                                                                                        align="center">
+                                                                                                        <p style="white-space: nowrap">
+                                                                                                            <a href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/saikuui/index.html#report/open/5365"
+                                                                                                               onclick="return popup(this,'');"
+                                                                                                               style="padding-right: 5px;"
+                                                                                                               title="Click here to view the Report"><img
+                                                                                                                    src="createdreport_files/saiku.png"
+                                                                                                                    border="0"></a>
+                                                                                                            <a href="https://amis.mof.gov.np/aim/reportWizard.do~editReportId=5365"
+                                                                                                               title="Click on this icon to edit report&nbsp;"><img
+                                                                                                                    src="createdreport_files/edit.gif"
+                                                                                                                    border="0"></a><a
+                                                                                                                href="https://amis.mof.gov.np/aim/deleteAllReports.do~rid=5365~event=edit~isTab=0"
+                                                                                                                title="Click on this icon to delete report&nbsp;"
+                                                                                                                onclick="return confirmFunc()"><img
+                                                                                                                src="createdreport_files/trash_12.gif"
+                                                                                                                border="0"></a>
+                                                                                                        </p>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td valign="top">
+                                                                                <table style="font-size: 11px; font-family: Aria, sans-serif;">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td align="center">
+                                                                                            <!--1&nbsp;of&nbsp;1-->
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="footerText">
+
+
+    <div id="amp-footer" style="footer">
+        <style>
+            .footerText {
+                padding: 0;
+                font-family: arial;
+                font-size: 11px;
+                border: 0px;
+            }
+
+            .footer {
+                background-color: #8B8B8B;
+                color: #FFF;
+                margin-top: 0;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                text-align: center;
+            }
+
+            .dgf_footer {
+                color: #8B8B8B;
+                line-height: 18px;
+                text-align: center;
+                background-color: white;
+                padding-top: 10px;
+            }
+
+            .dgf_footer img {
+                line-height: 18px;
+                margin-bottom: 5px;
+            }
+        </style>
+
+        <div class="footer footerText">
+            AMP <b>2.11.19</b> build <b>30.12.2015</b> - A project funded by UNDP, AusAid, and USAID and implemented by
+            Development Gateway
+
+        </div>
+
+        <div class="dgf_footer footerText">
+            <img src="createdreport_files/dgf_logo_bottom.gif" class="dgf_logo_footer">
+            <br>
+            Development Gateway
+            <br>
+            1110 Vermont Ave, NW, Suite 500
+            <br>
+            Washington, DC 20005 USA
+            <br>
+            info@developmentgateway.org, Tel: +1.202.572.9200, Fax: +1 202.572.9290
+        </div>
+
+
+        <!-- Piwik
+        Site id can be checked here: http://stats.ampsite.net/index.php?module=SitesManager&action=index&idSite=1&period=range&date=last30
+        Also,the wiki for piwik: https://wiki.dgfoundation.org/display/AMPDOC/Integrating+AMP+with+Piwik
+        -->
+        <script type="text/javascript">
+            var _paq = _paq || [];
+            if (window.PiwikAlreadyFetched === undefined) {
+                _paq.push(['setUserId', "infodev@amp.org"]);
+                _paq.push(['setCustomVariable',
+                    1,
+                    "Workspace|WID",
+                    "Verification Workspace|77",
+                    "page"]);
+                _paq.push(["trackPageView"]);
+                _paq.push(["enableLinkTracking"]);
+
+                /* TDK: keep track of whether we put the script DOM node on the page already
+                 *   in case the page reparses this javascript on another modification.
+                 */
+                window.PiwikAlreadyFetched = true;
+
+                /* Stock Piwik code: */
+                (function () {
+                    var u = "http://stats.ampsite.net/";
+                    _paq.push(["setTrackerUrl", u + "piwik.php"]);
+                    _paq.push(["setSiteId", "12"]);
+                    var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+                    g.type = "text/javascript";
+                    g.defer = true;
+                    g.async = true;
+                    g.src = u + "piwik.js";
+                    s.parentNode.insertBefore(g, s);
+                })();
+            }
+        </script>
+        <!-- End Piwik Code -->
+
+    </div>
+
+    <script type="text/javascript" src="createdreport_files/jquery-ui.js"></script>
+    <script src="createdreport_files/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        var boilerplate = new window.boilerplate({
+            showAdminFooter: true,
+            showLogin: false,
+            loginDropdown: true
+        });
+    </script>
+
+
+</div>
+
+
+</body>
+</html>

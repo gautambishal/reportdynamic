@@ -1,0 +1,134 @@
+
+    
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery.class.min.js" ></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jdigestauth/md5-min.js" ></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jdigestauth/digest-auth.js" ></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jdigestauth/sha1.js" ></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/node_modules/amp-boilerplate/dist/amp-boilerplate.js"></script>
+
+<link href="/TEMPLATE/ampTemplate/css_2/amp_public_portal_login.css" rel="stylesheet" type="text/css"></link>
+<script type="text/javascript">
+var loginFailed = function(data, status) {
+    $(".error").remove();
+    $('#result').before('<div class="error">Login failed, please try again.</div>');
+};
+
+
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+	<div id="container">
+	<center>
+			<div class="header">
+				<div class="login_nav">
+					<div id="toplnk">
+                        
+                        <a href="http://amis.mof.gov.np/portal/">Access AMP as Public User&nbsp;&raquo;</a></div>
+				</div>
+				<div class="logo">
+					<table width="480" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="50" style="vertical-align: middle;">
+								<a href="/" style="text-decoration: none"> 
+									<img src="/aim/default/displayFlag.do" border="0" width="30px" height="20px"><br />
+								</a>
+							</td>
+							<td style="padding-left: 10px;text-align: left;"><a href="/"
+								style="text-decoration: none">
+									<div class="amp_label" style="padding-top: 0px;">
+										Aid Management Platform (AMP) - Nepal
+									</div>
+							</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</center>
+          <div class="clear"></div>
+		 
+        <div id="loginbox">  
+        	<div class="logintitle"><h2>Member Login</h2></div>
+        	<form action="/aim/postLogin.do" id="loginForm" method="post"
+				onsubmit="ajaxLogin();return false;">
+            	<p class="userfield">
+					<label>Username:</label> <input
+						name="j_username" type="text" id="j_username"/>
+						
+				</p>
+				<p class="passfield">
+					<label>Password:</label> <input name="j_password" type="password" id="j_password">
+				</p>
+				<div id="result" style="display:none;">
+					<div id="loader" style="display:none;">
+						<img src='/TEMPLATE/ampTemplate/img_2/ajax-loader.gif'>
+					</div> 
+					<div class="error_text_login">
+						<img src='/TEMPLATE/ampTemplate/img_2/login_error.gif'> <span
+							id="invalid_user_pwd">Invalid username or password.</span>
+							<span id="unassigned_user">You can not login into AMP because you are not assigned to a workspace.</span>
+							<span id="banned_user">Your username has been banned. Please contact the AMP administrator.</span>
+							<span id="invalid_user">Invalid User.</span>
+							<span id="suspend"></span>
+					</div>
+				</div>
+				<input type="submit" id="amplogin" value="Login"/>
+				<div class="utils">
+				
+                
+				<a href="/aim/showChangePassword.do" id="changePassword" title="Click here to change your password">&raquo;&nbsp;Change Password</a>
+				<a href="/aim/showEmailForm.do" id="trouble" title="Click here if you have problem with login in">&raquo;&nbsp;Trouble signing in?</a>
+				</div>
+				
+				<div class="addnew">
+				
+				<a href="/aim/showRegisterUser.do~init=true" id="new" title="Click here for new user registration">New user registration</a></div>
+				
+				</form>
+          <form action="/aim/index.do" id="selectWorkspaceForm" method="post">
+	          	<input type="hidden" id="generateToken" name="generateToken"/>
+	          	<input type="hidden" id="callbackUrl" name="callbackUrl"/>
+		</form>
+        <div>
+
+     <div id="footer"></div>
+       </div></div>
+      
+    </div>
+	
+
+
+
+<div id="amp-footer" style="footer"></div>
+
+<script type="text/javascript" src="/repository/aim/view/scripts/jquery-ui-1.11.0/jquery-ui.min.js"> </script>
+<script src="/repository/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var boilerplate = new window.boilerplate({
+    showAdminFooter: true,
+    showLogin: true
+    ,
+    loginDropdown: true
+  });
+</script>
+
+
+
+
+	
+</body>
+</html>
