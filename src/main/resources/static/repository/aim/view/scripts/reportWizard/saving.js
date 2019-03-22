@@ -381,7 +381,7 @@ SaveReportEngine.prototype.saveAndOrOpenReport = function (openReport) {
 		//uses synchronous request as a workaround for popup issues - AMP-22717 
 		var self = this;
 		$.ajax({
-			url:"/aim/reportWizard.do",
+			url:"localhost:8090/reportSubmit",
 			async:false,		   
 			data: postString,
 			success:  function(data) {
