@@ -1,6 +1,8 @@
 package org.demoreport.reportdynamic.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,11 +33,17 @@ public class IndexController {
     @PostMapping("/reportSubmit")
     @ResponseBody
     public String submit(HttpServletRequest servletRequest){
+        System.out.println("hello dost");
         Map<String,String> fields=servletRequest.getTrailerFields();
         for(Map.Entry m: fields.entrySet()){
             System.out.println(m.getKey()+ " "+m.getValue());
 
         }
         return "Saved Successfully";
+    }
+    @GetMapping("/specialReport")
+    public String specialReport(Model model){
+        model.addAttribute("title","My custom title");
+        return "specialreport";
     }
 }

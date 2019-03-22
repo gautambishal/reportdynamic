@@ -1,0 +1,2729 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/">
+
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js" >.</script>
+<head>
+
+
+
+
+
+
+
+
+    <title>
+
+
+
+        Aid Management Platform
+        - Reports - ${title}
+
+
+    </title>
+
+    <script type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/dscript120.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/dscript120_ar_style.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/arFunctions.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/ajaxtabs/ajaxtabs.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/ajax.js"></script>
+
+    <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-common.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicContent.js"></script>
+    <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-modalMessage.js"></script>
+
+    <!-- Stylesheet of AMP -->
+    <!--[if IE 6]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_6.css' rel='stylesheet' type='text/css'><![endif]-->
+    <!--[if IE 7]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_7.css' rel='stylesheet' type='text/css'><![endif]-->
+    <!--[if IE 8]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_8.css' rel='stylesheet' type='text/css'><![endif]-->
+    <link href="/TEMPLATE/ampTemplate/css_2/amp.css" rel="stylesheet" type="text/css"></link>
+    <link href="/TEMPLATE/ampTemplate/css_2/yui_tabs.css" rel="stylesheet" type="text/css"></link>
+    <link href="/TEMPLATE/ampTemplate/css_2/yui_datatable.css" rel="stylesheet" type="text/css"></link>
+    <link href="/TEMPLATE/ampTemplate/css_2/desktop_yui_tabs.css" rel="stylesheet" type="text/css"></link>
+    <link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/tabview/assets/tabview-core.css">
+
+    <!-- Individual YUI CSS files -->
+    <link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/container/assets/container.css">
+    <link href="/TEMPLATE/ampTemplate/css_2/yui_popins.css" rel="stylesheet" type="text/css"></link>
+
+    <!-- Individual YUI JS files -->
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dragdrop/dragdrop-min.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/animation/animation-min.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/connection/connection-min.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/container/container-min.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/menu/menu-min.js"></script>
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dom/dom-min.js"></script>
+
+    <!-- Jquery Base Library -->
+    <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery-min.js"></script>
+
+    <script type="text/javascript">
+        var YAHOOAmp 	= YAHOO;
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        function showUserProfile(id){
+
+            //openURLinWindow("/aim/userProfile.do~edit=true~id="+id,480, 350);
+            var param = "~edit=true~id="+id;
+            previewWorkspaceframe('/aim/default/userProfile.do',param);
+        }
+        function help(){
+
+            openURLinWindow("/help/help.do~blankPage=true",1024,768);
+        }
+        function adminHelp(){
+
+            openURLinWindow("/help/admin/help.do~blankPage=true",1024,768);
+        }
+
+        function canExit(){
+            if(typeof quitRnot1 == 'function') {
+                return quitRnot1('');
+            }
+            else{
+                return true;
+            }
+
+        }
+    </script>
+
+
+    <style type="text/css">
+        table.inside {border-color: #CCC; border-style: solid; font-size:11px;border-width: 0 0 1px 1px; border-spacing: 0; border-collapse: collapse;}
+        .selector_type_cont {padding: 5px;}
+        .buttonx,.dr-menu {background-color:#5E8AD1; border-top: 1px solid #99BAF1; border-left:1px solid #99BAF1; border-right:1px solid #225099; border-bottom:1px solid #225099; font-size:11px; color:#FFFFFF; font-weight:bold; padding-left:5px; padding-right:5px; padding-top:3px; padding-bottom:3px;}
+        .buttonx_sm {background-color:#5E8AD1; border-top: 1px solid #99BAF1; border-left:1px solid #99BAF1; border-right:1px solid #225099; border-bottom:1px solid #225099; font-size:10px; color:#FFFFFF; font-weight:bold; padding-left:2px; padding-right:2px; padding-top:2px; padding-bottom:2px;}
+        .invisible-item{display: none;}
+        .white-item{color: white;}
+        .marginal-five{margin-right:5px;}
+
+    </style>
+</head>
+<body bgcolor="#ffffff">
+<!-- Dependencies -->
+
+<!-- Individual YUI CSS files -->
+<link rel="stylesheet" type="text/css" href="/repository/aim/view/css/filters/filters2.css">
+<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/container/assets/container.css">
+<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/tabview/assets/skins/sam/tabview.css">
+<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/css/yui/tabview.css" />
+
+<link href="/TEMPLATE/ampTemplate/css_2/report_html2_view.css" rel="stylesheet" type="text/css"></link><style>
+    .paging {font-size:11px; color:#CCCCCC; margin-top:10px; margin-bottom:10px; font-family:Arial, Helvetica, sans-serif;}
+    .paging_sel {color:#FFFFFF; background-color:#FF6000; padding:2px 2px 2px 4px;text-align:center;}
+    .l_sm {font-size:11px; color:#376091;}
+    .tab_opt {background-color:#F2F2F2;}
+    .tab_opt_box {border:1px solid #EBEBEB;max-height:100px;overflow:auto;}
+    .tab_opt_box_cont {padding:5px; font-size:11px; background-color:#FAFAFA;}
+    .tab_opt_cont {padding:5px; font-size:11px; color:#CCCCCC;}
+    .show_hide_setting {
+        float: right;
+        font-size: 11px;
+        padding: 5px;
+        width: 200px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+</style>
+<!-- Individual YUI JS files -->
+
+
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/connection/connection-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/container/container-min.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/arFunctions.js"></script>
+<script type="text/javascript" src="/repository/aim/view/multilingual/multilingual_scripts.js"></script>
+
+<!-- Individual YUI JS files -->
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/connection/connection-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/container/container-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/element/element-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/tabview/tabview-min.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-common.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-modalMessage.js"></script>
+
+<script type="text/javascript">
+    /*---snippet rafy---*/
+    function css_browser_selector(u) {
+        var ua=u.toLowerCase(),is=function(t){
+            return ua.indexOf(t)>-1
+        },g='gecko',w='webkit',s='safari',o='opera',m='mobile',h=document.documentElement,b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+RegExp.$1):is('firefox/2')?g+' ff2':is('firefox/3.5')?g+' ff3 ff3_5':is('firefox/3.6')?g+' ff3 ff3_6':is('firefox/3')?g+' ff3':is('gecko/')?g:is('opera')?o+(/version\/(\d+)/.test(ua)?' '+o+RegExp.$1:(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:'')):is('konqueror')?'konqueror':is('blackberry')?m+' blackberry':is('android')?m+' android':is('chrome')?w+' chrome':is('iron')?w+' iron':is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:''):is('mozilla/')?g:'',is('j2me')?m+' j2me':is('iphone')?m+' iphone':is('ipod')?m+' ipod':is('ipad')?m+' ipad':is('mac')?'mac':is('darwin')?'mac':is('webtv')?'webtv':is('win')?'win'+(is('windows nt 6.0')?' vista':''):is('freebsd')?'freebsd':(is('x11')||is('linux'))?'linux':'','js'];
+        c = b.join(' ');
+        h.className += ' '+c;
+        return c;
+    }
+    css_browser_selector(navigator.userAgent);
+
+
+    var msgwait0="Please wait...";
+    var msgwait1="Loading Report";
+    var loadingreport = new YAHOO.widget.Panel("wait",
+        { width:"240px",
+            fixedcenter:true,
+            close:false,
+            draggable:false,
+            zindex:99,
+            modal:true,
+            visible:false,
+            underlay:"shadow"
+        }
+    );
+
+    loadingreport.setHeader(msgwait0);
+    loadingreport.setBody("<div align='center'>"+msgwait1+"<br>"+ '<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />'+"</div>");
+    loadingreport.render(document.body);
+    loadingreport.show();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dragDropTree.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-calendar.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/calendar/assets/skins/sam/calendar.css">
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/calendar/calendar-min.js"></script>
+
+<!-- code for rendering that nice calendar -->
+
+
+
+<style type="text/css">
+    /* Clear calendar's float, using dialog inbuilt form element */
+    .yui-dialog .bd form {
+        clear:left;
+    }
+
+    /* Have calendar squeeze upto bd bounding box */
+    .yui-dialog .bd {
+        padding:0;
+    }
+
+    .yui-dialog .hd {
+        text-align:left;
+    }
+
+    /* Center buttons in the footer */
+    .yui-dialog .ft .button-group {
+        text-align:center;
+    }
+
+    /* Prevent border-collapse:collapse from bleeding through in IE6, IE7 */
+    .yui-overlay-hidden table {
+        *display:none;
+    }
+
+    /* Remove calendar's border and set padding in ems instead of px, so we can specify an width in ems for the container */
+    .cal-div-wrapper {
+        border:none;
+        padding:1em;
+    }
+
+    /* Datefield look/feel */
+    .datefield {
+        position:relative;
+        top:10px;
+        left:10px;
+        white-space:nowrap;
+        border:1px solid black;
+        background-color:#eee;
+        width:25em;
+        padding:5px;
+    }
+
+    .datefield input,
+    .datefield button,
+    .datefield label  {
+        vertical-align:middle;
+    }
+
+    .datefield label  {
+        font-weight:bold;
+    }
+
+    .datefield input  {
+        width:15em;
+    }
+
+    .datefield button  {
+        padding:0 5px 0 5px;
+        margin-left:2px;
+    }
+
+    .datefield button img {
+        padding:0;
+        margin:0;
+        vertical-align:middle;
+    }
+
+    /* Example box */
+    .box {
+        position:relative;
+        height:30em;
+    }
+</style>
+
+
+
+<script type="text/javascript">
+
+    YUI_MONTH_NAMES_LONG = ["January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "july",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"];
+
+    YUI_MONTH_NAMES_MEDIUM = ["Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"];
+
+    YUI_DAY_NAMES_SHORT	= ["Su", "Mo", "Tu", "We",
+        "th", "fr", "Sa"];
+
+    YUI_DAY_NAMES_MEDIUM = ["Sun", "Mon", "Tue", "Wed",
+        "Thu", "Fri", "Sat"];
+
+    var dateFormat = 'dd/MM/yyyy';
+    if (dateFormat == 'null')
+        dateFormat = 'dd/mm/yyyy';
+
+
+    function getDateFromCalendar(inputArray)
+    {
+        var format = dateFormat;
+        var monthPos, dayPos, yearPos;
+        var month = inputArray.month;
+        if (format.toLowerCase().indexOf('mmm') != -1){
+            monthPos = format.toLowerCase().indexOf('mmm');
+            yearPos = format.indexOf('yyyy');
+            dayPos = format.indexOf('dd');
+            month = YUI_MONTH_NAMES_MEDIUM[inputArray.month - 1];
+        }
+        else{
+            monthPos = format.toLowerCase().indexOf('mm');
+            yearPos = format.toLowerCase().indexOf('yyyy');
+            dayPos = format.toLowerCase().indexOf('dd');
+        }
+        var result = '';
+        if (dayPos < monthPos){
+            if (monthPos < yearPos)
+                result = inputArray.day + '/' + month + '/' + inputArray.year;
+            else{
+                if (dayPos < yearPos)
+                    result = inputArray.day + '/' + inputArray.year + '/' + month;
+                else
+                    result = inputArray.year + '/' + inputArray.day + '/' + month;
+            }
+        }
+        else{ //month < dayPos
+            if (yearPos < monthPos)
+                result = inputArray.year + '/' + month + '/' + inputArray.day;
+            else{
+                if (dayPos < yearPos)
+                    result = month + '/' + inputArray.day + '/' + inputArray.year;
+                else
+                    result = month + '/' + inputArray.year + '/' + inputArray.day;
+            }
+        }
+
+
+        return result;
+
+    }
+
+    function dateStringToObject (dateStr, format ) {
+
+        var monthPos, dayPos, yearPos;
+        var monthLen, dayLen=2, yearLen=4;
+        if (format.toLowerCase().indexOf('mmm') != -1){
+            monthPos = format.toLowerCase().indexOf('mmm');
+            yearPos = format.indexOf('yyyy');
+            dayPos = format.indexOf('dd');
+            monthLen = 3;
+        }
+        else{
+            monthPos = format.toLowerCase().indexOf('mm');
+            yearPos = format.toLowerCase().indexOf('yyyy');
+            dayPos = format.toLowerCase().indexOf('dd');
+            monthLen = 2;
+        }
+
+        var month	= dateStr.substr(monthPos, monthLen);
+        var day		= dateStr.substr(dayPos, dayLen);
+        var year	= dateStr.substr(yearPos, yearLen);
+
+        if ( monthLen == 3 ) {
+            for (var i=0; i<YUI_MONTH_NAMES_MEDIUM.length; i++) {
+                if ( month.toLowerCase() == YUI_MONTH_NAMES_MEDIUM[i].toLowerCase() ) {
+                    month	= i + 1;
+                    break;
+                }
+            }
+        }
+        return {
+            month: month,
+            day:day,
+            year:year
+        };
+
+    }
+
+    function clearDate(objectId){
+        var textboxEl= document.getElementById(objectId);
+        if (textboxEl != null) {
+            textboxEl.value = "";
+        }
+    }
+
+    function positionHelper (buttonId) {
+        var retVal = true;
+        if (buttonId != null) {
+            var buttonEl	= document.getElementById(buttonId);
+            var parent		= buttonEl.parentNode;
+            while ( parent != null && !YAHOO.util.Dom.hasClass(parent, 'yui-panel-container') ) {
+                parent	= parent.parentNode;
+            }
+            if ( parent != null ) {
+                var parentRegion 	= YAHOO.util.Dom.getRegion(parent);
+                var parentTop		= parentRegion.top;
+                var parentBottom	= parentRegion.bottom;
+                var buttonY			= YAHOO.util.Dom.getY(buttonEl);
+
+                if ( parentTop < buttonY && buttonY < parentBottom ) {
+                    if ( buttonY - parentTop > parentBottom - buttonY )
+                        retVal = true;
+                    else
+                        retVal = false;
+                }
+            }
+        }
+
+        return retVal;
+    }
+
+    function pickDateById(buttonId,objectId){
+        pickDateById2(buttonId, objectId, true);
+    }
+
+    function pickDateById2(buttonId,objectId,calendarUp,overrideObjectCorner)
+    {
+
+        var localCalendarUp	= true;
+        var calendarCorner = "bl";
+        var objectCorner = "tr";
+        if (calendarUp != null)  {
+            if ( calendarUp instanceof Function ) {
+                localCalendarUp	= calendarUp(buttonId);
+            }
+            else
+                localCalendarUp = calendarUp;
+        }
+
+        textboxEl= document.getElementById(objectId);
+
+        if ( typeof(calendarWrapperDialogs) == 'undefined' || calendarWrapperDialogs == null )
+            calendarWrapperDialogs	= new Object();
+
+        var dialogId		= objectId + '_dialog';
+        var calDivWrapper	= objectId + '_calDivWrapper';
+        var dialog		= calendarWrapperDialogs[dialogId];
+
+        //if ( dialog == null ) {
+        var renderDiv	= document.getElementById(buttonId).parentNode;
+        while ( renderDiv != null ) {
+            var yuiEl 	= new YAHOO.util.Element(renderDiv);
+            if ( renderDiv.tagName != null && renderDiv.tagName.toLowerCase() == "div" && yuiEl.hasClass("yui-overlay") )
+                break;
+            renderDiv	= renderDiv.parentNode;
+        }
+        if ( renderDiv == null )
+            renderDiv	= document.body;
+        if(localCalendarUp == true){
+            calendarCorner = "bl";
+            objectCorner = "tr";
+        }else{
+            calendarCorner = "tl";
+            objectCorner = "br";
+        }
+        if (overrideObjectCorner) {
+            objectCorner = overrideObjectCorner;
+        }
+        dialog		= new YAHOO.widget.Dialog(dialogId, {
+            visible:false,
+
+            context:[buttonId,  calendarCorner, objectCorner],
+            draggable:true,
+            close:true
+
+        });
+        dialog.setHeader('Pick A Date');
+        dialog.setBody('<div class="yui-skin-sam"><div class="cal-div-wrapper" id="'+calDivWrapper+'"></div></div>');
+        dialog.render( renderDiv );
+        dialog.showEvent.subscribe(function() {
+            if (YAHOO.env.ua.ie) {
+                // Since we're hiding the table using yui-overlay-hidden, we
+                // want to let the dialog know that the content size has changed, when
+                // shown
+                dialog.fireEvent("changeContent");
+            }
+        });
+        calendarWrapperDialogs[dialogId] 	= dialog;
+
+        var calendar 	= new YAHOO.widget.Calendar(calDivWrapper, {
+            navigator: true,
+            iframe:false,          // Turn iframe off, since container has iframe support.
+            hide_blank_weeks:true  // Enable, to demonstrate how we handle changing height, using changeContent
+        });
+        calendar.cfg.setProperty("MONTHS_LONG", YUI_MONTH_NAMES_LONG );
+
+        calendar.cfg.setProperty("WEEKDAYS_SHORT", YUI_DAY_NAMES_SHORT);
+        calendar.cfg.setProperty("WEEKDAYS_MEDIUM",YUI_DAY_NAMES_MEDIUM);
+        if ( textboxEl.value != null && textboxEl.value.length > 0 ) {
+            var dateObj			= dateStringToObject(textboxEl.value,dateFormat);
+            calendar.cfg.setProperty("selected", dateObj.month + "/" + dateObj.day + "/" + dateObj.year );
+            calendar.cfg.setProperty("pagedate", dateObj.month + "/" + dateObj.year );
+        }
+
+        calendar.render();
+
+        calendar.selectEvent.subscribe(function() {
+            if (calendar.getSelectedDates().length > 0) {
+
+                var selDate = calendar.getSelectedDates()[0];
+
+                // Pretty Date Output, using Calendar's Locale values: Friday, 8 February 2008
+                // var wStr = calendar.cfg.getProperty("WEEKDAYS_LONG")[selDate.getDay()];
+                var dStr = selDate.getDate() + "";
+                // var mStr = calendar.cfg.getProperty("MONTHS_LONG")[selDate.getMonth()];
+                var yStr = selDate.getFullYear() + "";
+                var mStr = (selDate.getMonth()+1) + "";
+                if ( mStr.length == 1 )
+                    mStr	= "0" + mStr;
+                if ( dStr.length == 1 )
+                    dStr	= "0" + dStr;
+
+                var parameter = {
+                    year: yStr,
+                    month: mStr,
+                    day: dStr,
+                    monthName: [selDate.getMonth()]
+                };
+                var dateString	= getDateFromCalendar(parameter);
+                textboxEl.value = dateString;
+            }
+            dialog.hide();
+        });
+
+        //}
+        dialog.show();
+        //dialog.align(calendarCorner, objectCorner);
+    }
+
+    /*Just for compatibility reasons with functions that were used with the old DHTMLSuite calendar widget*/
+    function pickDateWithClear(buttonId,inputObject,clearId) {
+        if ( inputObject.id == null )
+            inputObject.id = "tb" + new Date().getTime();
+        pickDateById(buttonId, inputObject.id);
+    }
+
+
+
+</script>
+
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/scrollableTable.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/scrollableTableReports.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
+
+<!-- Jquery Base Library -->
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery-min.js"></script>
+
+
+<!-- this is for the nice tooltip widgets -->
+<DIV id="TipLayer"
+     style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></DIV>
+<script language="JavaScript1.2" type="text/javascript"
+        src="/repository/aim/view/scripts/dscript120.js"></script>
+<script language="JavaScript1.2" type="text/javascript"
+        src="/repository/aim/view/scripts/dscript120_ar_style.js"></script>
+
+<!-- script for tree-like view (drilldown reports) -->
+
+<script language="JavaScript" type="text/javascript"
+        src="/repository/aim/view/scripts/arFunctions.js"></script>
+
+<!-- dynamic drive ajax tabs -->
+<script language="JavaScript" type="text/javascript"
+        src="/repository/aim/view/scripts/ajaxtabs/ajaxtabs.js"></script>
+
+
+<script type="text/javascript" src="/repository/aim/view/scripts/ajax.js"></script>
+
+<!-- dynamic tooltip -->
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicContent.js"></script>
+<script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicTooltip.js"></script>
+
+<link rel="stylesheet" href="/repository/aim/view/css/css_dhtmlsuite/modal-message.css"/>
+
+<script type="text/javascript">
+    messageObj = new DHTMLSuite.modalMessage();	// We only create one object of this class
+    messageObj.setWaitMessage('Loading message - please wait....');
+    messageObj.setShadowOffset(5);	// Large shadow
+
+    DHTMLSuite.commonObj.setCssCacheStatus(false);
+
+    function displayMessage(url)
+    {
+        messageObj.setSource(url);
+        messageObj.setCssClassMessageBox(false);
+        messageObj.setSize(400,200);
+        messageObj.setShadowDivVisible(true);	// Enable shadow for these boxes
+        messageObj.display();
+    }
+
+    function displayStaticMessage(messageContent,cssClass,width,height)
+    {
+        messageObj.setHtmlContent(messageContent);
+        messageObj.setSize(width,height);
+        messageObj.setCssClassMessageBox(cssClass);
+        messageObj.setSource(false);	// no html source since we want to use a static message here.
+        messageObj.setShadowDivVisible(true);	// Disable shadow for these boxes
+        messageObj.display();
+
+
+    }
+
+    function closeMessage()
+    {
+        messageObj.close();
+    }
+
+
+</script>
+
+
+<!-- virtual pagination -->
+
+<script type="text/javascript" src="/repository/aim/view/scripts/virtualpaginate.js">
+
+    /***********************************************
+     * Virtual Pagination script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+     * This notice MUST stay intact for legal use
+     * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+     ***********************************************/
+
+</script>
+
+<style type="text/css">
+
+    /*Sample CSS used for the Virtual Pagination Demos. Modify/ remove as desired*/
+
+    .virtualpage, .virtualpage2, .virtualpage3{
+        /*hide the broken up pieces of contents until script is called. Remove if desired*/
+        display: none;
+    }
+
+    .paginationstyle{ /*Style for demo pagination divs*/
+        width: 250px;
+        text-align: center;
+        padding: 2px 0;
+        margin: 10px 0;
+    }
+
+    .paginationstyle select{ /*Style for demo pagination divs' select menu*/
+        border: 1px solid navy;
+        margin: 0 15px;
+    }
+
+    .paginationstyle a{ /*Pagination links style*/
+        padding: 0 5px;
+        text-decoration: none;
+        border: 1px solid black;
+        color: navy;
+        background-color: white;
+    }
+
+    .paginationstyle a:hover, .paginationstyle a.selected{
+        color: #000;
+        background-color: #FEE496;
+    }
+
+    .paginationstyle a.imglinks{ /*Pagination Image links style (class="imglinks") */
+        border: 0;
+        padding: 0;
+    }
+
+    .paginationstyle a.imglinks img{
+        vertical-align: bottom;
+        border: 0;
+    }
+
+    .paginationstyle a.imglinks a:hover{
+        background: none;
+    }
+
+    .paginationstyle .flatview a:hover, .paginationstyle .flatview a.selected{ /*Pagination div "flatview" links style*/
+        color: #000;
+        background-color: yellow;css
+    }
+
+</style>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/element/element-min.js"></script>
+<script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/tabview/tabview-min.js"></script>
+
+
+<script language="JavaScript" type="text/javascript" src="/TEMPLATE/ampTemplate/script/tooltip/wz_tooltip.js" ></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/filters/filters.js?version=fantastic_15" ></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/filters/searchManager.js" ></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/saveReports.js" ></script>
+
+<!-- END - For DHTML Tab View of Filters -->
+
+
+<script type="text/javascript">
+    SaveReportEngine.connectionErrorMessage =
+        "Apparently there are some connection problems. Please try again in a few moments.";
+    SaveReportEngine.savingMessage =
+        "Saving data. Please wait.";
+    SaveReportEngine.doneCopyMessage =
+        "A copy was saved containing the currently selected filters.";
+    SaveReportEngine.checkReportsMessage =
+        "Check Reports in the main menu.";
+    SaveReportEngine.checkTabsMessage =
+        "Check the Tab Manager in the main menu.";
+    SaveReportEngine.tabSavedMessage =
+        "Tab and filters have been saved.";
+    SaveReportEngine.reportSavedMessage =
+        "Report and filters have been saved.";
+    saveReportEngine	= null;
+</script>
+<script type="text/javascript">
+    dateFilterErrorMsg = "\'From\' date must be on or before \'To\' date";
+    var currentReportId	= -1;
+
+    currentReportId = 4449
+
+    YAHOO.namespace("YAHOO.amptab");
+    YAHOO.amptab.init = function() {
+        var tabView = new YAHOO.widget.TabView('tabview_container');
+    };
+
+    YAHOO.amptab.handleCloseAbout = function() {
+        if(navigator.appName == 'Microsoft Internet Explorer'){
+            //window.location.reload();
+            //history.go(-1);
+        }
+    }
+
+    YAHOO.amptab.handleClose = function() {
+        var filter			= document.getElementById('myFilter');
+        filter.innerHTML 	= '';
+        var wrapper			= document.getElementById('myFilterWrapper');
+        if (filter.parent != null)
+            filter.parent.removeChild(filter);
+        wrapper.appendChild(filter);
+    };
+
+    YAHOO.amptab.handleCloseShowFormat = function() {
+        var wrapper			= document.getElementById('myFilterWrapper');
+        var filter			= document.getElementById('customFormat');
+        if (filter.parent != null)
+            filter.parent.removeChild(filter);
+        wrapper.appendChild(filter);
+    };
+
+    var myPanel1 = new YAHOO.widget.Panel("new", {
+        width:"750px",
+        fixedcenter: true,
+        constraintoviewport: true,
+        underlay:"none",
+        close:true,
+        visible:false,
+        modal:true,
+        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable:true} );
+
+    var myPanel2 = new YAHOO.widget.Panel("new2", {
+        width:"400px",
+        fixedcenter: true,
+        constraintoviewport: true,
+        underlay:"shadow",
+        close:true,
+        visible:false,
+        modal:true,
+        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable:true} );
+
+    var myPanel3 = new YAHOO.widget.Panel("new3", {
+        width:"300px",
+        fixedcenter: true,
+        constraintoviewport: true,
+        underlay:"none",
+        close:true,
+        visible:false,
+        modal:true,
+        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable:true} );
+
+    var myPanel4 = new YAHOO.widget.Panel("new4", {
+        width:"480px",
+        fixedcenter: true,
+        constraintoviewport: true,
+        underlay:"none",
+        close:true,
+        visible:false,
+        modal:true,
+        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable:true} );
+
+    var myPanel5 = new YAHOO.widget.Panel("new5", {
+        width:"480px",
+        fixedcenter: true,
+        constraintoviewport: true,
+        underlay:"none",
+        close:true,
+        visible:false,
+        modal:true,
+        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable:true} );
+
+    myPanel1.hideEvent.subscribe(YAHOO.amptab.handleClose);
+    myPanel5.beforeHideEvent.subscribe(YAHOO.amptab.handleCloseAbout);
+    myPanel4.beforeHideEvent.subscribe(YAHOO.amptab.handleCloseShowFormat);
+
+    function initScripts() {
+
+        var msg='\nFilters';
+        myPanel1.setHeader(msg);
+        myPanel1.setBody("");
+        myPanel1.render(document.body);
+
+        var msgP2='\nPlease select hierarchy sorter criteria';
+
+        myPanel2.setHeader(msgP2);
+        myPanel2.setBody("");
+        myPanel2.render(document.body);
+        myPanel2EmptyBody	= true;
+
+        var msgP3='\nPlease select range';
+        myPanel3.setHeader(msgP3);
+        myPanel3.setBody("");
+        myPanel3.render(document.body);
+
+        //alert('param.queryEngine: ' + '');
+
+
+
+        var msgP4='\nPlease select report settings';
+
+
+
+        myPanel4.setHeader(msgP4);
+        myPanel4.setBody("");
+        myPanel4.render(document.body);
+
+        var msgP5='\nAbout AMP';
+        myPanel5.setHeader(msgP5);
+        myPanel5.setBody("");
+        myPanel5.render(document.body);
+    }
+
+    function submitFilters(reportContextId) {
+        //alert("SUBMITTING FILTERS");
+        //debugger;
+        if(document.getElementById("workspace_only")!=null)
+            document.getElementById("workspaceOnly").value = document.getElementById("workspace_only").checked;
+        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm")[0];
+
+        if (validateDynamicDateFilters() && validateDateFilters()){
+            filterForm.action	= "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
+            filterForm.submit();
+        };
+    }
+
+    function submitSettings(reportContextId) {
+        //This is needed for unfreezing the report. applyFormat parameter needs to be set so that the function
+        // ReportsFilterPickerForm.reset doesn't reset the currently applied filters
+        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm3")[0];
+        filterForm.action	= "/aim/reportsFilterPicker.do?applyFormat=true&reportContextId=" + reportContextId;
+        filterForm.submit();
+    }
+
+    function showFilter(reportContextId) {
+        document.getElementById("myFilter").innerHTML = '<div align="center" style="font-size: 11px;margin-top:190px;"><img src="/TEMPLATE/ampTemplate/img_2/ajax-loader.gif"/></div>';
+
+        var element = document.getElementById("myFilter");
+        element.style.display   = "block";
+        element.style.height    = "500px";
+
+        myPanel1.setBody(element);
+
+        myPanel1.cfg.setProperty("height", "520px" );
+        myPanel1.cfg.setProperty("width", "870px" );
+        myPanel1.center();
+        myPanel1.show();
+
+        var timestamp = new Date().getTime();
+
+        YAHOO.util.Connect.asyncRequest("GET", "/aim/reportsFilterPicker.do?timestamp=" + timestamp + "&reportContextId=" + reportContextId + "&overwriteBackUrl=" + window.location.pathname , {
+            success: function(o) {
+                document.getElementById("myFilter").innerHTML	= o.responseText;
+                YAHOO.amptab.afterFiltersLoad();
+            },
+            failure:function (o) {
+                document.getElementById("myFilter").innerHTML	= "There was a problem loading the filters";
+            }
+        });
+        YAHOO.amptab.init();
+
+
+
+
+
+    }
+
+    function addTitleSelect(selectName){
+        var categoryOptions = document.getElementsByName(selectName);
+        if(categoryOptions[0])
+        {
+            for(idx = 0; idx < categoryOptions[0].options.length;idx++)
+            {
+                categoryOptions[0].options[idx].title = categoryOptions[0].options[idx].text;
+            }
+        }
+    }
+
+    function showAbout() {
+        YAHOO.amptab.init();
+        var element = document.getElementById("customAbout");
+        element.style.display = "inline";
+        myPanel5.setBody(element);
+        myPanel5.center();
+        myPanel5.show();
+    }
+
+    function checkRangeValues(){
+        var actualFrom = document.aimReportsFilterPickerForm2.renderStartYear.value;
+        var actualTo = document.aimReportsFilterPickerForm2.renderEndYear.value;
+        var msg='\nDefault Start Year must be lesser than Default End Year';
+        if(actualFrom>actualTo){
+            alert(msg);
+            return false;
+        }
+        return true;
+    }
+
+    function showFormat(){
+        //YAHOO.amptab.init();
+        //var maxFractionDigits=0;
+        //ResetCustom(maxFractionDigits);
+        //initFormatPopup();
+        var element = document.getElementById("customFormat");
+        element.style.display = "inline";
+        myPanel4.setBody(element);
+        myPanel4.center();
+        myPanel4.show();
+    }
+
+    function changeRange(){
+        var cant = document.aimReportsFilterPickerForm2.countYear.value;
+        var actualFrom = document.aimReportsFilterPickerForm2.fromYear.value;
+        var actualTo = document.aimReportsFilterPickerForm2.toYear.value;
+        var initialYear = document.aimReportsFilterPickerForm2.countYearFrom.value;
+        document.aimReportsFilterPickerForm2.fromYear.length=0;
+        document.aimReportsFilterPickerForm2.toYear.length=0;
+        var masterFrom=document.aimReportsFilterPickerForm2.fromYear;
+        var masterTo=document.aimReportsFilterPickerForm2.toYear;
+        masterFrom.options[0]=new Option("All", "-1", false, true);
+        for (var i = 1; i <= cant; i++){
+            var year  = parseInt(initialYear)+ i;
+            if(year == actualFrom){
+                masterFrom.options[i]=new Option(year, year, false, true);
+            }
+            else{
+                masterFrom.options[i]=new Option(year, year, false, false);
+            };
+        }
+        masterTo.options[0]=new Option("All", "-1", false, true);
+        for (var i = 1; i <= cant; i++){
+            var year  = parseInt(initialYear)+ i;
+            if(year == actualTo){
+                masterTo.options[i]=new Option(year, year, false, true);
+            }
+            else{
+                masterTo.options[i]=new Option(year, year, false, false);
+            };
+        }
+    }
+    function hideFilter() {
+        myPanel1.hide();
+    }
+    function showSorter() {
+        var element2 = document.getElementById("mySorter");
+        if ( element2 != null ) {
+            element2.parentNode.removeChild(element2);
+            element2.style.display 	= "inline";
+            element2.id		= null;
+            myPanel2.setBody(element2);
+            myPanel2EmptyBody		= false;
+        }
+        myPanel2.show();
+    }
+    function hideSorter() {
+        myPanel2.hide();
+    }
+    function resetSorter(button) {
+        var form1		= button.form;
+        for (var i=0; i<form1.elements.length; i++) {
+            var selEl	= form1.elements[i];
+            if ( selEl.nodeName.toLowerCase() == "select" ) {
+                selEl.selectedIndex	= 0;
+                selEl.options[0].selected = true;
+            }
+        }
+        return false;
+    }
+
+    function showRange(){
+        YAHOO.amptab.init();
+        var element = document.getElementById("myRange");
+        element.style.display = "inline";
+
+        myPanel3.setBody(element);
+        myPanel3.center();
+        myPanel3.show();
+    }
+    function hideRange() {
+        myPanel3.hide();
+    }
+
+    function hideFilter() {
+        myPanel1.hide();
+    }
+    function checkProjectId(x){
+        var s_len = x.value.length;
+        var s_charcode = 0;
+        for (var s_i=0;s_i<s_len;s_i++)
+        {
+            s_charcode = x.value.charCodeAt(s_i);
+            if(!((s_charcode>=48 && s_charcode<=57)))
+            {
+                alert("Only Numeric Values Allowed");
+                x.value='';
+                x.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    function resetFormat(){
+        document.aimReportsFilterPickerForm3.action=document.aimReportsFilterPickerForm3.action+'&resetFormat=true';
+        alert(document.aimReportsFilterPickerForm3.action);
+        document.aimReportsFilterPickerForm3.submit();
+    }
+
+    function ResetCustom(maxFractionDigits) {
+        aimReportsFilterPickerForm3.customDecimalSymbol.value = ",";
+        aimReportsFilterPickerForm3.customDecimalSymbolTxt.value = "";
+        aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled = "true";
+        aimReportsFilterPickerForm3.customDecimalPlaces.value = maxFractionDigits;
+        aimReportsFilterPickerForm3.customDecimalPlacesTxt.value = "";
+        aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled = "true"
+        aimReportsFilterPickerForm3.customUseGrouping.checked = "true";
+        aimReportsFilterPickerForm3.customGroupCharacter.value = ".";
+        aimReportsFilterPickerForm3.customGroupCharacterTxt.value = "";
+        aimReportsFilterPickerForm3.customGroupSize.value = 3;
+        //alert(aimReportsFilterPickerForm3.amountinthousands.checked);
+        aimReportsFilterPickerForm3.customAmountinThousands.options.selectedIndex = 0;
+        aimReportsFilterPickerForm3.calendar.value =aimReportsFilterPickerForm3.initialCal.value;
+        initFormatPopup();
+        if(document.aimReportsFilterPickerForm3.renderStartYear){
+            document.aimReportsFilterPickerForm3.renderStartYear.value=-1;
+        }
+        if(document.aimReportsFilterPickerForm3.renderEndYear){
+            document.aimReportsFilterPickerForm3.renderEndYear.value=-1;
+        }
+        if (aimReportsFilterPickerForm3.currency)
+            aimReportsFilterPickerForm3.currency.value=aimReportsFilterPickerForm3.defaultCurrency.value;
+
+        if (aimReportsFilterPickerForm3.calendar)
+            aimReportsFilterPickerForm3.calendar.value=aimReportsFilterPickerForm3.defaultCalendar.value;
+
+    }
+
+    function initFormatPopup(){
+        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+
+        if (decimalSymbol.toLowerCase()=="custom"){
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled=false;
+
+        }else{
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value="";
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled=true;
+        }
+
+        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+
+        if (customDecimalPlaces.toLowerCase()=="-2"){
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled=false;
+        }else{
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value="";
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled=true;
+        }
+
+
+        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
+
+        if (!customUseGrouping){
+            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled=true;
+        }else{
+            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled=false;
+        }
+        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        document.aimReportsFilterPickerForm3.customGroupSize.disabled=!customUseGrouping;
+        document.aimReportsFilterPickerForm3.customGroupCharacterTxt.disabled=((!customUseGrouping) || ("custom"!=customGroupCharacter.toLowerCase()));
+
+        changeFormat();
+    }
+
+    function changeFormat(){
+        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+        decimalSymbol=("custom"==decimalSymbol.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value:decimalSymbol;
+
+        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+        customDecimalPlaces=("-2"==customDecimalPlaces.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value:customDecimalPlaces;
+
+        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
+
+
+        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        customGroupCharacter=("custom"==customGroupCharacter.toLowerCase())?document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value:customGroupCharacter;
+
+
+        var customGroupSize=document.aimReportsFilterPickerForm3.customGroupSize.value;
+
+        var amountDivisor = 1.0;
+
+        var selectedValue = document.aimReportsFilterPickerForm3.amountinthousands.value;
+        if (selectedValue == '1')
+            amountDivisor = 1000.0;
+
+        if (selectedValue == '2')
+            amountDivisor = 1000.0 * 1000.0;
+
+
+        var num=Number(123456789.928 / amountDivisor);
+
+        //debugger;
+        var format=new Format(decimalSymbol,customDecimalPlaces,customUseGrouping,customGroupCharacter,customGroupSize);
+        document.getElementById("number").innerHTML="<B>"+num.format(format)+"</B>";
+        //alert(num.format(format));
+        return true;
+    }
+
+    function validateFormat(){
+
+        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+        decimalSymbol=("custom"==decimalSymbol.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value:decimalSymbol;
+
+        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+        customDecimalPlaces=("-2"==customDecimalPlaces.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value:customDecimalPlaces;
+
+        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
+
+        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        customGroupCharacter=("custom"==customGroupCharacter.toLowerCase())?document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value:customGroupCharacter;
+
+        var customGroupSize=document.aimReportsFilterPickerForm3.customGroupSize.value;
+
+        if ((decimalSymbol==customGroupCharacter)&&(customUseGrouping)){
+            var msg='Decimal Symbol and group symbol must be diferents';
+            alert(msg);
+            return false;
+        }
+        var validNumbers="0123456789";
+
+        if (decimalSymbol=="" || customGroupCharacter==""){
+            var msg='Symbols can not be a empty, you can use the space character';
+            alert(msg);
+            return false;
+        }
+
+
+        if ((validNumbers.indexOf(decimalSymbol)!=-1)||(validNumbers.indexOf(customGroupCharacter)!=-1)){
+            var msg='Symbols can not be a number';
+            alert(msg);
+            return false;
+        }
+
+        if ((customGroupSize < 1) && (document.aimReportsFilterPickerForm3.customUseGrouping.checked == true)) {
+            var msg='The value should be greater than zero';
+            alert(msg);
+            return false;
+        }
+
+
+
+        return true;
+    }
+
+
+    window.onload=initScripts;
+
+
+    var msg0="Please wait...";
+
+    var msg1="Freeze Report Heading";
+
+    var msg2="Unfreeze Report Heading";
+
+    var msg3="Freezing Report Heading";
+
+    var msg4="Unfreezing Report Heading";
+
+
+
+    function addOnloadEvent(fnc){
+        if ( typeof window.addEventListener != "undefined" )
+            window.addEventListener( "load", fnc, false );
+        else if ( typeof window.attachEvent != "undefined" ) {
+            window.attachEvent( "onload", fnc );
+        }
+        else {
+            if ( window.onload != null ) {
+                var oldOnload = window.onload;
+                window.onload = function ( e ) {
+                    oldOnload( e );
+                    window[fnc]();
+                };
+            }
+            else
+                window.onload = fnc;
+        }
+    }
+
+
+    var scrollingStr=readCookie('report_scrolling');
+    var scrolling=(scrollingStr==null)?false:(scrollingStr==new Number(currentReportId).toString() )?true:false;
+
+    // For some reason freezeLink.removeListener doesn't work correctly so we need an ugly hack
+    var canMakeScroll	= false;
+    function scrollCallback (reportContextId) {
+        if ( canMakeScroll )
+            makeScroll();
+        else
+            hiddeScroll(reportContextId);
+    }
+    //END
+
+
+    function reloadpage(){
+        location.reload();
+    }
+
+    function sendCookieAndReload (reportContextId){
+        showWaitPanel(msg3);
+        createCookie('report_scrolling',currentReportId,1);
+        submitScroll(reportContextId);
+    }
+
+
+    function makeScroll (){
+        var freezeLink	= new YAHOO.util.Element( "frezzlink" );
+        createCookie('report_scrolling',currentReportId,1);
+        showScroll();
+        //document.getElementById("frezzlink").setAttribute("onClick","hiddeScroll()");
+        //document.getElementById("frezzlink").setAttribute("class","settingsLink");
+        if ( freezeLink.hasClass("settingsLinkDisable") )
+            freezeLink.removeClass("settingsLinkDisable");
+        freezeLink.addClass( "settingsLink" );
+        canMakeScroll	= false;
+        //document.getElementById("frezzlink").innerHTML=msg2;
+    }
+
+    function hiddeScroll(reportContextId){
+        showWaitPanel(msg4);
+        eraseCookie('report_scrolling');
+        submitScroll(reportContextId);
+    }
+
+    function submitScroll(reportContextId) {
+        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm3")[0];
+        filterForm.action	= "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
+        filterForm.submit();
+    }
+
+    function showWaitPanel(msgF){
+        var wait = new YAHOOAmp.widget.Panel("wait",
+            { width:"240px",
+                fixedcenter:true,
+                close:false,
+                draggable:false,
+                zindex:99,
+                modal:true,
+                visible:false,
+                underlay:"shadow"
+            }
+        );
+
+        wait.setHeader(msg0);
+        wait.setBody("<div align='center'>"+msgF+"</div>");
+        wait.render(document.body);
+        wait.show();
+    }
+
+    var enableLink=function(){
+        if (document.getElementById("frezzlink")){
+            var freezeLink	= new YAHOO.util.Element( "frezzlink" );
+            var reportContextId = freezeLink.getAttribute('reportContextId');
+            if (scrolling){
+                //document.getElementById("frezzlink").setAttribute("onClick","hiddeScroll()");
+                //document.getElementById("frezzlink").setAttribute("class","settingsLink");
+                if ( freezeLink.hasClass("settingsLinkDisable") )
+                    freezeLink.removeClass("settingsLinkDisable");
+                freezeLink.addClass( "settingsLink" );
+                freezeLink.on("click", function() {scrollCallback(reportContextId);});
+                freezeLink.setStyle("cursor", "pointer");
+                canMakeScroll	= false;
+                //document.getElementById("frezzlink").setAttribute("style","cursor: hand;");
+                document.getElementById("frezzlink").innerHTML=msg2;
+                showScroll();
+            }else{
+                //document.getElementById("frezzlink").setAttribute("onClick","makeScroll()");
+                //document.getElementById("frezzlink").setAttribute("class","settingsLink");
+                if ( freezeLink.hasClass("settingsLinkDisable") )
+                    freezeLink.removeClass("settingsLinkDisable");
+                freezeLink.addClass( "settingsLink" );
+                freezeLink.on("click", function() {sendCookieAndReload(reportContextId);});
+                freezeLink.setStyle("cursor", "pointer");
+                canMakeScroll	= true;
+                //document.getElementById("frezzlink").setAttribute("style","cursor: hand;");
+                document.getElementById("frezzlink").innerHTML=msg1;
+            }
+        }
+    }
+    addOnloadEvent(enableLink);
+    //-----------------------
+    function showScroll(){
+        var wait = new YAHOO.widget.Panel("wait",
+            { width:"240px",
+                fixedcenter:true,
+                close:false,
+                draggable:false,
+                zindex:99,
+                modal:true,
+                visible:false,
+                underlay:"shadow"
+            }
+        );
+
+        wait.setHeader(msg0);
+        wait.setBody("<div align='center'>"+msg3+"</div>");
+        wait.render(document.body);
+        wait.show();
+        var winH;
+
+        if (navigator.appName.indexOf("Microsoft")!=-1) {
+            winH = document.body.offsetHeight;
+        }else{
+            winH=window.innerHeight;
+        }
+        var call=function(){
+            var reporTable=new scrollableTable("reportTable",winH - 320);
+            reporTable.debug=false;
+            reporTable.maxRowDepth=2;
+            reporTable.scroll();
+            wait.hide();
+        }
+
+        window.setTimeout(call,200);
+    }
+
+    //----------------------------------------------------------------
+    var isscrolling=false;
+    function frezzreport(reportContextId){
+        //debugger;
+        if (isscrolling==false){
+            if ( $('#frezzlinkreport').hasClass("settingsLinkDisable") )
+                $('#frezzlinkreport').removeClass("settingsLinkDisable");
+            $('#frezzlinkreport').addClass( "settingsLink" );
+            //$('#frezzlinkreport').bind("click", showScrollReport);
+            $('#frezzlinkreport').css("cursor", "pointer");
+            canMakeScroll	= false;
+            $('#frezzlinkreport').text(msg2);
+            isscrolling=true;
+            showScrollReport();
+        }else{
+            if ($('#frezzlinkreport').hasClass("settingsLinkDisable"))
+                $('#frezzlinkreport').removeClass("settingsLinkDisable");
+            //$('#frezzlinkreport').bind("click", submitSettings);
+            $('#frezzlinkreport').addClass( "settingsLink" );
+            $('#frezzlinkreport').css("cursor", "pointer");
+            canMakeScroll= true;
+            $('#frezzlinkreport').text(msg1);
+            isscrolling=false;
+            loadingreport.show();
+            submitSettings(reportContextId);
+
+        }
+    }
+
+    //-----------------------
+    function showScrollReport(){
+
+        var wait = new YAHOO.widget.Panel("wait",
+            { width:"240px",
+                fixedcenter:true,
+                close:false,
+                draggable:false,
+                zindex:99,
+                modal:true,
+                visible:false,
+                underlay:"shadow"
+            }
+        );
+
+        wait.setHeader(msg0);
+        wait.setBody("<div align='center'>"+msg3+"<br>"+'<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />'+"</div>");
+        wait.render(document.body);
+        wait.show();
+        var winH;
+
+        if (navigator.appName.indexOf("Microsoft")!=-1) {
+            winH = document.body.offsetHeight;
+        }else{
+            winH=window.innerHeight;
+        }
+        var call=function(){
+            var reporTable=new scrollableTableReports("reportTable", winH - 250);
+            reporTable.debug=false;
+            reporTable.maxRowDepth=2;
+            reporTable.scroll();
+            wait.hide();
+        }
+
+        window.setTimeout(call,200);
+    }
+
+
+
+
+    function cleanformat() {
+        aimReportsFilterPickerForm3.customDecimalSymbol.value = ",";
+        aimReportsFilterPickerForm3.customDecimalSymbolTxt.value = "";
+        aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled = "true";
+        aimReportsFilterPickerForm3.customDecimalPlaces.value = 0;
+        aimReportsFilterPickerForm3.customDecimalPlacesTxt.value = "";
+        aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled = "true";
+        aimReportsFilterPickerForm3.customUseGrouping.checked = "true";
+        aimReportsFilterPickerForm3.customGroupCharacter.value = ".";
+        aimReportsFilterPickerForm3.customGroupCharacterTxt.value = "";
+        aimReportsFilterPickerForm3.customGroupSize.value = 3;
+        initFormatPopup();
+    }
+
+
+    var currentRMenu=null;
+    function reportOptions(element,id){
+        //cargar opciones
+        if (currentRMenu!=null){
+            currentRMenu.destroy();
+        }
+        var itemsUrl='/aim/reportMenuAction.do?action=getOptions&id='+id;
+
+        var oMenu = new YAHOO.widget.Menu("reportMenu", { shadow:false, fixedcenter: false,srcElement:element,context:[element, "tl", "bl"] });
+        $.get(itemsUrl,'',function(data){
+            for (var i=0; i < data.childNodes[0].childNodes.length;i++){
+                var node=data.childNodes[0].childNodes[i]
+                var strUrl=node.getAttribute('url')+id;
+                var text=data.childNodes[0].childNodes[i].childNodes[0].nodeValue
+                var oItem = oMenu.addItem(new YAHOO.widget.MenuItem(text));
+
+                oItem.cfg.setProperty("url",strUrl);
+                oMenu.addItem(oItem);
+            }
+            oMenu.render(document.body);
+            oMenu.show();
+            currentRMenu=oMenu;
+        });
+    }
+
+</script>
+<style type="text/css">
+    .mask {
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+        background-color:#2f2f2f;
+    }
+
+    #reportMenu {
+        width:70px;
+        background-color:#ffffff;
+        border:1px solid #376091;
+    }
+
+    #reportMenu ul li a {
+        width:70px;
+        font-size:9px;
+        padding:3px !important;
+        text-transform:uppercase;
+        text-decoration:none
+    }
+
+    #reportMenu li {
+        width:70px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    #reportMenu ul {
+        width:70px;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
+<script language="JavaScript">
+    function toggleSettings(){
+        var currentDisplaySettings = document.getElementById('currentDisplaySettings');
+        var displaySettingsButton = document.getElementById('displaySettingsButton');
+        if(currentDisplaySettings.style.display == "block"){
+            currentDisplaySettings.style.display = "none";
+            displaySettingsButton.innerHTML = "Show current settings";
+        }
+        else
+        {
+            currentDisplaySettings.style.display = "block";
+            displaySettingsButton.innerHTML = "Hide current settings";
+        }
+    }
+
+</script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
+
+<div id="mySorter" class="dialog" style="padding:10px 5px;overflow: auto; display: none;">
+    <form name="aimAdvancedReportForm" method="post" action="/aim/viewNewAdvancedReport.do"><table width="400px" style="font-size: 11px;" cellpadding="2" cellspacing="2" align="center">
+        <tr>
+            <td align="right">
+                Hierarchy Level:</td>
+            <td>
+                <select name="levelPicked" class="dropdwn_sm"><option value="1">Donor Agency</option></select></td>
+        </tr>
+        <tr>
+            <td align="right">Sort by:</td>
+            <td>
+                <select name="levelSorter" class="dropdwn_sm"><option value="Title">Hierarchy Title</option></select></td>
+        </tr>
+        <tr>
+            <td align="right">Sort Order:</td>
+            <td>
+                <select name="levelSortOrder" class="dropdwn_sm"><option value="ascending">Ascending</option><option value="descending">Descending</option></select></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <input type="hidden" name="reportContextId" value="4449" />
+                <input type="submit" name="applySorter" value="Apply Sorting" class="buttonx">
+                &nbsp;&nbsp;
+                <input type="button" class="buttonx" onclick="resetSorter(this);return false;" value="Reset" />
+            </td>
+        </tr>
+    </table>
+    </form></div>
+<div id="myFilterWrapper" style="display: none;" >
+    <div id="myFilter" style="display: none; height: 100%; overflow: hidden;" >
+    </div>
+    <div id="myRange" class="invisible-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <form name="aimReportsFilterPickerForm2" method="post" action="/aim/reportsFilterPicker.do">
+
+
+            <script type="text/javascript">
+                function rreset(){
+                    document.aimReportsFilterPickerForm2.renderStartYear.value=-1;
+                    document.aimReportsFilterPickerForm2.renderEndYear.value=-1;
+                }
+            </script>
+
+            <div>
+                <table width="100%" align="center" cellpadding="0" cellspacing="0" style="vertical-align: top;">
+
+                    <tr>
+                        <td align="center" nowrap="nowrap">Range Start Year</td>
+                        <td align="center" nowrap="nowrap">Range End Year</td>
+                    </tr>
+                    <tr>
+                        <td width="50%" align="center" nowrap="nowrap"><br />
+                            <select name="renderStartYear" class="inp-text"><option value="-1">All</option>
+                                <option value="2000" selected="selected">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option></select></td>
+                        <td width="50%" align="center" nowrap="nowrap"><br />
+                            <select name="renderEndYear" class="inp-text"><option value="-1">All</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015" selected="selected">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option></select></td>
+                    </tr>
+                </table>
+
+
+                <table width="100%">
+                    <tr>
+                        <td height="40" colspan="5" align="center">
+
+
+                            <input type="hidden" name="ampReportId" value="4449" />
+                            <input type="hidden" name="reportContextId" value="4449" />
+
+
+                            <input type="submit" name="apply" value="Apply Ranges" onclick="return checkRangeValues()" class="dr-menu">&nbsp; <input type="button" name="reset" value="Reset" onclick="javascript:rreset();" class="dr-menu"></td>
+                    </tr>
+                </table>
+
+            </div>
+        </form></div>
+    <div id="customFormat" style="display: none;height: 372px;width: auto;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <form name="aimReportsFilterPickerForm3" method="post" action="/aim/reportsFilterPicker.do" onsubmit="return validateFormat()">
+            <input type="hidden" name="initialCal" id="initialCal" value="5"/>
+            <center>
+                <b style="font-size: 11px;">
+                    Number Format
+                </b>
+            </center>
+            <hr>
+            <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0" style="font-size:11px;">
+                <tr>
+                    <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Decimal Separator&nbsp;
+                    </td>
+                    <td width="20%" height="18" nowrap="nowrap">
+                        <select name="customDecimalSymbol" onchange="initFormatPopup();" id="customDecimalSymbol" class="dropdwn_sm"><option value="." selected="selected">.</option>
+
+                            <option value=",">,</option>
+
+                            <option value="CUSTOM">Custom</option></select>
+                        <input type="text" name="customDecimalSymbolTxt" maxlength="1" size="5" value="." onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Maximum Fraction Digits
+                        &nbsp;
+                    </td>
+                    <td width="60%">
+                        <select name="customDecimalPlaces" onchange="initFormatPopup();" id="customDecimalPlaces" class="dropdwn_sm"><option value="-1">No Limit</option>
+                            <option value="0" selected="selected">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="-2">Custom</option></select>
+                        <input type="text" name="customDecimalPlacesTxt" maxlength="2" size="5" value="" onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Use Grouping Separator&nbsp;
+                    </td>
+                    <td width="20%" height="18" nowrap="nowrap"><input type="checkbox" name="customUseGrouping" value="on" checked="checked" onchange="initFormatPopup();" id="customUseGrouping"></td>
+                    <td width="20%" height="18" align="left" nowrap="nowrap">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Grouping Separator&nbsp;
+                    </td>
+                    <td width="20%" height="18" nowrap="nowrap" style="font-size: 11px">
+                        <select name="customGroupCharacter" onchange="initFormatPopup();" id="customGroupCharacter" class="dropdwn_sm"><option value=".">.</option>
+
+                            <option value="," selected="selected">,</option>
+
+                            <option value="CUSTOM">Custom</option></select>
+                        <input type="text" name="customGroupCharacterTxt" maxlength="1" size="5" value="" onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                    </td>
+                </tr>
+                <tr>
+                    <td height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Group Size&nbsp;
+                    </td>
+                    <td height="18" colspan="2" nowrap="nowrap">
+                        <input type="text" name="customGroupSize" maxlength="1" size="2" value="3" onchange="initFormatPopup();" disabled="disabled" class="inputx"></td>
+                </tr>
+                <tr>
+                    <td height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Amounts units &nbsp;
+                    </td>
+                    <td height="18" colspan="2" nowrap="nowrap">
+
+                        <select name="amountinthousands" onchange="initFormatPopup();" id="customAmountinThousands" class="dropdwn_sm"><option value="0" selected="selected">Amounts in Units</option>
+                            <option value="1">Amounts in Thousands (000)</option>
+                            <option value="2">Amounts in Millions (000 000)</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
+                        Example&nbsp;
+                    </td>
+                    <td height="18" colspan="2" nowrap="nowrap"  style="font-weight:bold;font-size:11px">
+                        <div id="number" style="margin-left: 3px">
+                            123,456,790
+                        </div></td>
+                </tr>
+            </table>
+
+            <br>
+            <center>
+                <b style="font-size: 11px;">
+                    Other Settings
+                </b>
+            </center>
+            <hr>
+            <table width="400" align="center" cellpadding="2" cellspacing="2" style="font-size:11px;">
+                <tr>
+                    <td width="40%" style="text-align: right;font-size: 11px">
+                        currency&nbsp;</td>
+                    <td>
+                        <select name="currency" style="width: 200px" class="dropdwn_sm"><option value="47">Australian Dollar</option>
+                            <option value="43">Canadian Dollar</option>
+                            <option value="6">Chinese Yuan</option>
+                            <option value="65">Danish Krone</option>
+                            <option value="21" selected="selected">Dollar US</option>
+                            <option value="10">Euro</option>
+                            <option value="55">Franc CFA</option>
+                            <option value="67">Indian Rupee</option>
+                            <option value="62">Nepali Rupee</option>
+                            <option value="16">Norway Kroner</option>
+                            <option value="17">Pound Sterling</option>
+                            <option value="60">South Korean Won</option>
+                            <option value="66">Special Drawing Rights</option>
+                            <option value="20">Sweden Kroner</option>
+                            <option value="59">Swiss Franc</option>
+                            <option value="22">Yen</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%" style="text-align: right;font-size: 11px">
+                        Calendar&nbsp;
+                    </td>
+                    <td>
+                        <select name="calendar" style="width: 200px" class="dropdwn_sm"><option value="4">Gregorian Calendar</option>
+                            <option value="5" selected="selected">Nepali Fiscal Calendar</option></select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td width="40%" style="text-align: right">
+                        Year Range <b>*</b>
+                    </td>
+                    <td>
+                        From:
+                        <select name="renderStartYear" id="renderStartYear" class="dropdwn_sm"><option value="-1">All</option>
+                            <option value="2000" selected="selected">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option></select> &nbsp;
+                        To: &nbsp;
+                        <select name="renderEndYear" id="renderEndYear" class="dropdwn_sm"><option value="-1">All</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015" selected="selected">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div style="color: red; font-weight: bolder;">
+                            * <span title="If you want to filter the computed range, please use Change Filters -> Other Criteria -> Date Filters">
+						The range selected does not affect Totals or Computed amounts.
+					</span>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <br>
+            <div>
+                <div style="margin-right: auto; margin-left: auto; text-align: center;">
+
+                    <input type="hidden" name="ampReportId" value="4449" />
+                    <input type="hidden" name="reportContextId" value="4449" />
+
+                    <input type="hidden" name="defaultCurrency" value="21">
+                    <input type="hidden" name="defaultCalendar" value="4">
+
+                    <input type="submit" name="applyFormat" value="Apply Format" id="applyFormatBtn" class="buttonx">&nbsp;
+
+
+                    <input type="hidden" name="apply" value="true">
+                    <input type="hidden" name="resetFormat" value="false">
+                    <input type="button" name="applyFormat" value="Reset" onclick="ResetCustom(0);" class="buttonx">
+                </div>
+            </div>
+        </form></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="saveTitlePanel" style="display:none">
+    <div class="hd" style="font-size: 8pt">
+        Please enter a title for this report:
+    </div>
+    <div class="bd" id="titlePanelBody" style="padding: 10px 5px">
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="yui-skin-sam smallish">
+            <div id="AmpReports_name_holder" class="yui-navset">
+
+
+
+                <div>
+                    <input type="text" name="AmpReports_name_en"
+                           value="${title}"
+
+
+
+                           onkeypress="return saveReportEngine.checkEnter(event);"
+
+                           style="font-size: 8pt; font-weight: bolder;"
+                           class="inp-text multilingual_input_element" />
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <input type="hidden" id="saveReportId" value="4449" />
+        <div align="center">
+            <button id="dynamic_save_button" type="button" class="buttonx" onclick="$(this).attr('disabled',true);saveReportEngine.saveReport();">
+                Save Report
+            </button>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="ft" align="center">
+    </div>
+</div>
+
+
+<table width="100%">
+    <tr>
+        <td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <script type="text/javascript">
+
+                function addLoadEvent(func) {
+                    var oldonload = window.onload;
+                    if (typeof window.onload != 'function') {
+                        window.onload = func;
+                    } else {
+                        window.onload = function() {
+                            if (oldonload) {
+                                oldonload();
+                            }
+                            func();
+                        }
+                    }
+                }
+
+                function addpanel(){
+                    YAHOO.namespace("YAHOO.amp");
+                    YAHOO.amp.panel = new Array(3);
+                    YAHOO.amp.panel[0]		= new YAHOO.widget.Panel("aPanel0", {
+                        width:"400px",
+                        fixedcenter: true,
+                        constraintoviewport: true,
+                        underlay:"shadow",
+                        modal: true,
+                        close:true,
+                        visible:false,
+                        draggable:true} );
+                    YAHOO.amp.panel[0].setHeader("Excel Export Options");
+                    YAHOO.amp.panel[0].setBody("Empty");
+                    YAHOO.amp.panel[0].setFooter("");
+                    YAHOO.amp.panel[0].render(document.body);
+                    //
+                    YAHOO.amp.panel[1]		= new YAHOO.widget.Panel("aPanel1", {
+                        width:"450px",
+                        fixedcenter: true,
+                        constraintoviewport: true,
+                        underlay:"shadow",
+                        modal: true,
+                        close:true,
+                        visible:false,
+                        draggable:true} );
+                    YAHOO.amp.panel[1].setHeader("Statement");
+                    YAHOO.amp.panel[1].setBody("Empty");
+                    YAHOO.amp.panel[1].setFooter("");
+                    YAHOO.amp.panel[1].render(document.body);
+                    //
+                    YAHOO.amp.panel[2]		= new YAHOO.widget.Panel("aPanel2", {
+                        width:"300px",
+                        fixedcenter: true,
+                        constraintoviewport: true,
+                        underlay:"shadow",
+                        modal: true,
+                        close:true,
+                        visible:false,
+                        draggable:true} );
+                    YAHOO.amp.panel[2].setHeader("Logo");
+                    YAHOO.amp.panel[2].setBody("Empty");
+                    YAHOO.amp.panel[2].setFooter("");
+                    YAHOO.amp.panel[2].render(document.body);
+                }
+
+                addLoadEvent(addpanel);
+            </script>
+
+            <script type="text/javascript">
+                YAHOO.namespace("YAHOO.amp");
+
+                function showMyPanel(panelNum, elementId) {
+                    setPanelBody(panelNum, elementId);
+                    showPanel(panelNum);
+                }
+                function setPanelBody(panelNum, elementId){
+                    var element				= document.getElementById(elementId);
+                    element.style.display	= "inline";
+                    element.parentNode.removeChild(element);
+                    YAHOO.amp.panel[panelNum].setBody(element);
+                }
+                function showPanel (panelNum) {
+                    YAHOO.amp.panel[panelNum].show();
+                }
+                function hidePanel (panelNum) {
+                    YAHOO.amp.panel[panelNum].hide();
+                }
+            </script>
+            <style>
+                <!--
+                .toolbar{
+                    /* width: 140px; */
+                    background: #f2f2f2;
+                    background-color: #f2f2f2f;
+                    padding: 3px 3px 3px 3px;
+                    position: relative;
+                    top: 10px;
+                    left: 10px;
+                    bottom: 100px;
+                    border:1px solid #CCCCCC;
+                    display: inline-block;
+                    margin-bottom: 15px;
+                }
+                .toolbartable{
+                }
+                -->
+            </style>
+
+
+            <script type="text/javascript">
+                function toggleActionForm(type) {
+                    var options = false;
+                    if (type == null) return false;
+                    var form=document.getElementById("exportSettingsForm");
+                    $(form).find('#richExportRow').css('display', type == 'xls' ? 'table-row' : 'none'); // hide the "rich export" option for the non-Excel-export options
+                    if (type == "xls") {
+                        form.action = "/aim"+"/xlsExport.do";
+                    } else if (type == 'richXls'){
+                        form.action = "/aim"+"/xlsExport.do?richReport=true";
+                    }
+                    if (type == "plainXls") {
+                        form.action = "/aim"+"/xlsExport.do?plainReport=true";
+                    } else if (type == "pdf") {
+                        form.action = "/aim"+"/pdfExport.do";
+                    }
+
+
+                    if (options){
+                        showPublicPortalModeOption(type == "xls");
+                        showMyPanel(0, 'logoStatement');
+                        return false;
+                    }else{
+                        form.submit();
+                    }
+
+                    form.submit();
+                }
+
+                function showPublicPortalModeOption(visible){
+                    if (visible){
+                        $("#publicPortalModeOptionRow").css("visibility","visible");
+                    }else{
+                        $("#publicPortalModeOptionRow").css("visibility","hidden");
+                    }
+                }
+            </script>
+            <style>
+                @-moz-document url-prefix() {
+
+                    .imagecsv{margin-bottom:5px;}
+
+                }
+
+            </style>
+            <div class="toolbar" align="center">
+                <table border="0" align="center">
+                    <tr>
+                        <!--
+                            <td noWrap align=left valign="center">
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/close.gif" border="0" alt="Close Report">
+                                    <a href="javascript:window.close();">Close Report</a>
+                                </td>
+                            <td noWrap align=left valign="center">
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/reload.gif" border="0" alt="Reload Report">
+                            <a href="javascript:window.location.reload();">Reload Report</a></td>
+                        -->
+
+                        <td noWrap align=left valign="middle">
+
+
+
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/pdf_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
+
+                        </td>
+
+                        <td noWrap align=left valign="middle">
+
+
+
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
+
+                        </td>
+
+                        <td noWrap align=left valign="middle">
+
+
+
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_plain_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
+
+                        </td>
+
+
+
+
+
+
+
+
+
+
+
+                        <td noWrap align=left valign="center">
+
+
+
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/csv_icon_gray.png" border="0" hspace="2" vspace="2" class="imagecsv" title="Report is empty. Nothing to export">
+
+                        </td>
+
+
+
+
+                        <td noWrap align=left valign="center">
+
+
+                            <img alt="Export to Map" src="module/aim/images/globe-icon_2_gray.png" hspace="2" vspace="2" border="0" title="Report is empty. Nothing to export">
+
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <br>
+
+            <script type="text/javascript">
+                function openPrinter(){
+                    //alert('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=4449');
+                    window.open('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=4449','mywindow','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes');
+                }
+            </script>
+
+
+            <div id="statementPopup" class="invisible-item">
+                <table cellpadding="5" cellspacing="5" border="0" width="100%">
+                    <tr>
+                        <td align="center">
+                            This Report was created by AMP&nbsp;NEPAL&nbsp;Friday, March 22, 2019
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input type="reset" value="Close" onclick="javascript:hidePanel(1);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="logoPopup" class="invisible-item">
+                <table cellpadding="5" cellspacing="5" border="0" width="100%">
+                    <tr>
+                        <td align="center">
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/dgf_logo.jpg" border="0" hspace="2" vspace="2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input type="reset" value="Close" onclick="javascript:hidePanel(2);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="logoStatement" class="invisible-item" >
+                <div align="center">
+                    <form name="aimAdvancedReportForm" method="post" action="/aim/pdfExport.do" id="exportSettingsForm">
+                        <input type="hidden" name="viewParam" value="?view=reset" />
+                        <input type="hidden" name="ampReportId" value="4449" />
+                        <table cellpadding="5" cellspacing="5" border="0" width="100%">
+                            <tr>
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="Displays the AMP statement" onclick="javascript:showMyPanel(1, 'statementPopup');">
+                                    Statement Options
+                                </td>
+                                <td>
+                                    <select name="statementOptions"><option value="0">Disable</option>
+                                        <option value="1">Enable</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    Statement Position Options
+                                </td>
+                                <td>
+                                    <select name="statementPositionOptions"><option value="0">Header</option>
+                                        <option value="1">Footer</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    Date Options
+                                </td>
+                                <td>
+                                    <select name="dateOptions"><option value="0">Disable</option>
+                                        <option value="1">Enable</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="Displays the Official AMP Logo" onclick="javascript:showMyPanel(2, 'logoPopup');">
+                                    Logo Options
+                                </td>
+                                <td>
+                                    <select name="logoOptions"><option value="0">Disable</option>
+                                        <option value="1">Enable</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    Logo Position Options
+                                </td>
+                                <td>
+                                    <select name="logoPositionOptions"><option value="0">Header</option>
+                                        <option value="1">Footer</option></select>
+                                </td>
+                            </tr>
+                            <tr id="publicPortalModeOptionRow">
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="No header is exported and column names are machine friendly">
+                                    Public Portal Mode
+                                </td>
+                                <td>
+                                    <select name="publicPortalMode">
+                                        <option value="false">Disable</option>
+                                        <option value="true">Enable</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr id="richExportRow">
+                                <td>
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    Rich Export Format
+                                </td>
+                                <td>
+
+                                    <select name="richReport">
+                                        <option  value="true">Enable</option>
+                                        <option selected="selected"  value="false">Disable</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr><td align="center" colspan="2">&nbsp;</td></tr>
+                            <tr><td align="center" colspan="2">&nbsp;</td></tr>
+
+                            <tr>
+                                <td align="center" colspan="2">
+                                    <input type="submit" value="Apply" onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                                    <input type="reset" value="Cancel" onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            </div>
+            <div class="reportname" style="font-size:18px; padding-left:5px; font-family:Arial, Helvetica, sans-serif; margin-bottom:10px; font-weight:bold; color:#000000;" th:text="${title}">
+               </div>
+            <table width="100%" cellpadding="3" cellspacing="1" rules="rows" frame="box" style="margin-left: 5px;border-color:#cccccc;">
+                <tr>
+                    <td align="left" height="20px" style="padding-left: 5px;padding-left: 5px;">
+					<span  style="color: red;font-family: Arial;font-size: 10px;">
+						- Dollar US</span>
+                    </td>
+                </tr>
+            </table>
+            <!-- not a tab, not a print, e.g. a normal report -->
+    <tr><td><div class="tab_opt_box">
+        <div class="show_hide_setting">
+            <b>
+                <a style="cursor:pointer;float:right;" onClick="toggleSettings();" id="displaySettingsButton">Show current settings</a>
+            </b>
+        </div>
+        <div class="tab_opt">
+            <div class="tab_opt_cont">
+                <a class="settingsLink" style="cursor: pointer;color:#376091;" onClick="showSorter();">
+                    Change Sorting</a> |
+                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFilter('4449'); " >
+                    Change Filters</a>
+
+                |
+                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="initSaveReportEngine(false);saveReportEngine.showPanel(); " title="Save the report with filter and sorting criteria" >
+                    Save Report</a>
+
+                |
+                <a  id="frezzlinkreport" reportContextId='4449' class="settingsLinkDisable" style="cursor: pointer;color:#376091; " onclick="javascript:frezzreport(4449)">
+                    <script language="javascript">
+                        document.write(msg1);
+                    </script>
+                </a>
+
+
+                |<a  class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFormat(); " >
+                Report Settings</a>
+
+                <br />
+                <div class="tab_opt_box_cont" style="display:none;" id="currentDisplaySettings">
+                    <table cellpadding="0" cellspacing="0" border="0" width="80%">
+                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
+                            <strong>Workspace Filters:</strong>
+
+
+
+
+
+
+
+                            <!-- the PropertyListable bean defined as attribute of the request -->
+
+                            <!-- style of display -->
+
+                            <!-- trn tags prefix -->
+
+
+
+
+
+
+
+
+                            <!-- Display the bean in a table style -->
+
+
+                            <!-- Display the bean in a comma separated list style -->
+
+
+
+                            <I></I>
+
+
+                            <i>accessType</i>: [Team]
+                            |
+
+
+                            <i>amountDivider</i>: [1]
+                            |
+
+
+                            <i>amountMultiplier</i>: [1.0]
+                            |
+
+
+                            <i>amountinthousand</i>: [0]
+                            |
+
+
+                            <i>calendarType</i>: [Gregorian Calendar]
+                            |
+
+
+                            <i>currency</i>: [USD]
+                            |
+
+
+                            <i>customusegroupings</i>: [true]
+                            |
+
+
+                            <i>decimalseparator</i>: [.]
+                            |
+
+
+                            <i>groupingseparator</i>: [,]
+                            |
+
+
+                            <i>groupingsize</i>: [3]
+                            |
+
+
+                            <i>justSearch</i>: [false]
+                            |
+
+
+                            <i>maximumFractionDigits</i>: [0]
+                            |
+
+
+                            <i>needsTeamFilter</i>: [false]
+                            |
+
+                            |
+
+                            |
+
+
+                            <i>selectedActivityPledgesSettings</i>: [-1]
+                            |
+
+
+                            <i>showArchived</i>: [false]
+                            |
+
+
+                            <i>sortByAsc</i>: [true]
+                            |
+
+
+                            <i>teamMemberId</i>: [1442]
+                            |
+
+
+                            <i>unitsOptions</i>: [AMOUNTS_OPTION_UNITS]
+                            |
+
+
+                            <i>usedCurrency</i>: [USD]
+                            |
+
+
+                            <i>usedCurrencyName</i>: [Dollar US]
+                            |
+
+
+                            <i>workspaceonly</i>: [false]
+                            |
+
+
+                        </td></tr>
+                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
+                            <strong>
+                                Selected Filters:</strong>
+
+
+
+
+
+
+
+                            <!-- the PropertyListable bean defined as attribute of the request -->
+
+                            <!-- style of display -->
+
+                            <!-- trn tags prefix -->
+
+
+
+
+
+
+
+
+                            <!-- Display the bean in a table style -->
+
+
+                            <!-- Display the bean in a comma separated list style -->
+
+
+
+                            <I></I>
+
+
+                            <i>accessType</i>: [Team]
+                            |
+
+
+                            <i>amountDivider</i>: [1]
+                            |
+
+
+                            <i>amountMultiplier</i>: [1.0]
+                            |
+
+
+                            <i>amountinthousand</i>: [0]
+                            |
+
+
+                            <i>calendarType</i>: [Nepali Fiscal Calendar]
+                            |
+
+
+                            <i>currency</i>: [USD]
+                            |
+
+
+                            <i>customusegroupings</i>: [true]
+                            |
+
+
+                            <i>decimalseparator</i>: [.]
+                            |
+
+
+                            <i>fromDate</i>: [16/07/2017]
+                            |
+
+
+                            <i>groupingseparator</i>: [,]
+                            |
+
+
+                            <i>groupingsize</i>: [3]
+                            |
+
+
+                            <i>justSearch</i>: [false]
+                            |
+
+
+                            <i>maximumFractionDigits</i>: [0]
+                            |
+
+
+                            <i>needsTeamFilter</i>: [false]
+                            |
+
+                            |
+
+                            |
+
+
+                            <i>searchMode</i>: [0]
+                            |
+
+
+                            <i>selectedActivityPledgesSettings</i>: [-1]
+                            |
+
+
+                            <i>showArchived</i>: [false]
+                            |
+
+
+                            <i>sortByAsc</i>: [true]
+                            |
+
+
+                            <i>statuses</i>: [On-Going, New]
+                            |
+
+
+                            <i>teamMemberId</i>: [99]
+                            |
+
+
+                            <i>toDate</i>: [15/07/2018]
+                            |
+
+
+                            <i>unitsOptions</i>: [AMOUNTS_OPTION_UNITS]
+                            |
+
+
+                            <i>usedCurrency</i>: [USD]
+                            |
+
+
+                            <i>usedCurrencyName</i>: [Dollar US]
+                            |
+
+
+                            <i>workspaceonly</i>: [false]
+                            |
+
+
+                        </td></tr>
+                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
+                            <strong>Selected Range:</strong>
+                            <i>Start Year:</i> 2000 |
+                            <i>End Year:</i> 2015 |
+                        </td></tr>
+                    </table>
+                </div></div>
+        </div>
+    </div></td></tr>
+    <!--<span>Level Sorters</span>-->
+    <!--<span>Total Unique Rows</span>	-->
+    <tr>
+        <td style="font-family: Arial;font-style: italic;font-size: 10x">
+            The specified filtered report does not hold any data. Either							pick a different filter criteria or use another report.</td>
+    </tr>
+</table>
+</td>
+</tr>
+</table>
+<script language="JavaScript">
+    loadingreport.hide();
+</script>
+
+</body>
+</html>

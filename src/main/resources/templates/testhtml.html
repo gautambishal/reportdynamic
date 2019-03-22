@@ -3321,7 +3321,7 @@
 
                                 </div>
                                 <div class="ft" align="right">
-                                    <button id="last_save_button" type="button" class="buttonx yui-button" onclick="saveReportEngine.saveReport();">
+                                    <button id="last_save_button" type="button" class="buttonx yui-button" onclick="mytest();">
                                         Save Report
                                     </button>
 
@@ -3986,6 +3986,18 @@
             showLogin: false,
             loginDropdown: true
         });
+        function mytest(){
+            // $.ajax({
+            //     url:"http://localhost:8090/reportSubmit",
+            //     async:false,
+            //     success:  function(data) {
+            //         self.success({responseText:data});
+            //     }
+            // });
+            alert("I am here");
+            var oReq = new XMLHttpRequest();
+            oReq.open("POST","http://localhost:8090/reportSubmit");
+        }
     </script>
 
 

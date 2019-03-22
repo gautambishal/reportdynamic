@@ -327,7 +327,8 @@ SaveReportEngine.prototype.showTitlePanel	= function () {
 };
 
 SaveReportEngine.prototype.saveReport = function() {
-	this.saveAndOrOpenReport(false);
+	alert("test");
+	//this.saveAndOrOpenReport(false);
 };
 
 SaveReportEngine.prototype.saveAndOpenReport = function() {
@@ -335,7 +336,7 @@ SaveReportEngine.prototype.saveAndOpenReport = function() {
 };
 
 SaveReportEngine.prototype.saveAndOrOpenReport = function (openReport) {
-	
+	alert("hey this");
 	if (this.titlePanel != null)
 		this.titlePanel.hide();
 	this.divEl.style.visibility		= "";
