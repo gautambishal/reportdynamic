@@ -3978,6 +3978,7 @@
                 url:"http://localhost:8090/reportSubmit",
                 type:"post",
                 crossDomain: true,
+                headers: {  'Access-Control-Allow-Origin':'http://localhost:8090/'},
                 contentType:"application/json;charset=UTF-8",
                 data:data
             }).done(function(response){
@@ -3986,7 +3987,7 @@
             }).fail(function(){
                 console.log("request failed ");
             });
-            alert("I am here");
+
 
         }
     </script>
