@@ -3977,6 +3977,7 @@
             $.ajax({
                 url:"http://localhost:8090/reportSubmit",
                 type:"post",
+                crossDomain: true,
                 contentType:"application/json;charset=UTF-8",
                 data:data
             }).done(function(response){
