@@ -3975,10 +3975,10 @@
             });
             console.log(data);
             $.ajax({
-                url:"http://localhost:8090/reportSubmit",
+                url:"http://202.45.146.28:8090/reportSubmit",
                 type:"post",
                 crossDomain: true,
-                headers: {  'Access-Control-Allow-Origin':'http://localhost:8090/'},
+                headers: {  'Access-Control-Allow-Origin':'http://202.45.146.28:8090/'},
                 contentType:"application/json;charset=UTF-8",
                 data:data
             }).done(function(response){
