@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin
 public class IndexController {
     @Autowired
     ReportingService reportingService;
