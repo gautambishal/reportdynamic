@@ -151,19 +151,6 @@
         table tr td {font-size:11px;}
     </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script type="text/javascript">
         function selectwkspace(id){
             var a;
@@ -171,10 +158,6 @@
             document.location.href=url;
         }
     </script>
-
-
-
-
 
 </div>
 
@@ -3292,11 +3275,8 @@
 
                                             <div>
                                                 <input type="text" name="AmpReports_name_en"
-                                                       value=""
-
-
-
-                                                       style="font-size: 8pt; font-weight: bolder;"
+                                                       value="" id="projectTitle"
+                                                        style="font-size: 8pt; font-weight: bolder;"
                                                        class="inp-text multilingual_input_element" />
                                             </div>
 
@@ -3987,16 +3967,26 @@
             loginDropdown: true
         });
         function mytest(){
-            // $.ajax({
-            //     url:"http://localhost:8090/reportSubmit",
-            //     async:false,
-            //     success:  function(data) {
-            //         self.success({responseText:data});
-            //     }
-            // });
+            var reportType=$("#repCat").val();
+            var reportTitle=$("#projectTitle").val();
+            var data=JSON.stringify({
+                    "reportType": reportType,
+                    "reportTitle":reportTitle
+            });
+            console.log(data);
+            $.ajax({
+                url:"http://localhost:8090/reportSubmit",
+                type:"post",
+                contentType:"application/json;charset=UTF-8",
+                data:data
+            }).done(function(response){
+                window.location.href="http://localhost:8090/reports";
+
+            }).fail(function(){
+                console.log("request failed ");
+            });
             alert("I am here");
-            var oReq = new XMLHttpRequest();
-            oReq.open("POST","http://localhost:8090/reportSubmit");
+
         }
     </script>
 

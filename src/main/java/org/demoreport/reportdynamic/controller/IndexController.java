@@ -1,19 +1,23 @@
 package org.demoreport.reportdynamic.controller;
 
+import org.demoreport.reportdynamic.model.ReportModel;
+import org.demoreport.reportdynamic.service.ReportingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 public class IndexController {
+    @Autowired
+    ReportingService reportingService;
     @RequestMapping(value="/reports")
-    public String report(){
+    public String report(Model model){
+        model.addAttribute("listOfReports",reportingService.listReports());
         return "publicreport";
     }
      @RequestMapping(value="/createdwizard")
@@ -32,18 +36,15 @@ public class IndexController {
 
     @PostMapping("/reportSubmit")
     @ResponseBody
-    public String submit(HttpServletRequest servletRequest){
-        System.out.println("hello dost");
-        Map<String,String> fields=servletRequest.getTrailerFields();
-        for(Map.Entry m: fields.entrySet()){
-            System.out.println(m.getKey()+ " "+m.getValue());
-
-        }
-        return "Saved Successfully";
+    public String submit(@RequestBody ReportModel reportModel){
+        reportingService.save(reportModel);
+        return "success";
     }
-    @GetMapping("/specialReport")
-    public String specialReport(Model model){
-        model.addAttribute("title","My custom title");
+    @GetMapping("/specialReport/{id}")
+    public String specialReport(@PathVariable("id") Integer id, Model model){
+
+
+        model.addAttribute("title",reportingService.findById(id).get());
         return "specialreport";
     }
 }
