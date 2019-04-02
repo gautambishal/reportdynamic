@@ -16,7 +16,7 @@
 
 
         Aid Management Platform
-        - Reports - ${title}
+        - Reports - myowntest
 
 
     </title>
@@ -65,33 +65,6 @@
 
 
 
-
-    <script type="text/javascript">
-        function showUserProfile(id){
-
-            //openURLinWindow("/aim/userProfile.do~edit=true~id="+id,480, 350);
-            var param = "~edit=true~id="+id;
-            previewWorkspaceframe('/aim/default/userProfile.do',param);
-        }
-        function help(){
-
-            openURLinWindow("/help/help.do~blankPage=true",1024,768);
-        }
-        function adminHelp(){
-
-            openURLinWindow("/help/admin/help.do~blankPage=true",1024,768);
-        }
-
-        function canExit(){
-            if(typeof quitRnot1 == 'function') {
-                return quitRnot1('');
-            }
-            else{
-                return true;
-            }
-
-        }
-    </script>
 
 
     <style type="text/css">
@@ -746,8 +719,6 @@
 <script type="text/javascript">
     dateFilterErrorMsg = "\'From\' date must be on or before \'To\' date";
     var currentReportId	= -1;
-
-    currentReportId = 4449
 
     YAHOO.namespace("YAHOO.amptab");
     YAHOO.amptab.init = function() {
@@ -1556,12 +1527,29 @@
             <td align="right">
                 Hierarchy Level:</td>
             <td>
-                <select name="levelPicked" class="dropdwn_sm"><option value="1">Donor Agency</option></select></td>
+                <select name="levelPicked" class="dropdwn_sm"></select></td>
         </tr>
         <tr>
             <td align="right">Sort by:</td>
             <td>
-                <select name="levelSorter" class="dropdwn_sm"><option value="Title">Hierarchy Title</option></select></td>
+                <select name="levelSorter" class="dropdwn_sm"><option value="Title">Hierarchy Title</option><option value="Proposed Project Amount">Proposed Project Amount
+                    &nbsp;</option><option value="Funding--2018--Actual Commitments">Funding
+                    &nbsp;
+                    2018
+                    &nbsp;
+                    Actual Commitments
+                    &nbsp;</option><option value="Funding--2018--Actual Disbursements">Funding
+                    &nbsp;
+                    2018
+                    &nbsp;
+                    Actual Disbursements
+                    &nbsp;</option><option value="Total Costs--Actual Commitments">Total Costs
+                    &nbsp;
+                    Actual Commitments
+                    &nbsp;</option><option value="Total Costs--Actual Disbursements">Total Costs
+                    &nbsp;
+                    Actual Disbursements
+                    &nbsp;</option></select></td>
         </tr>
         <tr>
             <td align="right">Sort Order:</td>
@@ -1570,7 +1558,7 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align: center;">
-                <input type="hidden" name="reportContextId" value="4449" />
+                <input type="hidden" name="reportContextId" value="5090" />
                 <input type="submit" name="applySorter" value="Apply Sorting" class="buttonx">
                 &nbsp;&nbsp;
                 <input type="button" class="buttonx" onclick="resetSorter(this);return false;" value="Reset" />
@@ -1660,12 +1648,12 @@
                                 <option value="2012">2012</option>
                                 <option value="2013">2013</option>
                                 <option value="2014">2014</option>
-                                <option value="2015" selected="selected">2015</option>
+                                <option value="2015">2015</option>
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
-                                <option value="2020">2020</option></select></td>
+                                <option value="2020" selected="selected">2020</option></select></td>
                     </tr>
                 </table>
 
@@ -1675,8 +1663,8 @@
                         <td height="40" colspan="5" align="center">
 
 
-                            <input type="hidden" name="ampReportId" value="4449" />
-                            <input type="hidden" name="reportContextId" value="4449" />
+                            <input type="hidden" name="ampReportId" value="5090" />
+                            <input type="hidden" name="reportContextId" value="5090" />
 
 
                             <input type="submit" name="apply" value="Apply Ranges" onclick="return checkRangeValues()" class="dr-menu">&nbsp; <input type="button" name="reset" value="Reset" onclick="javascript:rreset();" class="dr-menu"></td>
@@ -1707,7 +1695,7 @@
 
 
         <form name="aimReportsFilterPickerForm3" method="post" action="/aim/reportsFilterPicker.do" onsubmit="return validateFormat()">
-            <input type="hidden" name="initialCal" id="initialCal" value="5"/>
+            <input type="hidden" name="initialCal" id="initialCal" value="4"/>
             <center>
                 <b style="font-size: 11px;">
                     Number Format
@@ -1829,8 +1817,8 @@
                         Calendar&nbsp;
                     </td>
                     <td>
-                        <select name="calendar" style="width: 200px" class="dropdwn_sm"><option value="4">Gregorian Calendar</option>
-                            <option value="5" selected="selected">Nepali Fiscal Calendar</option></select>
+                        <select name="calendar" style="width: 200px" class="dropdwn_sm"><option value="4" selected="selected">Gregorian Calendar</option>
+                            <option value="5">Nepali Fiscal Calendar</option></select>
                     </td>
                 </tr>
 
@@ -1880,12 +1868,12 @@
                             <option value="2012">2012</option>
                             <option value="2013">2013</option>
                             <option value="2014">2014</option>
-                            <option value="2015" selected="selected">2015</option>
+                            <option value="2015">2015</option>
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
-                            <option value="2020">2020</option></select>
+                            <option value="2020" selected="selected">2020</option></select>
                     </td>
                 </tr>
                 <tr>
@@ -1903,11 +1891,11 @@
             <div>
                 <div style="margin-right: auto; margin-left: auto; text-align: center;">
 
-                    <input type="hidden" name="ampReportId" value="4449" />
-                    <input type="hidden" name="reportContextId" value="4449" />
+                    <input type="hidden" name="ampReportId" value="5090" />
+                    <input type="hidden" name="reportContextId" value="5090" />
 
                     <input type="hidden" name="defaultCurrency" value="21">
-                    <input type="hidden" name="defaultCalendar" value="4">
+                    <input type="hidden" name="defaultCalendar" value="5">
 
                     <input type="submit" name="applyFormat" value="Apply Format" id="applyFormatBtn" class="buttonx">&nbsp;
 
@@ -1975,7 +1963,7 @@
 
                 <div>
                     <input type="text" name="AmpReports_name_en"
-                           value="${title}"
+                           th:value="${title}"
 
 
 
@@ -1992,7 +1980,7 @@
 
 
 
-        <input type="hidden" id="saveReportId" value="4449" />
+        <input type="hidden" id="saveReportId" value="5090" />
         <div align="center">
             <button id="dynamic_save_button" type="button" class="buttonx" onclick="$(this).attr('disabled',true);saveReportEngine.saveReport();">
                 Save Report
@@ -2200,25 +2188,31 @@
 
                         <td noWrap align=left valign="middle">
 
+                            <a href="#" target="_blank" onclick="toggleActionForm('pdf'); return false;" title="Download as PDF">
 
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/pdf_icon.gif" border="0" hspace="2" vspace="2" alt="Export to PDF">
+                            </a>
 
-                            <img src="/TEMPLATE/ampTemplate/module/aim/images/pdf_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
 
                         </td>
 
                         <td noWrap align=left valign="middle">
 
+                            <a href="#" target="_blank" onclick="toggleActionForm('xls'); return false;" title="Download as XLS">
 
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_icon.jpg" border="0" hspace="2" vspace="2" title="Export to Excel">
+                            </a>
 
-                            <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
 
                         </td>
 
                         <td noWrap align=left valign="middle">
 
+                            <a href="#" target="_blank" onclick="toggleActionForm('plainXls'); return false;" title="Download as Plain XLS">
 
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_plain_icon.jpg" border="0" hspace="2" vspace="2" alt="Export to Excel as Plain Report">
+                            </a>
 
-                            <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_plain_icon_gray.gif" border="0" hspace="2" vspace="2" title="Report is empty. Nothing to export">
 
                         </td>
 
@@ -2234,9 +2228,8 @@
 
                         <td noWrap align=left valign="center">
 
+                            <a href="/aim/csvExport.do~view=reset~ampReportId=5090" target="_blank" title="Download as CSV"><img src="/TEMPLATE/ampTemplate/module/aim/images/csv_icon.png" border="0" hspace="2" vspace="2" class="imagecsv" alt="Export to CSV"></a>
 
-
-                            <img src="/TEMPLATE/ampTemplate/module/aim/images/csv_icon_gray.png" border="0" hspace="2" vspace="2" class="imagecsv" title="Report is empty. Nothing to export">
 
                         </td>
 
@@ -2245,8 +2238,10 @@
 
                         <td noWrap align=left valign="center">
 
+                            <a href="/esrigis/mainmap.do?exportreport=true&ampReportId=5090" target="_blank" title="Export to Map">
+                                <img alt="Export to Map" src="module/aim/images/globe-icon_2.png" hspace="2" vspace="2" border="0">
+                            </a>
 
-                            <img alt="Export to Map" src="module/aim/images/globe-icon_2_gray.png" hspace="2" vspace="2" border="0" title="Report is empty. Nothing to export">
 
                         </td>
 
@@ -2257,8 +2252,8 @@
 
             <script type="text/javascript">
                 function openPrinter(){
-                    //alert('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=4449');
-                    window.open('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=4449','mywindow','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes');
+                    //alert('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=5090');
+                    window.open('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=5090','mywindow','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes');
                 }
             </script>
 
@@ -2267,7 +2262,7 @@
                 <table cellpadding="5" cellspacing="5" border="0" width="100%">
                     <tr>
                         <td align="center">
-                            This Report was created by AMP&nbsp;NEPAL&nbsp;Friday, March 22, 2019
+                            This Report was created by AMP&nbsp;NEPAL&nbsp;Monday, April 1, 2019
                         </td>
                     </tr>
                     <tr>
@@ -2309,7 +2304,7 @@
                 <div align="center">
                     <form name="aimAdvancedReportForm" method="post" action="/aim/pdfExport.do" id="exportSettingsForm">
                         <input type="hidden" name="viewParam" value="?view=reset" />
-                        <input type="hidden" name="ampReportId" value="4449" />
+                        <input type="hidden" name="ampReportId" value="5090" />
                         <table cellpadding="5" cellspacing="5" border="0" width="100%">
                             <tr>
                                 <td>
@@ -2401,8 +2396,8 @@
                 </div>
             </div>
             </div>
-            <div class="reportname" style="font-size:18px; padding-left:5px; font-family:Arial, Helvetica, sans-serif; margin-bottom:10px; font-weight:bold; color:#000000;" th:text="${title.reportTitle}">
-               </div>
+            <div class="reportname" th:text="${title}" style="font-size:18px; padding-left:5px; font-family:Arial, Helvetica, sans-serif; margin-bottom:10px; font-weight:bold; color:#000000;">
+                </div>
             <table width="100%" cellpadding="3" cellspacing="1" rules="rows" frame="box" style="margin-left: 5px;border-color:#cccccc;">
                 <tr>
                     <td align="left" height="20px" style="padding-left: 5px;padding-left: 5px;">
@@ -2420,21 +2415,8 @@
         </div>
         <div class="tab_opt">
             <div class="tab_opt_cont">
-                <a class="settingsLink" style="cursor: pointer;color:#376091;" onClick="showSorter();">
-                    Change Sorting</a> |
-                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFilter('4449'); " >
+                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFilter('5090'); " >
                     Change Filters</a>
-
-                |
-                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="initSaveReportEngine(false);saveReportEngine.showPanel(); " title="Save the report with filter and sorting criteria" >
-                    Save Report</a>
-
-                |
-                <a  id="frezzlinkreport" reportContextId='4449' class="settingsLinkDisable" style="cursor: pointer;color:#376091; " onclick="javascript:frezzreport(4449)">
-                    <script language="javascript">
-                        document.write(msg1);
-                    </script>
-                </a>
 
 
                 |<a  class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFormat(); " >
@@ -2444,7 +2426,8 @@
                 <div class="tab_opt_box_cont" style="display:none;" id="currentDisplaySettings">
                     <table cellpadding="0" cellspacing="0" border="0" width="80%">
                         <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
-                            <strong>Workspace Filters:</strong>
+                            <strong>
+                                Selected Filters:</strong>
 
 
 
@@ -2475,7 +2458,7 @@
                             <I></I>
 
 
-                            <i>accessType</i>: [Team]
+                            <i>accessType</i>: [Management]
                             |
 
 
@@ -2507,6 +2490,10 @@
                             |
 
 
+                            <i>donorTypes</i>: [Government of Nepal]
+                            |
+
+
                             <i>groupingseparator</i>: [,]
                             |
 
@@ -2523,11 +2510,15 @@
                             |
 
 
-                            <i>needsTeamFilter</i>: [false]
+                            <i>needsTeamFilter</i>: [true]
                             |
 
                             |
 
+                            |
+
+
+                            <i>searchMode</i>: [0]
                             |
 
 
@@ -2565,147 +2556,9 @@
 
                         </td></tr>
                         <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
-                            <strong>
-                                Selected Filters:</strong>
-
-
-
-
-
-
-
-                            <!-- the PropertyListable bean defined as attribute of the request -->
-
-                            <!-- style of display -->
-
-                            <!-- trn tags prefix -->
-
-
-
-
-
-
-
-
-                            <!-- Display the bean in a table style -->
-
-
-                            <!-- Display the bean in a comma separated list style -->
-
-
-
-                            <I></I>
-
-
-                            <i>accessType</i>: [Team]
-                            |
-
-
-                            <i>amountDivider</i>: [1]
-                            |
-
-
-                            <i>amountMultiplier</i>: [1.0]
-                            |
-
-
-                            <i>amountinthousand</i>: [0]
-                            |
-
-
-                            <i>calendarType</i>: [Nepali Fiscal Calendar]
-                            |
-
-
-                            <i>currency</i>: [USD]
-                            |
-
-
-                            <i>customusegroupings</i>: [true]
-                            |
-
-
-                            <i>decimalseparator</i>: [.]
-                            |
-
-
-                            <i>fromDate</i>: [16/07/2017]
-                            |
-
-
-                            <i>groupingseparator</i>: [,]
-                            |
-
-
-                            <i>groupingsize</i>: [3]
-                            |
-
-
-                            <i>justSearch</i>: [false]
-                            |
-
-
-                            <i>maximumFractionDigits</i>: [0]
-                            |
-
-
-                            <i>needsTeamFilter</i>: [false]
-                            |
-
-                            |
-
-                            |
-
-
-                            <i>searchMode</i>: [0]
-                            |
-
-
-                            <i>selectedActivityPledgesSettings</i>: [-1]
-                            |
-
-
-                            <i>showArchived</i>: [false]
-                            |
-
-
-                            <i>sortByAsc</i>: [true]
-                            |
-
-
-                            <i>statuses</i>: [On-Going, New]
-                            |
-
-
-                            <i>teamMemberId</i>: [99]
-                            |
-
-
-                            <i>toDate</i>: [15/07/2018]
-                            |
-
-
-                            <i>unitsOptions</i>: [AMOUNTS_OPTION_UNITS]
-                            |
-
-
-                            <i>usedCurrency</i>: [USD]
-                            |
-
-
-                            <i>usedCurrencyName</i>: [Dollar US]
-                            |
-
-
-                            <i>workspaceonly</i>: [false]
-                            |
-
-
-                        </td></tr>
-                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
                             <strong>Selected Range:</strong>
                             <i>Start Year:</i> 2000 |
-                            <i>End Year:</i> 2015 |
+                            <i>End Year:</i> 2020 |
                         </td></tr>
                     </table>
                 </div></div>
@@ -2714,8 +2567,259 @@
     <!--<span>Level Sorters</span>-->
     <!--<span>Total Unique Rows</span>	-->
     <tr>
-        <td style="font-family: Arial;font-style: italic;font-size: 10x">
-            The specified filtered report does not hold any data. Either							pick a different filter criteria or use another report.</td>
+        <td  style="padding-left: 5px;padding-left: 5px;">
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <!-- begin big report table -->
+                        <div id="fixAutomaticDivWithHeight100">
+                            <table id='reportTable' class="html2ReportTable inside" width="100%" cellpadding="0" cellspacing="0">
+
+
+
+
+                                <!-- generate report headings -->
+                                <!-- generate report headings -->
+                                <thead class="fixedHeader">
+                                <tr class="reportHeader" title='Report Headings'>
+                                    <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FActivity+Created+On&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Activity Created On</a></td>
+                                    <!-- subcolumn name: Primary Sector, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FPrimary+Sector&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Primary Sector</a></td>
+                                    <!-- subcolumn name: Secondary Sector, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FSecondary+Sector&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Secondary Sector</a></td>
+                                    <!-- subcolumn name: Responsible Organization, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FResponsible+Organization&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Counterpart Ministry</a></td>
+                                    <!-- subcolumn name: Proposed Project Amount, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FProposed+Project+Amount&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Proposed Project Amount</a></td>
+                                    <!-- subcolumn name: Funding, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 1 %> -->
+                                    <td class="reportHeader" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='2'>
+                                        Funding</td>
+                                    <!-- subcolumn name: Total Costs, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 2 %> -->
+                                    <td class="reportHeader" height="15px" nowrap="nowrap" align="center" rowspan="2" colspan='2'>
+                                        Total Costs</td>
+                                </tr>
+                                <tr class="reportHeader" title='Report Headings'>
+                                    <!-- subcolumn name: 2018, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 1 %> -->
+                                    <td style="margin-left: 2px; margin-right: 2px;" class="reportHeader" height="20px" nowrap="nowrap" align="center" rowspan="1" colspan='2'>
+                                        2018</td>
+                                </tr>
+                                <tr class="reportHeader" title='Report Headings'>
+                                    <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
+                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FFunding%2F2018%2FActual+Commitments&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Commitments</a></td>
+                                    <!-- subcolumn name: Actual Disbursements, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
+                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FFunding%2F2018%2FActual+Disbursements&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Disbursements</a></td>
+                                    <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
+                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FTotal+Costs%2FActual+Commitments&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Commitments</a></td>
+                                    <!-- subcolumn name: Actual Disbursements, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
+                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
+                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FTotal+Costs%2FActual+Disbursements&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Disbursements</a></td>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                <!-- generate total row 1 -->
+                                <!-- CRD-before trailCells!! -->
+                                <!-- printing row tag -->
+                                <tr onmousedown="getRowSelectorInstance(this, {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
+                                    onMouseover="getRowSelectorInstance(this, {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
+                                    onMouseout="getRowSelectorInstance(this,  {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' } ).unmarkRow(false)">
+                                    <!-- generate total row 2 -->
+
+                                    <td nowrap="nowrap" style="border-bottom:black 1px solid;border-right:#E2E2E2 1px solid;" height="18px" >
+		<span style="font-family: Arial;color:black; font-weight: bold;font-size: 12px;margin-left: 2px">
+			Report Totals:</span>
+
+                                        &nbsp;
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+
+                                        &nbsp;
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+
+                                        &nbsp;
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+
+                                        &nbsp;
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+                                        <div align="right">
+                                            0&nbsp;
+                                        </div>
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <!-- CRD-after trailCells!! -->
+                                    <!-- generate report data -->
+
+
+                                    <!-- SSSS -1- SSSS -->
+                                <tr height="16px"
+                                    onmousedown="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
+                                    onMouseover="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
+                                    onMouseout="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).unmarkRow(false)">
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        08/06/2017&nbsp;</td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="WOMEN, CHILDREN & SOCIAL WELFARE">
+                                                WOMEN, CHILDREN & SOCIAL WELFARE</div>
+                                        </div></td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="HOUSING AND COMMUNITY AMENITIES">
+                                                HOUSING AND COMMUNITY AMENITIES</div>
+                                        </div></td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="Ministry of Women, Children & Social Welfare">
+                                                Ministry of Women, Children & Social Welfare</div>
+                                        </div></td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        &nbsp;
+                                    </td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        &nbsp;
+                                    </td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        &nbsp;
+                                    </td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        <div align='right'>0&nbsp;</div></td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        <div align='right'>0&nbsp;</div></td>
+                                </tr>
+                                <!-- SSSS -2- SSSS -->
+                                <tr class="oddActivity" height="16px"
+                                    onmousedown="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
+                                    onMouseover="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
+                                    onMouseout="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).unmarkRow(false)">
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        28/08/2018&nbsp;</td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="HEALTH">
+                                                HEALTH</div>
+                                        </div></td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="HEALTH">
+                                                HEALTH</div>
+                                        </div></td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div  >
+                                            <div align="left" style="padding-left:20px"
+                                                 title="Ministry of Health">
+                                                Ministry of Health</div>
+                                        </div></td>
+                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
+                                        &nbsp;
+                                    </td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
+                                        <div align="right">
+                                            171,954&nbsp;
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tr> </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!-- end of big report table -->
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 5px;padding-right: 5px">
+
+
+
+
+
+
+
+            <!-- paginator, viewFormat = html2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- html2 paginator: visibleRows = 2, recordsPerPage = 100  -->
+
+            <div class="paging">
+
+            </div>
+
+
+
+
+
+
+        </td>
     </tr>
 </table>
 </td>

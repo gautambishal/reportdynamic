@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html class=" gecko linux js gecko linux js gecko linux js gecko linux js" xmlns:th="http://www.w3.org/1999/xhtml">
+<html class="gecko linux js gecko linux js gecko linux js gecko linux js" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
 
 
-    <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge"></meta>
 
 
-    <!-- base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/" -->
     <script type="text/javascript" defer="defer" async="" src="files/piwik.js"></script>
-    <script language="JavaScript" type="text/javascript" src="files/EnterHitBinder.js">.</script>
+    <script language="JavaScript" type="text/javascript" src="files/EnterHitBinder.js"></script>
 
     <script language="JavaScript" type="text/javascript">
         <!--
@@ -373,7 +372,7 @@
 <div class="headerTop">
 
 
-    <script language="JavaScript" type="text/javascript" src="files/common.js">"></script>
+    <script language="JavaScript" type="text/javascript" src="files/common.js"></script>
     <script type="text/javascript" src="files/jquery-min.js"></script>
     <script type="text/javascript" src="files/jquery.js"></script>
 
@@ -843,8 +842,6 @@
             messageObj.setSource(false);	// no html source since we want to use a static message here.
             messageObj.setShadowDivVisible(true);	// Disable shadow for these boxes
             messageObj.display();
-
-
         }
 
         function closeMessage() {
@@ -2203,7 +2200,7 @@
                                                                     <div class="t_sm" title="" >
 
 
-                                                                        <a th:href="@{'http://202.45.146.28:8090/specialReport/'+${reports.id}}"
+                                                                        <a th:href="@{'http://localhost:8090/specialReport/'+${reports.id}}"
                                                                            onclick="return popup(this,'');"
                                                                         title="Click here to view the Report">
                                                                         <b th:text="${reports.reportTitle}">

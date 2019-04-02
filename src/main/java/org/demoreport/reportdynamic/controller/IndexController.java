@@ -7,45 +7,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-import java.util.Optional;
+
 
 @Controller
 @CrossOrigin
 public class IndexController {
     @Autowired
     ReportingService reportingService;
-    @RequestMapping(value="/reports")
-    public String report(Model model){
-        model.addAttribute("listOfReports",reportingService.listReports());
+
+    @RequestMapping(value = "/reports")
+    public String report(Model model) {
+        model.addAttribute("listOfReports", reportingService.listReports());
         return "publicreport";
     }
-     @RequestMapping(value="/createdwizard")
-    public String wizard(){
+
+    @RequestMapping(value = "/createdwizard")
+    public String wizard() {
         return "createwizard";
     }
-     @RequestMapping(value="/createdReport")
-    public String createdReport(){
+
+    @RequestMapping(value = "/createdReport")
+    public String createdReport() {
         return "createdreport";
     }
 
-    @RequestMapping(value="/testhtml")
-    public String testHtml(){
+    @RequestMapping(value = "/testhtml")
+    public String testHtml() {
         return "testhtml";
     }
 
     @PostMapping("/reportSubmit")
     @ResponseBody
-    public String submit(@RequestBody ReportModel reportModel){
+    public String submit(@RequestBody ReportModel reportModel) {
         reportingService.save(reportModel);
         return "success";
     }
+
+//    @GetMapping
+//    public String popup() {
+//        return "popup";
+//    }
+
     @GetMapping("/specialReport/{id}")
-    public String specialReport(@PathVariable("id") Integer id, Model model){
-
-
-        model.addAttribute("title",reportingService.findById(id).get());
+    public String specialReport(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("title", reportingService.findById(id).get());
         return "specialreport";
     }
 }

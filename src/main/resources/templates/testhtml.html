@@ -1,22 +1,12 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 
 
-
-
     <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
 
-
-
-    <base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/">
+    <base href="http://amis.mof.gov.np/">
+    <!--<base href="http://localhost:8090/">-->
     <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js" >.</script>
 
     <script language="JavaScript" type="text/javascript">
@@ -38,12 +28,6 @@
     </script>
 
 
-
-
-
-
-
-
     <title>
 
 
@@ -60,24 +44,12 @@
     <link rel="stylesheet" href="tabs/css/bootstrap.css">
     <script type="text/javascript" src="/TEMPLATE/ampTemplate/node_modules/amp-boilerplate/dist/amp-boilerplate.js"></script>
 
-
-
-
 </head>
 
 
 <BODY leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0">
 <div id="amp-header"></div>
 <div class="headerTop">
-
-
-
-
-
-
-
-
-
 
 
     <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
@@ -617,40 +589,9 @@
                             <td class="main_side">
                                 <div class="yui-content">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     <div class="main_side_cont yui-tab-content" id="type_step_div" style="padding-bottom: 0px; padding-top:0px;">
 
                                         <div id="toolbarMarkerDiv"></div>
-
-
-
-
-
-
-
-
-
-
-
-
 
                                         <div>
                                             <div style="float:left; margin-top:10px;">
@@ -672,7 +613,7 @@
                                                 </button>
 
 
-                                                <button style="margin-right:2px;" type="button" value="Cancel" class="buttonx" id="step0_cancel" onclick="repManager.cancelWizard();"/>
+                                                <button style="margin-right:2px;" type="button" value="Cancel" class="buttonx" id="step0_cancel" />
                                                 Cancel
                                                 </button>
                                             </div>
@@ -3975,14 +3916,14 @@
             });
             console.log(data);
             $.ajax({
-                url:"http://202.45.146.28:8090/reportSubmit",
+                url:"http://localhost:8090/reportSubmit",
                 type:"post",
                 crossDomain: true,
-                headers: {  'Access-Control-Allow-Origin':'http://202.45.146.28:8090/'},
+                headers: {  'Access-Control-Allow-Origin':'http://localhost:8090/'},
                 contentType:"application/json;charset=UTF-8",
                 data:data
             }).done(function(response){
-                window.location.href="http://202.45.146.28:8090/reports";
+                window.location.href="http://localhost:8090/reports";
 
             }).fail(function(){
                 console.log("request failed ");

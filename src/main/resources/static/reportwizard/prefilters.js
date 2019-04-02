@@ -87,7 +87,7 @@ Filters.prototype.showFilters	= function(reportContextId) {
         this.settingsPanel.setHeader(this.filterPanelName);
 	this.filterPanel.center();
 	this.filterPanel.show();
-	YAHOO.util.Connect.asyncRequest("GET", "/aim/reportsFilterPicker.do?sourceIsReportWizard=true&reportContextId=" + reportContextId + avoidIECacheParam +this.resetString+this.additionalParameter, this);
+	YAHOO.util.Connect.asyncRequest("GET", "http://localhost:8090/popup?sourceIsReportWizard=true&reportContextId=" + reportContextId + avoidIECacheParam +this.resetString+this.additionalParameter, this);
 	this.resetString		= "";
 };
 
