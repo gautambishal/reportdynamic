@@ -12,11 +12,17 @@ import javax.persistence.*;
 @Data
 @ToString
 @Entity
-@Table(name="reports_list")
+@Table(name = "reports_list")
 public class ReportModel {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String reportType;
     private String reportTitle;
+    private String sqlQuery;
+    private String selectedColumns;
+    private String selectedMeasures;
+    private String reportCategory;
+
 }

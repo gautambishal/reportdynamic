@@ -17,7 +17,10 @@ public class IndexController {
 
     @RequestMapping(value = "/reports")
     public String report(Model model) {
+
         model.addAttribute("listOfReports", reportingService.listReports());
+
+
         return "publicreport";
     }
 
@@ -39,10 +42,18 @@ public class IndexController {
     @PostMapping("/reportSubmit")
     @ResponseBody
     public String submit(@RequestBody ReportModel reportModel) {
+        System.out.println(reportModel);
         reportingService.save(reportModel);
         return "success";
     }
 
+    @GetMapping("/report/{id}")
+    public String deleteReport(@PathVariable("id") Integer id){
+        ReportModel reportModel=new ReportModel();
+        reportModel.setId(id);
+        reportingService.delete(reportModel);
+        return "redirect:/reports";
+    }
 //    @GetMapping
 //    public String popup() {
 //        return "popup";

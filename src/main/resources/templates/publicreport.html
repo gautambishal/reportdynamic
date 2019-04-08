@@ -2187,6 +2187,7 @@
                                                                     Information</b></td>
                                                                 <td class="inside_header" align="center"><b>Export
                                                                     Options</b></td>
+                                                                <td class="inside_header" align="center"><b>Delete Report</b></td>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -2200,7 +2201,7 @@
                                                                     <div class="t_sm" title="" >
 
 
-                                                                        <a th:href="@{'http://202.45.146.28:8090/specialReport/'+${reports.id}}"
+                                                                        <a th:href="@{'http://localhost:8090/specialReport/'+${reports.id}}"
                                                                            onclick="return popup(this,'');"
                                                                         title="Click here to view the Report">
                                                                         <b th:text="${reports.reportTitle}">
@@ -2276,6 +2277,12 @@
                                                                                 border="0"></a>
 
                                                                     </p></td>
+                                                                <td style="text-align:center;">
+                                                                    <a th:href="@{'http://localhost:8090/report/'+${reports.id}}">
+                                                                        <img width="30" style="background:transparent;" src="custom/delete1.jpg">
+                                                                    </a>
+
+                                                                </td>
                                                             </tr>
 
 

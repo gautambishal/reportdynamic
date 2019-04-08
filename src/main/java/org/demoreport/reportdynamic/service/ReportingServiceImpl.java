@@ -29,4 +29,9 @@ public class ReportingServiceImpl implements ReportingService {
     public Optional<ReportModel> findById(Integer id) {
         return reporting.findById(id);
     }
+
+    @Override
+    public void delete(ReportModel id) {
+        reporting.delete(id);
+    }
 }

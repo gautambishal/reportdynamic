@@ -3908,22 +3908,31 @@
             loginDropdown: true
         });
         function mytest(){
-            var reportType=$("#repCat").val();
+           // var reportType=$("#repCat").val();
             var reportTitle=$("#projectTitle").val();
+            var selectedColumns=getSelectedFields("dest_col_ul", "selectedColumns");
+            var selectedMeasures=getSelectedFields("dest_col_ul", "selectedMeasures");
+            var reportCategory=getReportCategory();
+            var reportType=getReportType();
             var data=JSON.stringify({
                     "reportType": reportType,
-                    "reportTitle":reportTitle
+                    "reportTitle":reportTitle,
+                    "selectedColumns":selectedColumns,
+                    "selectedMeasures":selectedMeasures,
+                    "reportCategory":reportCategory,
+
             });
-            console.log(data);
+        console.log(getSelectedFieldsNames("field:57"));
+        console.log(getSelectedFieldsNames("fieldVis:57"));
             $.ajax({
-                url:"http://202.45.146.28:8090/reportSubmit",
-                type:"post",
+                url: "http://localhost:8090/reportSubmit",
+                type: "post",
                 crossDomain: true,
-                headers: {  'Access-Control-Allow-Origin':'http://202.45.146.28:8090/'},
-                contentType:"application/json;charset=UTF-8",
-                data:data
+                headers: { 'Access-Control-Allow-Origin':'http://localhost:8090/'},
+                contentType: "application/json;charset=UTF-8",
+                data: data
             }).done(function(response){
-                window.location.href="http://202.45.146.28:8090/reports";
+                window.location.href="http://localhost:8090/reports";
 
             }).fail(function(){
                 console.log("request failed ");
@@ -3931,6 +3940,8 @@
 
 
         }
+        console.log(getSelectedFieldsNames("field:57"));
+        console.log(getSelectedFieldsNames("fieldVis:57"));
     </script>
 
 

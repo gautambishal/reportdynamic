@@ -9,4 +9,5 @@ public interface ReportingService {
     void save(ReportModel reportModel);
     List<ReportModel> listReports();
     Optional<ReportModel> findById(Integer id);
+    void delete(ReportModel id);
 }
