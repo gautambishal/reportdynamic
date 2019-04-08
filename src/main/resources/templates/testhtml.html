@@ -3914,12 +3914,28 @@
             var selectedMeasures=getSelectedFields("dest_col_ul", "selectedMeasures");
             var reportCategory=getReportCategory();
             var reportType=getReportType();
+            var a=document.getElementById("dest_col_ul");
+            var x=a.getElementsByTagName("li");
+            var headings=[];
+            for(var i=0;i<x.length;i++){
+                headings.push(x[i].innerHTML.replace(/<[^>]*>/g, "").replace(/^\s+|\s+$/g, ''));
+            }
+
+            var a=document.getElementById("dest_measures_ul");
+            var x=a.getElementsByTagName("li");
+            var footings=[];
+            for(var i=0;i<x.length;i++){
+                footings.push(x[i].innerHTML.replace(/<[^>]*>/g, "").replace(/^\s+|\s+$/g, ''));
+            }
+
             var data=JSON.stringify({
                     "reportType": reportType,
                     "reportTitle":reportTitle,
                     "selectedColumns":selectedColumns,
                     "selectedMeasures":selectedMeasures,
                     "reportCategory":reportCategory,
+                    "headings":headings,
+                "footers":footings
 
             });
         console.log(getSelectedFieldsNames("field:57"));

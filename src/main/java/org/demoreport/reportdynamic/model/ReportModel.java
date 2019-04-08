@@ -24,5 +24,7 @@ public class ReportModel {
     private String selectedColumns;
     private String selectedMeasures;
     private String reportCategory;
+    private String[] headings;
+    private String[] footers;
 
 }

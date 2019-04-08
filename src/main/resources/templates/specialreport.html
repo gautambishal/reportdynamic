@@ -2586,45 +2586,20 @@
                                 <thead class="fixedHeader">
                                 <tr class="reportHeader" title='Report Headings'>
                                     <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FActivity+Created+On&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Activity Created On</a></td>
-                                    <!-- subcolumn name: Primary Sector, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FPrimary+Sector&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Primary Sector</a></td>
-                                    <!-- subcolumn name: Secondary Sector, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FSecondary+Sector&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Secondary Sector</a></td>
-                                    <!-- subcolumn name: Responsible Organization, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FResponsible+Organization&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Counterpart Ministry</a></td>
-                                    <!-- subcolumn name: Proposed Project Amount, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" rowspan="3" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FProposed+Project+Amount&amp;reportContextId=5090&amp;sortByAsc=true" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">Proposed Project Amount</a></td>
-                                    <!-- subcolumn name: Funding, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='2'>
-                                        Funding</td>
-                                    <!-- subcolumn name: Total Costs, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 2 %> -->
-                                    <td class="reportHeader" height="15px" nowrap="nowrap" align="center" rowspan="2" colspan='2'>
-                                        Total Costs</td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:each="value:${title.headings}">
+                                        <a href="" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>
+
                                 </tr>
                                 <tr class="reportHeader" title='Report Headings'>
                                     <!-- subcolumn name: 2018, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 1 %> -->
                                     <td style="margin-left: 2px; margin-right: 2px;" class="reportHeader" height="20px" nowrap="nowrap" align="center" rowspan="1" colspan='2'>
                                         2018</td>
                                 </tr>
-                                <tr class="reportHeader" title='Report Headings'>
+                                <tr class="reportHeader" title='Report Headings' >
                                     <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FFunding%2F2018%2FActual+Commitments&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Commitments</a></td>
-                                    <!-- subcolumn name: Actual Disbursements, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FFunding%2F2018%2FActual+Disbursements&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Disbursements</a></td>
-                                    <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FTotal+Costs%2FActual+Commitments&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Commitments</a></td>
-                                    <!-- subcolumn name: Actual Disbursements, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" rowspan="1" colspan='1'>
-                                        <a href="/viewNewAdvancedReport.do?sortBy=%2FTotal+Costs%2FActual+Disbursements&amp;reportContextId=5090&amp;sortByAsc=true" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000">Actual Disbursements</a></td>
+                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" th:each="com:${title.footers}">
+                                        <a href="" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000" th:text="${com}"></a></td>
+
                                 </tr>
                                 </thead>
 
