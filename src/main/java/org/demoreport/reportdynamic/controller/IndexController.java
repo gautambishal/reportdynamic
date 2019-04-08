@@ -62,6 +62,7 @@ public class IndexController {
     @GetMapping("/specialReport/{id}")
     public String specialReport(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("title", reportingService.findById(id).get());
+        model.addAttribute("data",reportingService.listReports());
         return "specialreport";
     }
 }

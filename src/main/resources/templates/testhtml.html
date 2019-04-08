@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
 
     <base href="http://amis.mof.gov.np/">
-    <!--<base href="http://localhost:8090/">-->
+    <!--<base href="http://202.45.146.28:8090/">-->
     <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js" >.</script>
 
     <script language="JavaScript" type="text/javascript">
@@ -3925,14 +3925,14 @@
         console.log(getSelectedFieldsNames("field:57"));
         console.log(getSelectedFieldsNames("fieldVis:57"));
             $.ajax({
-                url: "http://localhost:8090/reportSubmit",
+                url: "http://202.45.146.28:8090/reportSubmit",
                 type: "post",
                 crossDomain: true,
-                headers: { 'Access-Control-Allow-Origin':'http://localhost:8090/'},
+                headers: { 'Access-Control-Allow-Origin':'http://202.45.146.28:8090/'},
                 contentType: "application/json;charset=UTF-8",
                 data: data
             }).done(function(response){
-                window.location.href="http://localhost:8090/reports";
+                window.location.href="http://202.45.146.28:8090/reports";
 
             }).fail(function(){
                 console.log("request failed ");
