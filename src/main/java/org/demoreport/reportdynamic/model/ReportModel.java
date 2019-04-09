@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,5 +27,6 @@ public class ReportModel {
     private String reportCategory;
     private String[] headings;
     private String[] footers;
+
 
 }

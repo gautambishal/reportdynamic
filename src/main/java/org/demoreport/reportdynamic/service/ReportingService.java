@@ -1,5 +1,6 @@
 package org.demoreport.reportdynamic.service;
 
+import org.demoreport.reportdynamic.model.ReportData;
 import org.demoreport.reportdynamic.model.ReportModel;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface ReportingService {
     List<ReportModel> listReports();
     Optional<ReportModel> findById(Integer id);
     void delete(ReportModel id);
+
 }

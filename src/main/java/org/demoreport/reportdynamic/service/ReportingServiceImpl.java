@@ -1,6 +1,8 @@
 package org.demoreport.reportdynamic.service;
 
+import org.demoreport.reportdynamic.model.ReportData;
 import org.demoreport.reportdynamic.model.ReportModel;
+import org.demoreport.reportdynamic.repository.CustomSqlQuery;
 import org.demoreport.reportdynamic.repository.Reporting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class ReportingServiceImpl implements ReportingService {
     @Autowired
     private Reporting reporting;
+    @Autowired
+    private CustomSqlQuery customSqlQuery;
 
     @Override
     public void save(ReportModel reportModel) {
@@ -27,11 +31,14 @@ public class ReportingServiceImpl implements ReportingService {
 
     @Override
     public Optional<ReportModel> findById(Integer id) {
-        return reporting.findById(id);
+        Optional<ReportModel> reportModel=reporting.findById(id);
+
+    return reportModel;
     }
 
     @Override
     public void delete(ReportModel id) {
         reporting.delete(id);
     }
+
 }

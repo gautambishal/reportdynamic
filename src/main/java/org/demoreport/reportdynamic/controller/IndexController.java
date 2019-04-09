@@ -1,6 +1,7 @@
 package org.demoreport.reportdynamic.controller;
 
 import org.demoreport.reportdynamic.model.ReportModel;
+import org.demoreport.reportdynamic.repository.CustomSqlQuery;
 import org.demoreport.reportdynamic.service.ReportingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class IndexController {
     @Autowired
-    ReportingService reportingService;
+   private  ReportingService reportingService;
+
+    @Autowired
+    private CustomSqlQuery customSqlQuery;
 
     @RequestMapping(value = "/reports")
     public String report(Model model) {
@@ -62,7 +66,7 @@ public class IndexController {
     @GetMapping("/specialReport/{id}")
     public String specialReport(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("title", reportingService.findById(id).get());
-        model.addAttribute("data",reportingService.listReports());
+        model.addAttribute("data",customSqlQuery.reportDataList());
         return "specialreport";
     }
 }

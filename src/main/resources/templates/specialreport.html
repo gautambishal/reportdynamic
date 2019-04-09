@@ -2578,177 +2578,36 @@
                         <div id="fixAutomaticDivWithHeight100">
                             <table id='reportTable' class="html2ReportTable inside" width="100%" cellpadding="0" cellspacing="0">
 
-
-
-
                                 <!-- generate report headings -->
                                 <!-- generate report headings -->
                                 <thead class="fixedHeader">
                                 <tr class="reportHeader" title='Report Headings'>
                                     <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
                                     <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:each="value:${title.headings}">
-                                        <a href="" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>
 
-                                </tr>
-                                <tr class="reportHeader" title='Report Headings'>
-                                    <!-- subcolumn name: 2018, width: 2, columnDepth: 2, columnSpan: 2, newRowSpan: 1 %> -->
-                                    <td style="margin-left: 2px; margin-right: 2px;" class="reportHeader" height="20px" nowrap="nowrap" align="center" rowspan="1" colspan='2'>
-                                        2018</td>
-                                </tr>
-                                <tr class="reportHeader" title='Report Headings' >
                                     <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
                                     <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" th:each="com:${title.footers}">
-                                        <a href="" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000" th:text="${com}"></a></td>
+                                        <a href="#" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000" th:text="${com}"></a></td>
 
                                 </tr>
                                 </thead>
 
                                 <tbody>
-
-                                <!-- generate total row 1 -->
-                                <!-- CRD-before trailCells!! -->
-                                <!-- printing row tag -->
-                                <tr onmousedown="getRowSelectorInstance(this, {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
-                                    onMouseover="getRowSelectorInstance(this, {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
-                                    onMouseout="getRowSelectorInstance(this,  {baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' } ).unmarkRow(false)">
-                                    <!-- generate total row 2 -->
-
-                                    <td nowrap="nowrap" style="border-bottom:black 1px solid;border-right:#E2E2E2 1px solid;" height="18px" >
-		<span style="font-family: Arial;color:black; font-weight: bold;font-size: 12px;margin-left: 2px">
-			Report Totals:</span>
-
-                                        &nbsp;
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-
-                                        &nbsp;
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-
-                                        &nbsp;
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-
-                                        &nbsp;
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-                                        <div align="right">
-                                            0&nbsp;
-                                        </div>
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td align="center" style="border-right: #E0E0E0 1px solid;font-weight:bold; border-bottom:black 1px solid;">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <!-- CRD-after trailCells!! -->
-                                    <!-- generate report data -->
-
-
-                                    <!-- SSSS -1- SSSS -->
-                                <tr height="16px"
-                                    onmousedown="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
-                                    onMouseover="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
-                                    onMouseout="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).unmarkRow(false)">
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        08/06/2017&nbsp;</td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="WOMEN, CHILDREN & SOCIAL WELFARE">
-                                                WOMEN, CHILDREN & SOCIAL WELFARE</div>
-                                        </div></td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="HOUSING AND COMMUNITY AMENITIES">
-                                                HOUSING AND COMMUNITY AMENITIES</div>
-                                        </div></td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="Ministry of Women, Children & Social Welfare">
-                                                Ministry of Women, Children & Social Welfare</div>
-                                        </div></td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        &nbsp;
-                                    </td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        &nbsp;
-                                    </td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        &nbsp;
-                                    </td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        <div align='right'>0&nbsp;</div></td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        <div align='right'>0&nbsp;</div></td>
-                                </tr>
-                                <!-- SSSS -2- SSSS -->
-                                <tr class="oddActivity" height="16px"
-                                    onmousedown="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).toggleRow()"
-                                    onMouseover="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).markRow(false)"
-                                    onMouseout="getRowSelectorInstance(this,{baseId:'report_row_', markerColor:'#E7E7FF', skippedClass:'hierarchyCell' }).unmarkRow(false)">
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        28/08/2018&nbsp;</td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="HEALTH">
-                                                HEALTH</div>
-                                        </div></td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="HEALTH">
-                                                HEALTH</div>
-                                        </div></td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div  >
-                                            <div align="left" style="padding-left:20px"
-                                                 title="Ministry of Health">
-                                                Ministry of Health</div>
-                                        </div></td>
-                                    <td  nowrap='nowrap' class="clsTableCellDataHtml">
-                                        &nbsp;
-                                    </td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                    <td  nowrap="nowrap" class="clsTableCellDataHtml">
-                                        <div align="right">
-                                            171,954&nbsp;
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tr> </td>
-                                </tr>
+                                <div>
+                                    <tr th:each="myValue:${data}">
+                                        <td th:text="${myValue.ampid}" th:if="${#arrays.contains(title.headings, 'AMP ID')}"></td>
+                                        <td th:text="${myValue.project_title}" th:if="${#arrays.contains(title.headings, 'Project Title')}"></td>
+                                        <td th:text="${myValue.creator}"  th:if="${#arrays.contains(title.headings, 'created')}"></td>
+                                        <td th:text="${myValue.modified_date}" th:if="${#arrays.contains(title.headings, 'Modified Date')}"></td>
+                                        <td th:text="${myValue.locationname}" th:if="${#arrays.contains(title.headings, 'Location')}"></td>
+                                        <td th:text="${myValue.primary_sector}" th:if="${#arrays.contains(title.headings, 'Primary Sector')}"></td>
+                                        <td th:text="${myValue.budget_code}" th:if="${#arrays.contains(title.headings, 'Budget Code')}"></td>
+                                        <td th:text="${myValue.commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                    </tr>
+                                </div>
+                                </tbody>
 
                             </table>
                         </div>
