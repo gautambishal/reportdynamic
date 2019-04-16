@@ -2660,18 +2660,18 @@
                                         <td th:text="${myValue.locationname}" th:if="${#arrays.contains(title.headings, 'Location')}"></td>
                                         <td th:text="${myValue.primary_sector}" th:if="${#arrays.contains(title.headings, 'Primary Sector')}"></td>
                                         <td th:text="${myValue.budget_code}" th:if="${#arrays.contains(title.headings, 'Budget Code')}"></td>
-                                        <td th:text="${myValue.first_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.second_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.third_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.four_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.first__disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.second_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.third_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.four_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.first_commitment+myValue.second_commitment+myValue.third_commitment+myValue.four_commitment+myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.first_disbursement+myValue.second_disbursement+myValue.third_disbursement+myValue.four_disbursement+myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:with="myValue.first_commitment=${myValue.first_commitment==null?0:myValue.first_commitment}"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"><th:block th:text="${myValue.first_commitment}"/></td>
+                                        <td th:with="myValue.second_commitment=${myValue.second_commitment==null?0:myValue.second_commitment}"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"><th:block th:text="${myValue.second_commitment}"/></td>
+                                        <td th:with="myValue.third_commitment=${myValue.third_commitment==null?0:myValue.third_commitment}"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"><th:block th:text="${myValue.third_commitment}"/></td>
+                                        <td th:with="myValue.four_commitment=${myValue.four_commitment==null?0:myValue.four_commitment}"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"><th:block th:text="${myValue.four_commitment}"/></td>
+                                        <td th:with="myValue.five_commitment=${myValue.five_commitment==null?0:myValue.five_commitment}"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"><th:block th:text="${myValue.five_commitment}"/></td>
+                                        <td th:with="myValue.first_disbursement=${myValue.first_disbursement==null?0:myValue.first_disbursement}"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"><th:block th:text="${myValue.first_disbursement}"/></td>
+                                        <td th:with="myValue.second_disbursement=${myValue.second_disbursement==null?0:myValue.second_disbursement}"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"><th:block th:text="${myValue.second_disbursement}"/></td>
+                                        <td th:with="myValue.third_disbursement=${myValue.third_disbursement==null?0:myValue.third_disbursement}"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"><th:block th:text="${myValue.third_disbursement}"/></td>
+                                        <td th:with="myValue.four_disbursement=${myValue.four_disbursement==null?0:myValue.four_disbursement}"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"><th:block th:text="${myValue.four_disbursement}"/></td>
+                                        <td th:with="myValue.five_disbursement=${myValue.five_disbursement==null?0:myValue.five_disbursement}"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"><th:block th:text="${myValue.five_disbursement}"/></td>
+                                        <td th:with="sum1=${myValue.first_commitment+myValue.second_commitment+myValue.third_commitment+myValue.four_commitment+myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}" ><th:block th:text="${sum1}"/></td>
+                                        <!--<td th:with="sum2=${myValue.first_disbursement+myValue.second_disbursement+myValue.third_disbursement+myValue.four_disbursement+myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}" ><h7 th:text="${sum2}"></h7></td>-->
                                     </tr>
                                 </div>
                                 </tbody>

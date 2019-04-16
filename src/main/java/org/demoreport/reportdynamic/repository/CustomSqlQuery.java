@@ -28,9 +28,47 @@ public class CustomSqlQuery {
                "\n" +
                "left join get_data_for_dynamic_reporting('2013-07-16', '2014-07-15', 264) five on four.ampid = five.ampid and four.primary_sector = five.primary_sector and four.budget_code = five.budget_code\n" +
                "\n" +
-               "inner join dg_user dgu on dgu.id = one.activity_creator",ReportData.class);
+               "inner join dg_user dgu on dgu.id = one.activity_creator order by first_commitment asc",ReportData.class);
 
        List<ReportData>  reportDataList=query.getResultList();
+
+       for(ReportData reportData: reportDataList){
+           if(reportData.getFirst_commitment()==null){
+               reportData.setFirst_commitment(0L);
+           }
+          if(reportData.getSecond_commitment()==null){
+               reportData.setSecond_commitment(0L);
+           }
+          if(reportData.getThird_commitment()==null){
+               reportData.setThird_commitment(0L);
+           }
+          if(reportData.getFour_commitment()==null){
+               reportData.setFour_commitment(0L);
+           }
+          if(reportData.getFive_commitment()==null){
+               reportData.setFive_commitment(0L);
+           }
+          if(reportData.getFirst_disbursement()==null){
+               reportData.setFirst_disbursement(0L);
+           }
+          if(reportData.getSecond_disbursement()==null){
+               reportData.setSecond_disbursement(0L);
+           }
+          if(reportData.getThird_disbursement()==null){
+               reportData.setThird_disbursement(0L);
+           }
+          if(reportData.getFour_disbursement()==null){
+               reportData.setFour_disbursement(0L);
+           }
+          if(reportData.getFive_disbursement()==null){
+               reportData.setFive_disbursement(0L);
+           }
+
+       }
+
+
+
+
 
        return reportDataList;
     }
