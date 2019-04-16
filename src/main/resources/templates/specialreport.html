@@ -2583,12 +2583,69 @@
                                 <thead class="fixedHeader">
                                 <tr class="reportHeader" title='Report Headings'>
                                     <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:each="value:${title.headings}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'AMP ID')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> AMP ID</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Project Title')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Project Title</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Activity Created By')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Created by</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Modified Date')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Activity Updated</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Location')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Location</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Primary Sector')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Primary Sector</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Budget Code')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Budget Code</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Actual Commitment 2018</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Actual Commitment 2017</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2016</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2015</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2014</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2018</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2017</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2016</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2015</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2014</a></td>
+                                    </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Total Commitment</a></td>
+                                    </td>
+                                    <td  height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Total Disbursement</a></td>
+                                    </td>
+
+                                    <!--<td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:each="value:${title.headings}">-->
+
+                                        <!--<a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>-->
 
                                     <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
-                                    <td class="reportHeader" valign="bottom" height="15px" nowrap="nowrap" align="center" th:each="com:${title.footers}">
-                                        <a href="#" style="font-size: 11px;text-decoration: none; font-weight:bold; color: #000000" th:text="${com}"></a></td>
 
                                 </tr>
                                 </thead>
@@ -2603,8 +2660,18 @@
                                         <td th:text="${myValue.locationname}" th:if="${#arrays.contains(title.headings, 'Location')}"></td>
                                         <td th:text="${myValue.primary_sector}" th:if="${#arrays.contains(title.headings, 'Primary Sector')}"></td>
                                         <td th:text="${myValue.budget_code}" th:if="${#arrays.contains(title.headings, 'Budget Code')}"></td>
-                                        <td th:text="${myValue.commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.first_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.second_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.third_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.four_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.first__disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.second_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.third_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.four_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.first_commitment+myValue.second_commitment+myValue.third_commitment+myValue.four_commitment+myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
+                                        <td th:text="${myValue.first_disbursement+myValue.second_disbursement+myValue.third_disbursement+myValue.four_disbursement+myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
                                     </tr>
                                 </div>
                                 </tbody>

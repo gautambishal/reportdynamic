@@ -22,7 +22,9 @@ public class ReportModel {
     private String reportType;
     private String reportTitle;
     private String sqlQuery;
+    @Column(name="selectedColumns",length = 1000)
     private String selectedColumns;
+
     private String selectedMeasures;
     private String reportCategory;
     private String[] headings;

@@ -24,6 +24,14 @@ public class ReportData {
     private String actual_start_date;
     private String primary_sector;
     private String budget_code;
-    private String commitment;
-    private String disbursement;
+    private String first_commitment;
+    private String first_disbursement;
+    private String second_commitment;
+    private String second_disbursement;
+    private String third_commitment;
+    private String third_disbursement;
+    private String four_commitment;
+    private String four_disbursement;
+    private String five_commitment;
+    private String five_disbursement;
 }

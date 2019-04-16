@@ -1,5 +1,6 @@
 package org.demoreport.reportdynamic.controller;
 
+import org.demoreport.reportdynamic.model.ReportData;
 import org.demoreport.reportdynamic.model.ReportModel;
 import org.demoreport.reportdynamic.repository.CustomSqlQuery;
 import org.demoreport.reportdynamic.service.ReportingService;
@@ -67,6 +68,9 @@ public class IndexController {
     public String specialReport(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("title", reportingService.findById(id).get());
         model.addAttribute("data",customSqlQuery.reportDataList());
+        for(ReportData rd: customSqlQuery.reportDataList()){
+            System.out.println(rd);
+        }
         return "specialreport";
     }
 }
