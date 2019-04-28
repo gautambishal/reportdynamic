@@ -16,7 +16,7 @@ public class CustomSqlQuery {
 
 
     public List<ReportData> reportDataList(){
-       Query query= entityManager.createNativeQuery("select one.ampid as ampid, one.project_title as project_title, dgu.email as creator, one.modified_date as modified_date, one.locationname as locationname, one.actual_start_date as actual_start_date, one.primary_sector as primary_sector, one.budget_code as budget_code, one.commitment as first_commitment, one.disbursement as first_disbursement, two.commitment as second_commitment, two.disbursement as second_disbursement, three.commitment as third_commitment, three.disbursement as third_disbursement, four.commitment as four_commitment, four.disbursement as four_disbursement, five.commitment as five_commitment, five.disbursement as five_disbursement\n" +
+       Query query= entityManager.createNativeQuery("select one.ampid as ampid,one.donorname, one.project_title as project_title, dgu.email as creator, one.modified_date as modified_date, one.locationname as locationname, one.actual_start_date as actual_start_date, one.primary_sector as primary_sector, one.budget_code as budget_code, one.commitment as first_commitment, one.disbursement as first_disbursement, two.commitment as second_commitment, two.disbursement as second_disbursement, three.commitment as third_commitment, three.disbursement as third_disbursement, four.commitment as four_commitment, four.disbursement as four_disbursement, five.commitment as five_commitment, five.disbursement as five_disbursement\n" +
                "\n" +
                "from get_data_for_dynamic_reporting('2017-07-16', '2018-07-15', 264) one\n" +
                "\n" +

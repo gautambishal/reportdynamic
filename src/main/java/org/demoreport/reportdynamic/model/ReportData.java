@@ -25,6 +25,7 @@ public class ReportData {
     private String actual_start_date;
     private String primary_sector;
     private String budget_code;
+    private String donorname;
     @NotNull
     private Long first_commitment=0L;
     @NotNull
