@@ -1,18 +1,16 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <base href="https://amis.mof.gov.np/TEMPLATE/ampTemplate/">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js" >.</script>
+<link href="https://datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+<script src="https://datatables.net/download/build/nightly/jquery.dataTables.js"></script>
+<script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/EnterHitBinder.js">.</script>
 <head>
 
 
-
-
-
-
-
-
     <title>
-
 
 
         Aid Management Platform
@@ -30,13 +28,17 @@
     <script type="text/javascript" src="/repository/aim/view/scripts/ajax.js"></script>
 
     <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-common.js"></script>
-    <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicContent.js"></script>
+    <script type="text/javascript"
+            src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-dynamicContent.js"></script>
     <script type="text/javascript" src="/repository/aim/view/scripts/separateFiles/dhtmlSuite-modalMessage.js"></script>
 
     <!-- Stylesheet of AMP -->
-    <!--[if IE 6]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_6.css' rel='stylesheet' type='text/css'><![endif]-->
-    <!--[if IE 7]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_7.css' rel='stylesheet' type='text/css'><![endif]-->
-    <!--[if IE 8]><link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_8.css' rel='stylesheet' type='text/css'><![endif]-->
+    <!--[if IE 6]>
+    <link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_6.css' rel='stylesheet' type='text/css'><![endif]-->
+    <!--[if IE 7]>
+    <link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_7.css' rel='stylesheet' type='text/css'><![endif]-->
+    <!--[if IE 8]>
+    <link href='/TEMPLATE/ampTemplate/css_2/amp_ie_hacks_8.css' rel='stylesheet' type='text/css'><![endif]-->
     <link href="/TEMPLATE/ampTemplate/css_2/amp.css" rel="stylesheet" type="text/css"></link>
     <link href="/TEMPLATE/ampTemplate/css_2/yui_tabs.css" rel="stylesheet" type="text/css"></link>
     <link href="/TEMPLATE/ampTemplate/css_2/yui_datatable.css" rel="stylesheet" type="text/css"></link>
@@ -60,21 +62,65 @@
     <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/jquery/jquery-min.js"></script>
 
     <script type="text/javascript">
-        var YAHOOAmp 	= YAHOO;
+        var YAHOOAmp = YAHOO;
     </script>
 
 
-
-
-
     <style type="text/css">
-        table.inside {border-color: #CCC; border-style: solid; font-size:11px;border-width: 0 0 1px 1px; border-spacing: 0; border-collapse: collapse;}
-        .selector_type_cont {padding: 5px;}
-        .buttonx,.dr-menu {background-color:#5E8AD1; border-top: 1px solid #99BAF1; border-left:1px solid #99BAF1; border-right:1px solid #225099; border-bottom:1px solid #225099; font-size:11px; color:#FFFFFF; font-weight:bold; padding-left:5px; padding-right:5px; padding-top:3px; padding-bottom:3px;}
-        .buttonx_sm {background-color:#5E8AD1; border-top: 1px solid #99BAF1; border-left:1px solid #99BAF1; border-right:1px solid #225099; border-bottom:1px solid #225099; font-size:10px; color:#FFFFFF; font-weight:bold; padding-left:2px; padding-right:2px; padding-top:2px; padding-bottom:2px;}
-        .invisible-item{display: none;}
-        .white-item{color: white;}
-        .marginal-five{margin-right:5px;}
+        table.inside {
+            border-color: #CCC;
+            border-style: solid;
+            font-size: 11px;
+            border-width: 0 0 1px 1px;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .selector_type_cont {
+            padding: 5px;
+        }
+
+        .buttonx, .dr-menu {
+            background-color: #5E8AD1;
+            border-top: 1px solid #99BAF1;
+            border-left: 1px solid #99BAF1;
+            border-right: 1px solid #225099;
+            border-bottom: 1px solid #225099;
+            font-size: 11px;
+            color: #FFFFFF;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+
+        .buttonx_sm {
+            background-color: #5E8AD1;
+            border-top: 1px solid #99BAF1;
+            border-left: 1px solid #99BAF1;
+            border-right: 1px solid #225099;
+            border-bottom: 1px solid #225099;
+            font-size: 10px;
+            color: #FFFFFF;
+            font-weight: bold;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        .invisible-item {
+            display: none;
+        }
+
+        .white-item {
+            color: white;
+        }
+
+        .marginal-five {
+            margin-right: 5px;
+        }
 
     </style>
 </head>
@@ -85,22 +131,58 @@
 <link rel="stylesheet" type="text/css" href="/repository/aim/view/css/filters/filters2.css">
 <link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/container/assets/container.css">
 <link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/js_2/yui/tabview/assets/skins/sam/tabview.css">
-<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/css/yui/tabview.css" />
+<link rel="stylesheet" type="text/css" href="/TEMPLATE/ampTemplate/css/yui/tabview.css"/>
 
-<link href="/TEMPLATE/ampTemplate/css_2/report_html2_view.css" rel="stylesheet" type="text/css"></link><style>
-    .paging {font-size:11px; color:#CCCCCC; margin-top:10px; margin-bottom:10px; font-family:Arial, Helvetica, sans-serif;}
-    .paging_sel {color:#FFFFFF; background-color:#FF6000; padding:2px 2px 2px 4px;text-align:center;}
-    .l_sm {font-size:11px; color:#376091;}
-    .tab_opt {background-color:#F2F2F2;}
-    .tab_opt_box {border:1px solid #EBEBEB;max-height:100px;overflow:auto;}
-    .tab_opt_box_cont {padding:5px; font-size:11px; background-color:#FAFAFA;}
-    .tab_opt_cont {padding:5px; font-size:11px; color:#CCCCCC;}
+<link href="/TEMPLATE/ampTemplate/css_2/report_html2_view.css" rel="stylesheet" type="text/css"></link>
+<style>
+    .paging {
+        font-size: 11px;
+        color: #CCCCCC;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .paging_sel {
+        color: #FFFFFF;
+        background-color: #FF6000;
+        padding: 2px 2px 2px 4px;
+        text-align: center;
+    }
+
+    .l_sm {
+        font-size: 11px;
+        color: #376091;
+    }
+
+    .tab_opt {
+        background-color: #F2F2F2;
+    }
+
+    .tab_opt_box {
+        border: 1px solid #EBEBEB;
+        max-height: 100px;
+        overflow: auto;
+    }
+
+    .tab_opt_box_cont {
+        padding: 5px;
+        font-size: 11px;
+        background-color: #FAFAFA;
+    }
+
+    .tab_opt_cont {
+        padding: 5px;
+        font-size: 11px;
+        color: #CCCCCC;
+    }
+
     .show_hide_setting {
         float: right;
         font-size: 11px;
         padding: 5px;
         width: 200px;
-        font-family:Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
 </style>
@@ -129,55 +211,38 @@
 <script type="text/javascript">
     /*---snippet rafy---*/
     function css_browser_selector(u) {
-        var ua=u.toLowerCase(),is=function(t){
-            return ua.indexOf(t)>-1
-        },g='gecko',w='webkit',s='safari',o='opera',m='mobile',h=document.documentElement,b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+RegExp.$1):is('firefox/2')?g+' ff2':is('firefox/3.5')?g+' ff3 ff3_5':is('firefox/3.6')?g+' ff3 ff3_6':is('firefox/3')?g+' ff3':is('gecko/')?g:is('opera')?o+(/version\/(\d+)/.test(ua)?' '+o+RegExp.$1:(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:'')):is('konqueror')?'konqueror':is('blackberry')?m+' blackberry':is('android')?m+' android':is('chrome')?w+' chrome':is('iron')?w+' iron':is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:''):is('mozilla/')?g:'',is('j2me')?m+' j2me':is('iphone')?m+' iphone':is('ipod')?m+' ipod':is('ipad')?m+' ipad':is('mac')?'mac':is('darwin')?'mac':is('webtv')?'webtv':is('win')?'win'+(is('windows nt 6.0')?' vista':''):is('freebsd')?'freebsd':(is('x11')||is('linux'))?'linux':'','js'];
+        var ua = u.toLowerCase(), is = function (t) {
+                return ua.indexOf(t) > -1
+            }, g = 'gecko', w = 'webkit', s = 'safari', o = 'opera', m = 'mobile', h = document.documentElement,
+            b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + RegExp.$1) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3.6') ? g + ' ff3 ff3_6' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) : is('konqueror') ? 'konqueror' : is('blackberry') ? m + ' blackberry' : is('android') ? m + ' android' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') : is('mozilla/') ? g : '', is('j2me') ? m + ' j2me' : is('iphone') ? m + ' iphone' : is('ipod') ? m + ' ipod' : is('ipad') ? m + ' ipad' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' + (is('windows nt 6.0') ? ' vista' : '') : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
         c = b.join(' ');
-        h.className += ' '+c;
+        h.className += ' ' + c;
         return c;
     }
+
     css_browser_selector(navigator.userAgent);
 
 
-    var msgwait0="Please wait...";
-    var msgwait1="Loading Report";
+    var msgwait0 = "Please wait...";
+    var msgwait1 = "Loading Report";
     var loadingreport = new YAHOO.widget.Panel("wait",
-        { width:"240px",
-            fixedcenter:true,
-            close:false,
-            draggable:false,
-            zindex:99,
-            modal:true,
-            visible:false,
-            underlay:"shadow"
+        {
+            width: "240px",
+            fixedcenter: true,
+            close: false,
+            draggable: false,
+            zindex: 99,
+            modal: true,
+            visible: false,
+            underlay: "shadow"
         }
     );
 
     loadingreport.setHeader(msgwait0);
-    loadingreport.setBody("<div align='center'>"+msgwait1+"<br>"+ '<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />'+"</div>");
+    loadingreport.setBody("<div align='center'>" + msgwait1 + "<br>" + '<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />' + "</div>");
     loadingreport.render(document.body);
     loadingreport.show();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
@@ -190,82 +255,80 @@
 <!-- code for rendering that nice calendar -->
 
 
-
 <style type="text/css">
     /* Clear calendar's float, using dialog inbuilt form element */
     .yui-dialog .bd form {
-        clear:left;
+        clear: left;
     }
 
     /* Have calendar squeeze upto bd bounding box */
     .yui-dialog .bd {
-        padding:0;
+        padding: 0;
     }
 
     .yui-dialog .hd {
-        text-align:left;
+        text-align: left;
     }
 
     /* Center buttons in the footer */
     .yui-dialog .ft .button-group {
-        text-align:center;
+        text-align: center;
     }
 
     /* Prevent border-collapse:collapse from bleeding through in IE6, IE7 */
     .yui-overlay-hidden table {
-        *display:none;
+        *display: none;
     }
 
     /* Remove calendar's border and set padding in ems instead of px, so we can specify an width in ems for the container */
     .cal-div-wrapper {
-        border:none;
-        padding:1em;
+        border: none;
+        padding: 1em;
     }
 
     /* Datefield look/feel */
     .datefield {
-        position:relative;
-        top:10px;
-        left:10px;
-        white-space:nowrap;
-        border:1px solid black;
-        background-color:#eee;
-        width:25em;
-        padding:5px;
+        position: relative;
+        top: 10px;
+        left: 10px;
+        white-space: nowrap;
+        border: 1px solid black;
+        background-color: #eee;
+        width: 25em;
+        padding: 5px;
     }
 
     .datefield input,
     .datefield button,
-    .datefield label  {
-        vertical-align:middle;
+    .datefield label {
+        vertical-align: middle;
     }
 
-    .datefield label  {
-        font-weight:bold;
+    .datefield label {
+        font-weight: bold;
     }
 
-    .datefield input  {
-        width:15em;
+    .datefield input {
+        width: 15em;
     }
 
-    .datefield button  {
-        padding:0 5px 0 5px;
-        margin-left:2px;
+    .datefield button {
+        padding: 0 5px 0 5px;
+        margin-left: 2px;
     }
 
     .datefield button img {
-        padding:0;
-        margin:0;
-        vertical-align:middle;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
     }
 
     /* Example box */
     .box {
-        position:relative;
-        height:30em;
+        position: relative;
+        height: 30em;
     }
 </style>
-
 
 
 <script type="text/javascript">
@@ -296,7 +359,7 @@
         "Nov",
         "Dec"];
 
-    YUI_DAY_NAMES_SHORT	= ["Su", "Mo", "Tu", "We",
+    YUI_DAY_NAMES_SHORT = ["Su", "Mo", "Tu", "We",
         "th", "fr", "Sa"];
 
     YUI_DAY_NAMES_MEDIUM = ["Sun", "Mon", "Tue", "Wed",
@@ -307,37 +370,36 @@
         dateFormat = 'dd/mm/yyyy';
 
 
-    function getDateFromCalendar(inputArray)
-    {
+    function getDateFromCalendar(inputArray) {
         var format = dateFormat;
         var monthPos, dayPos, yearPos;
         var month = inputArray.month;
-        if (format.toLowerCase().indexOf('mmm') != -1){
+        if (format.toLowerCase().indexOf('mmm') != -1) {
             monthPos = format.toLowerCase().indexOf('mmm');
             yearPos = format.indexOf('yyyy');
             dayPos = format.indexOf('dd');
             month = YUI_MONTH_NAMES_MEDIUM[inputArray.month - 1];
         }
-        else{
+        else {
             monthPos = format.toLowerCase().indexOf('mm');
             yearPos = format.toLowerCase().indexOf('yyyy');
             dayPos = format.toLowerCase().indexOf('dd');
         }
         var result = '';
-        if (dayPos < monthPos){
+        if (dayPos < monthPos) {
             if (monthPos < yearPos)
                 result = inputArray.day + '/' + month + '/' + inputArray.year;
-            else{
+            else {
                 if (dayPos < yearPos)
                     result = inputArray.day + '/' + inputArray.year + '/' + month;
                 else
                     result = inputArray.year + '/' + inputArray.day + '/' + month;
             }
         }
-        else{ //month < dayPos
+        else { //month < dayPos
             if (yearPos < monthPos)
                 result = inputArray.year + '/' + month + '/' + inputArray.day;
-            else{
+            else {
                 if (dayPos < yearPos)
                     result = month + '/' + inputArray.day + '/' + inputArray.year;
                 else
@@ -350,66 +412,66 @@
 
     }
 
-    function dateStringToObject (dateStr, format ) {
+    function dateStringToObject(dateStr, format) {
 
         var monthPos, dayPos, yearPos;
-        var monthLen, dayLen=2, yearLen=4;
-        if (format.toLowerCase().indexOf('mmm') != -1){
+        var monthLen, dayLen = 2, yearLen = 4;
+        if (format.toLowerCase().indexOf('mmm') != -1) {
             monthPos = format.toLowerCase().indexOf('mmm');
             yearPos = format.indexOf('yyyy');
             dayPos = format.indexOf('dd');
             monthLen = 3;
         }
-        else{
+        else {
             monthPos = format.toLowerCase().indexOf('mm');
             yearPos = format.toLowerCase().indexOf('yyyy');
             dayPos = format.toLowerCase().indexOf('dd');
             monthLen = 2;
         }
 
-        var month	= dateStr.substr(monthPos, monthLen);
-        var day		= dateStr.substr(dayPos, dayLen);
-        var year	= dateStr.substr(yearPos, yearLen);
+        var month = dateStr.substr(monthPos, monthLen);
+        var day = dateStr.substr(dayPos, dayLen);
+        var year = dateStr.substr(yearPos, yearLen);
 
-        if ( monthLen == 3 ) {
-            for (var i=0; i<YUI_MONTH_NAMES_MEDIUM.length; i++) {
-                if ( month.toLowerCase() == YUI_MONTH_NAMES_MEDIUM[i].toLowerCase() ) {
-                    month	= i + 1;
+        if (monthLen == 3) {
+            for (var i = 0; i < YUI_MONTH_NAMES_MEDIUM.length; i++) {
+                if (month.toLowerCase() == YUI_MONTH_NAMES_MEDIUM[i].toLowerCase()) {
+                    month = i + 1;
                     break;
                 }
             }
         }
         return {
             month: month,
-            day:day,
-            year:year
+            day: day,
+            year: year
         };
 
     }
 
-    function clearDate(objectId){
-        var textboxEl= document.getElementById(objectId);
+    function clearDate(objectId) {
+        var textboxEl = document.getElementById(objectId);
         if (textboxEl != null) {
             textboxEl.value = "";
         }
     }
 
-    function positionHelper (buttonId) {
+    function positionHelper(buttonId) {
         var retVal = true;
         if (buttonId != null) {
-            var buttonEl	= document.getElementById(buttonId);
-            var parent		= buttonEl.parentNode;
-            while ( parent != null && !YAHOO.util.Dom.hasClass(parent, 'yui-panel-container') ) {
-                parent	= parent.parentNode;
+            var buttonEl = document.getElementById(buttonId);
+            var parent = buttonEl.parentNode;
+            while (parent != null && !YAHOO.util.Dom.hasClass(parent, 'yui-panel-container')) {
+                parent = parent.parentNode;
             }
-            if ( parent != null ) {
-                var parentRegion 	= YAHOO.util.Dom.getRegion(parent);
-                var parentTop		= parentRegion.top;
-                var parentBottom	= parentRegion.bottom;
-                var buttonY			= YAHOO.util.Dom.getY(buttonEl);
+            if (parent != null) {
+                var parentRegion = YAHOO.util.Dom.getRegion(parent);
+                var parentTop = parentRegion.top;
+                var parentBottom = parentRegion.bottom;
+                var buttonY = YAHOO.util.Dom.getY(buttonEl);
 
-                if ( parentTop < buttonY && buttonY < parentBottom ) {
-                    if ( buttonY - parentTop > parentBottom - buttonY )
+                if (parentTop < buttonY && buttonY < parentBottom) {
+                    if (buttonY - parentTop > parentBottom - buttonY)
                         retVal = true;
                     else
                         retVal = false;
@@ -420,65 +482,64 @@
         return retVal;
     }
 
-    function pickDateById(buttonId,objectId){
+    function pickDateById(buttonId, objectId) {
         pickDateById2(buttonId, objectId, true);
     }
 
-    function pickDateById2(buttonId,objectId,calendarUp,overrideObjectCorner)
-    {
+    function pickDateById2(buttonId, objectId, calendarUp, overrideObjectCorner) {
 
-        var localCalendarUp	= true;
+        var localCalendarUp = true;
         var calendarCorner = "bl";
         var objectCorner = "tr";
-        if (calendarUp != null)  {
-            if ( calendarUp instanceof Function ) {
-                localCalendarUp	= calendarUp(buttonId);
+        if (calendarUp != null) {
+            if (calendarUp instanceof Function) {
+                localCalendarUp = calendarUp(buttonId);
             }
             else
                 localCalendarUp = calendarUp;
         }
 
-        textboxEl= document.getElementById(objectId);
+        textboxEl = document.getElementById(objectId);
 
-        if ( typeof(calendarWrapperDialogs) == 'undefined' || calendarWrapperDialogs == null )
-            calendarWrapperDialogs	= new Object();
+        if (typeof(calendarWrapperDialogs) == 'undefined' || calendarWrapperDialogs == null)
+            calendarWrapperDialogs = new Object();
 
-        var dialogId		= objectId + '_dialog';
-        var calDivWrapper	= objectId + '_calDivWrapper';
-        var dialog		= calendarWrapperDialogs[dialogId];
+        var dialogId = objectId + '_dialog';
+        var calDivWrapper = objectId + '_calDivWrapper';
+        var dialog = calendarWrapperDialogs[dialogId];
 
         //if ( dialog == null ) {
-        var renderDiv	= document.getElementById(buttonId).parentNode;
-        while ( renderDiv != null ) {
-            var yuiEl 	= new YAHOO.util.Element(renderDiv);
-            if ( renderDiv.tagName != null && renderDiv.tagName.toLowerCase() == "div" && yuiEl.hasClass("yui-overlay") )
+        var renderDiv = document.getElementById(buttonId).parentNode;
+        while (renderDiv != null) {
+            var yuiEl = new YAHOO.util.Element(renderDiv);
+            if (renderDiv.tagName != null && renderDiv.tagName.toLowerCase() == "div" && yuiEl.hasClass("yui-overlay"))
                 break;
-            renderDiv	= renderDiv.parentNode;
+            renderDiv = renderDiv.parentNode;
         }
-        if ( renderDiv == null )
-            renderDiv	= document.body;
-        if(localCalendarUp == true){
+        if (renderDiv == null)
+            renderDiv = document.body;
+        if (localCalendarUp == true) {
             calendarCorner = "bl";
             objectCorner = "tr";
-        }else{
+        } else {
             calendarCorner = "tl";
             objectCorner = "br";
         }
         if (overrideObjectCorner) {
             objectCorner = overrideObjectCorner;
         }
-        dialog		= new YAHOO.widget.Dialog(dialogId, {
-            visible:false,
+        dialog = new YAHOO.widget.Dialog(dialogId, {
+            visible: false,
 
-            context:[buttonId,  calendarCorner, objectCorner],
-            draggable:true,
-            close:true
+            context: [buttonId, calendarCorner, objectCorner],
+            draggable: true,
+            close: true
 
         });
         dialog.setHeader('Pick A Date');
-        dialog.setBody('<div class="yui-skin-sam"><div class="cal-div-wrapper" id="'+calDivWrapper+'"></div></div>');
-        dialog.render( renderDiv );
-        dialog.showEvent.subscribe(function() {
+        dialog.setBody('<div class="yui-skin-sam"><div class="cal-div-wrapper" id="' + calDivWrapper + '"></div></div>');
+        dialog.render(renderDiv);
+        dialog.showEvent.subscribe(function () {
             if (YAHOO.env.ua.ie) {
                 // Since we're hiding the table using yui-overlay-hidden, we
                 // want to let the dialog know that the content size has changed, when
@@ -486,26 +547,26 @@
                 dialog.fireEvent("changeContent");
             }
         });
-        calendarWrapperDialogs[dialogId] 	= dialog;
+        calendarWrapperDialogs[dialogId] = dialog;
 
-        var calendar 	= new YAHOO.widget.Calendar(calDivWrapper, {
+        var calendar = new YAHOO.widget.Calendar(calDivWrapper, {
             navigator: true,
-            iframe:false,          // Turn iframe off, since container has iframe support.
-            hide_blank_weeks:true  // Enable, to demonstrate how we handle changing height, using changeContent
+            iframe: false,          // Turn iframe off, since container has iframe support.
+            hide_blank_weeks: true  // Enable, to demonstrate how we handle changing height, using changeContent
         });
-        calendar.cfg.setProperty("MONTHS_LONG", YUI_MONTH_NAMES_LONG );
+        calendar.cfg.setProperty("MONTHS_LONG", YUI_MONTH_NAMES_LONG);
 
         calendar.cfg.setProperty("WEEKDAYS_SHORT", YUI_DAY_NAMES_SHORT);
-        calendar.cfg.setProperty("WEEKDAYS_MEDIUM",YUI_DAY_NAMES_MEDIUM);
-        if ( textboxEl.value != null && textboxEl.value.length > 0 ) {
-            var dateObj			= dateStringToObject(textboxEl.value,dateFormat);
-            calendar.cfg.setProperty("selected", dateObj.month + "/" + dateObj.day + "/" + dateObj.year );
-            calendar.cfg.setProperty("pagedate", dateObj.month + "/" + dateObj.year );
+        calendar.cfg.setProperty("WEEKDAYS_MEDIUM", YUI_DAY_NAMES_MEDIUM);
+        if (textboxEl.value != null && textboxEl.value.length > 0) {
+            var dateObj = dateStringToObject(textboxEl.value, dateFormat);
+            calendar.cfg.setProperty("selected", dateObj.month + "/" + dateObj.day + "/" + dateObj.year);
+            calendar.cfg.setProperty("pagedate", dateObj.month + "/" + dateObj.year);
         }
 
         calendar.render();
 
-        calendar.selectEvent.subscribe(function() {
+        calendar.selectEvent.subscribe(function () {
             if (calendar.getSelectedDates().length > 0) {
 
                 var selDate = calendar.getSelectedDates()[0];
@@ -515,11 +576,11 @@
                 var dStr = selDate.getDate() + "";
                 // var mStr = calendar.cfg.getProperty("MONTHS_LONG")[selDate.getMonth()];
                 var yStr = selDate.getFullYear() + "";
-                var mStr = (selDate.getMonth()+1) + "";
-                if ( mStr.length == 1 )
-                    mStr	= "0" + mStr;
-                if ( dStr.length == 1 )
-                    dStr	= "0" + dStr;
+                var mStr = (selDate.getMonth() + 1) + "";
+                if (mStr.length == 1)
+                    mStr = "0" + mStr;
+                if (dStr.length == 1)
+                    dStr = "0" + dStr;
 
                 var parameter = {
                     year: yStr,
@@ -527,7 +588,7 @@
                     day: dStr,
                     monthName: [selDate.getMonth()]
                 };
-                var dateString	= getDateFromCalendar(parameter);
+                var dateString = getDateFromCalendar(parameter);
                 textboxEl.value = dateString;
             }
             dialog.hide();
@@ -539,18 +600,18 @@
     }
 
     /*Just for compatibility reasons with functions that were used with the old DHTMLSuite calendar widget*/
-    function pickDateWithClear(buttonId,inputObject,clearId) {
-        if ( inputObject.id == null )
+    function pickDateWithClear(buttonId, inputObject, clearId) {
+        if (inputObject.id == null)
             inputObject.id = "tb" + new Date().getTime();
         pickDateById(buttonId, inputObject.id);
     }
 
 
-
 </script>
 
 <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/scrollableTable.js"></script>
-<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/scrollableTableReports.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="/repository/aim/view/scripts/scrollableTableReports.js"></script>
 <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
 <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
 
@@ -591,19 +652,17 @@
 
     DHTMLSuite.commonObj.setCssCacheStatus(false);
 
-    function displayMessage(url)
-    {
+    function displayMessage(url) {
         messageObj.setSource(url);
         messageObj.setCssClassMessageBox(false);
-        messageObj.setSize(400,200);
+        messageObj.setSize(400, 200);
         messageObj.setShadowDivVisible(true);	// Enable shadow for these boxes
         messageObj.display();
     }
 
-    function displayStaticMessage(messageContent,cssClass,width,height)
-    {
+    function displayStaticMessage(messageContent, cssClass, width, height) {
         messageObj.setHtmlContent(messageContent);
-        messageObj.setSize(width,height);
+        messageObj.setSize(width, height);
         messageObj.setCssClassMessageBox(cssClass);
         messageObj.setSource(false);	// no html source since we want to use a static message here.
         messageObj.setShadowDivVisible(true);	// Disable shadow for these boxes
@@ -612,8 +671,7 @@
 
     }
 
-    function closeMessage()
-    {
+    function closeMessage() {
         messageObj.close();
     }
 
@@ -637,24 +695,24 @@
 
     /*Sample CSS used for the Virtual Pagination Demos. Modify/ remove as desired*/
 
-    .virtualpage, .virtualpage2, .virtualpage3{
+    .virtualpage, .virtualpage2, .virtualpage3 {
         /*hide the broken up pieces of contents until script is called. Remove if desired*/
         display: none;
     }
 
-    .paginationstyle{ /*Style for demo pagination divs*/
+    .paginationstyle { /*Style for demo pagination divs*/
         width: 250px;
         text-align: center;
         padding: 2px 0;
         margin: 10px 0;
     }
 
-    .paginationstyle select{ /*Style for demo pagination divs' select menu*/
+    .paginationstyle select { /*Style for demo pagination divs' select menu*/
         border: 1px solid navy;
         margin: 0 15px;
     }
 
-    .paginationstyle a{ /*Pagination links style*/
+    .paginationstyle a { /*Pagination links style*/
         padding: 0 5px;
         text-decoration: none;
         border: 1px solid black;
@@ -662,28 +720,29 @@
         background-color: white;
     }
 
-    .paginationstyle a:hover, .paginationstyle a.selected{
+    .paginationstyle a:hover, .paginationstyle a.selected {
         color: #000;
         background-color: #FEE496;
     }
 
-    .paginationstyle a.imglinks{ /*Pagination Image links style (class="imglinks") */
+    .paginationstyle a.imglinks { /*Pagination Image links style (class="imglinks") */
         border: 0;
         padding: 0;
     }
 
-    .paginationstyle a.imglinks img{
+    .paginationstyle a.imglinks img {
         vertical-align: bottom;
         border: 0;
     }
 
-    .paginationstyle a.imglinks a:hover{
+    .paginationstyle a.imglinks a:hover {
         background: none;
     }
 
-    .paginationstyle .flatview a:hover, .paginationstyle .flatview a.selected{ /*Pagination div "flatview" links style*/
+    .paginationstyle .flatview a:hover, .paginationstyle .flatview a.selected { /*Pagination div "flatview" links style*/
         color: #000;
-        background-color: yellow;css
+        background-color: yellow;
+        css
     }
 
 </style>
@@ -691,10 +750,12 @@
 <script type="text/javascript" src="/TEMPLATE/ampTemplate/js_2/yui/tabview/tabview-min.js"></script>
 
 
-<script language="JavaScript" type="text/javascript" src="/TEMPLATE/ampTemplate/script/tooltip/wz_tooltip.js" ></script>
-<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/filters/filters.js?version=fantastic_15" ></script>
-<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/filters/searchManager.js" ></script>
-<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/saveReports.js" ></script>
+<script language="JavaScript" type="text/javascript" src="/TEMPLATE/ampTemplate/script/tooltip/wz_tooltip.js"></script>
+<script language="JavaScript" type="text/javascript"
+        src="/repository/aim/view/scripts/filters/filters.js?version=fantastic_15"></script>
+<script language="JavaScript" type="text/javascript"
+        src="/repository/aim/view/scripts/filters/searchManager.js"></script>
+<script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/saveReports.js"></script>
 
 <!-- END - For DHTML Tab View of Filters -->
 
@@ -714,95 +775,100 @@
         "Tab and filters have been saved.";
     SaveReportEngine.reportSavedMessage =
         "Report and filters have been saved.";
-    saveReportEngine	= null;
+    saveReportEngine = null;
 </script>
 <script type="text/javascript">
     dateFilterErrorMsg = "\'From\' date must be on or before \'To\' date";
-    var currentReportId	= -1;
+    var currentReportId = -1;
 
     YAHOO.namespace("YAHOO.amptab");
-    YAHOO.amptab.init = function() {
+    YAHOO.amptab.init = function () {
         var tabView = new YAHOO.widget.TabView('tabview_container');
     };
 
-    YAHOO.amptab.handleCloseAbout = function() {
-        if(navigator.appName == 'Microsoft Internet Explorer'){
+    YAHOO.amptab.handleCloseAbout = function () {
+        if (navigator.appName == 'Microsoft Internet Explorer') {
             //window.location.reload();
             //history.go(-1);
         }
     }
 
-    YAHOO.amptab.handleClose = function() {
-        var filter			= document.getElementById('myFilter');
-        filter.innerHTML 	= '';
-        var wrapper			= document.getElementById('myFilterWrapper');
+    YAHOO.amptab.handleClose = function () {
+        var filter = document.getElementById('myFilter');
+        filter.innerHTML = '';
+        var wrapper = document.getElementById('myFilterWrapper');
         if (filter.parent != null)
             filter.parent.removeChild(filter);
         wrapper.appendChild(filter);
     };
 
-    YAHOO.amptab.handleCloseShowFormat = function() {
-        var wrapper			= document.getElementById('myFilterWrapper');
-        var filter			= document.getElementById('customFormat');
+    YAHOO.amptab.handleCloseShowFormat = function () {
+        var wrapper = document.getElementById('myFilterWrapper');
+        var filter = document.getElementById('customFormat');
         if (filter.parent != null)
             filter.parent.removeChild(filter);
         wrapper.appendChild(filter);
     };
 
     var myPanel1 = new YAHOO.widget.Panel("new", {
-        width:"750px",
+        width: "750px",
         fixedcenter: true,
         constraintoviewport: true,
-        underlay:"none",
-        close:true,
-        visible:false,
-        modal:true,
-        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
-        draggable:true} );
+        underlay: "none",
+        close: true,
+        visible: false,
+        modal: true,
+        effect: {effect: YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable: true
+    });
 
     var myPanel2 = new YAHOO.widget.Panel("new2", {
-        width:"400px",
+        width: "400px",
         fixedcenter: true,
         constraintoviewport: true,
-        underlay:"shadow",
-        close:true,
-        visible:false,
-        modal:true,
-        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
-        draggable:true} );
+        underlay: "shadow",
+        close: true,
+        visible: false,
+        modal: true,
+        effect: {effect: YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable: true
+    });
 
     var myPanel3 = new YAHOO.widget.Panel("new3", {
-        width:"300px",
+        width: "300px",
         fixedcenter: true,
         constraintoviewport: true,
-        underlay:"none",
-        close:true,
-        visible:false,
-        modal:true,
-        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
-        draggable:true} );
+        underlay: "none",
+        close: true,
+        visible: false,
+        modal: true,
+        effect: {effect: YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable: true
+    });
 
     var myPanel4 = new YAHOO.widget.Panel("new4", {
-        width:"480px",
+        width: "480px",
         fixedcenter: true,
         constraintoviewport: true,
-        underlay:"none",
-        close:true,
-        visible:false,
-        modal:true,
-        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
-        draggable:true} );
+        underlay: "none",
+        close: true,
+        visible: false,
+        modal: true,
+        effect: {effect: YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable: true
+    });
 
     var myPanel5 = new YAHOO.widget.Panel("new5", {
-        width:"480px",
+        width: "480px",
         fixedcenter: true,
         constraintoviewport: true,
-        underlay:"none",
-        close:true,
-        visible:false,
-        modal:true,
-        effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
-        draggable:true} );
+        underlay: "none",
+        close: true,
+        visible: false,
+        modal: true,
+        effect: {effect: YAHOO.widget.ContainerEffect.FADE, duration: 0.5},
+        draggable: true
+    });
 
     myPanel1.hideEvent.subscribe(YAHOO.amptab.handleClose);
     myPanel5.beforeHideEvent.subscribe(YAHOO.amptab.handleCloseAbout);
@@ -810,19 +876,19 @@
 
     function initScripts() {
 
-        var msg='\nFilters';
+        var msg = '\nFilters';
         myPanel1.setHeader(msg);
         myPanel1.setBody("");
         myPanel1.render(document.body);
 
-        var msgP2='\nPlease select hierarchy sorter criteria';
+        var msgP2 = '\nPlease select hierarchy sorter criteria';
 
         myPanel2.setHeader(msgP2);
         myPanel2.setBody("");
         myPanel2.render(document.body);
-        myPanel2EmptyBody	= true;
+        myPanel2EmptyBody = true;
 
-        var msgP3='\nPlease select range';
+        var msgP3 = '\nPlease select range';
         myPanel3.setHeader(msgP3);
         myPanel3.setBody("");
         myPanel3.render(document.body);
@@ -830,16 +896,14 @@
         //alert('param.queryEngine: ' + '');
 
 
-
-        var msgP4='\nPlease select report settings';
-
+        var msgP4 = '\nPlease select report settings';
 
 
         myPanel4.setHeader(msgP4);
         myPanel4.setBody("");
         myPanel4.render(document.body);
 
-        var msgP5='\nAbout AMP';
+        var msgP5 = '\nAbout AMP';
         myPanel5.setHeader(msgP5);
         myPanel5.setBody("");
         myPanel5.render(document.body);
@@ -848,21 +912,22 @@
     function submitFilters(reportContextId) {
         //alert("SUBMITTING FILTERS");
         //debugger;
-        if(document.getElementById("workspace_only")!=null)
+        if (document.getElementById("workspace_only") != null)
             document.getElementById("workspaceOnly").value = document.getElementById("workspace_only").checked;
-        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm")[0];
+        var filterForm = document.getElementsByName("aimReportsFilterPickerForm")[0];
 
-        if (validateDynamicDateFilters() && validateDateFilters()){
-            filterForm.action	= "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
+        if (validateDynamicDateFilters() && validateDateFilters()) {
+            filterForm.action = "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
             filterForm.submit();
-        };
+        }
+        ;
     }
 
     function submitSettings(reportContextId) {
         //This is needed for unfreezing the report. applyFormat parameter needs to be set so that the function
         // ReportsFilterPickerForm.reset doesn't reset the currently applied filters
-        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm3")[0];
-        filterForm.action	= "/aim/reportsFilterPicker.do?applyFormat=true&reportContextId=" + reportContextId;
+        var filterForm = document.getElementsByName("aimReportsFilterPickerForm3")[0];
+        filterForm.action = "/aim/reportsFilterPicker.do?applyFormat=true&reportContextId=" + reportContextId;
         filterForm.submit();
     }
 
@@ -870,41 +935,36 @@
         document.getElementById("myFilter").innerHTML = '<div align="center" style="font-size: 11px;margin-top:190px;"><img src="/TEMPLATE/ampTemplate/img_2/ajax-loader.gif"/></div>';
 
         var element = document.getElementById("myFilter");
-        element.style.display   = "block";
-        element.style.height    = "500px";
+        element.style.display = "block";
+        element.style.height = "500px";
 
         myPanel1.setBody(element);
 
-        myPanel1.cfg.setProperty("height", "520px" );
-        myPanel1.cfg.setProperty("width", "870px" );
+        myPanel1.cfg.setProperty("height", "520px");
+        myPanel1.cfg.setProperty("width", "870px");
         myPanel1.center();
         myPanel1.show();
 
         var timestamp = new Date().getTime();
 
-        YAHOO.util.Connect.asyncRequest("GET", "/aim/reportsFilterPicker.do?timestamp=" + timestamp + "&reportContextId=" + reportContextId + "&overwriteBackUrl=" + window.location.pathname , {
-            success: function(o) {
-                document.getElementById("myFilter").innerHTML	= o.responseText;
+        YAHOO.util.Connect.asyncRequest("GET", "/aim/reportsFilterPicker.do?timestamp=" + timestamp + "&reportContextId=" + reportContextId + "&overwriteBackUrl=" + window.location.pathname, {
+            success: function (o) {
+                document.getElementById("myFilter").innerHTML = o.responseText;
                 YAHOO.amptab.afterFiltersLoad();
             },
-            failure:function (o) {
-                document.getElementById("myFilter").innerHTML	= "There was a problem loading the filters";
+            failure: function (o) {
+                document.getElementById("myFilter").innerHTML = "There was a problem loading the filters";
             }
         });
         YAHOO.amptab.init();
 
 
-
-
-
     }
 
-    function addTitleSelect(selectName){
+    function addTitleSelect(selectName) {
         var categoryOptions = document.getElementsByName(selectName);
-        if(categoryOptions[0])
-        {
-            for(idx = 0; idx < categoryOptions[0].options.length;idx++)
-            {
+        if (categoryOptions[0]) {
+            for (idx = 0; idx < categoryOptions[0].options.length; idx++) {
                 categoryOptions[0].options[idx].title = categoryOptions[0].options[idx].text;
             }
         }
@@ -919,18 +979,18 @@
         myPanel5.show();
     }
 
-    function checkRangeValues(){
+    function checkRangeValues() {
         var actualFrom = document.aimReportsFilterPickerForm2.renderStartYear.value;
         var actualTo = document.aimReportsFilterPickerForm2.renderEndYear.value;
-        var msg='\nDefault Start Year must be lesser than Default End Year';
-        if(actualFrom>actualTo){
+        var msg = '\nDefault Start Year must be lesser than Default End Year';
+        if (actualFrom > actualTo) {
             alert(msg);
             return false;
         }
         return true;
     }
 
-    function showFormat(){
+    function showFormat() {
         //YAHOO.amptab.init();
         //var maxFractionDigits=0;
         //ResetCustom(maxFractionDigits);
@@ -942,66 +1002,72 @@
         myPanel4.show();
     }
 
-    function changeRange(){
+    function changeRange() {
         var cant = document.aimReportsFilterPickerForm2.countYear.value;
         var actualFrom = document.aimReportsFilterPickerForm2.fromYear.value;
         var actualTo = document.aimReportsFilterPickerForm2.toYear.value;
         var initialYear = document.aimReportsFilterPickerForm2.countYearFrom.value;
-        document.aimReportsFilterPickerForm2.fromYear.length=0;
-        document.aimReportsFilterPickerForm2.toYear.length=0;
-        var masterFrom=document.aimReportsFilterPickerForm2.fromYear;
-        var masterTo=document.aimReportsFilterPickerForm2.toYear;
-        masterFrom.options[0]=new Option("All", "-1", false, true);
-        for (var i = 1; i <= cant; i++){
-            var year  = parseInt(initialYear)+ i;
-            if(year == actualFrom){
-                masterFrom.options[i]=new Option(year, year, false, true);
+        document.aimReportsFilterPickerForm2.fromYear.length = 0;
+        document.aimReportsFilterPickerForm2.toYear.length = 0;
+        var masterFrom = document.aimReportsFilterPickerForm2.fromYear;
+        var masterTo = document.aimReportsFilterPickerForm2.toYear;
+        masterFrom.options[0] = new Option("All", "-1", false, true);
+        for (var i = 1; i <= cant; i++) {
+            var year = parseInt(initialYear) + i;
+            if (year == actualFrom) {
+                masterFrom.options[i] = new Option(year, year, false, true);
             }
-            else{
-                masterFrom.options[i]=new Option(year, year, false, false);
-            };
+            else {
+                masterFrom.options[i] = new Option(year, year, false, false);
+            }
+            ;
         }
-        masterTo.options[0]=new Option("All", "-1", false, true);
-        for (var i = 1; i <= cant; i++){
-            var year  = parseInt(initialYear)+ i;
-            if(year == actualTo){
-                masterTo.options[i]=new Option(year, year, false, true);
+        masterTo.options[0] = new Option("All", "-1", false, true);
+        for (var i = 1; i <= cant; i++) {
+            var year = parseInt(initialYear) + i;
+            if (year == actualTo) {
+                masterTo.options[i] = new Option(year, year, false, true);
             }
-            else{
-                masterTo.options[i]=new Option(year, year, false, false);
-            };
+            else {
+                masterTo.options[i] = new Option(year, year, false, false);
+            }
+            ;
         }
     }
+
     function hideFilter() {
         myPanel1.hide();
     }
+
     function showSorter() {
         var element2 = document.getElementById("mySorter");
-        if ( element2 != null ) {
+        if (element2 != null) {
             element2.parentNode.removeChild(element2);
-            element2.style.display 	= "inline";
-            element2.id		= null;
+            element2.style.display = "inline";
+            element2.id = null;
             myPanel2.setBody(element2);
-            myPanel2EmptyBody		= false;
+            myPanel2EmptyBody = false;
         }
         myPanel2.show();
     }
+
     function hideSorter() {
         myPanel2.hide();
     }
+
     function resetSorter(button) {
-        var form1		= button.form;
-        for (var i=0; i<form1.elements.length; i++) {
-            var selEl	= form1.elements[i];
-            if ( selEl.nodeName.toLowerCase() == "select" ) {
-                selEl.selectedIndex	= 0;
+        var form1 = button.form;
+        for (var i = 0; i < form1.elements.length; i++) {
+            var selEl = form1.elements[i];
+            if (selEl.nodeName.toLowerCase() == "select") {
+                selEl.selectedIndex = 0;
                 selEl.options[0].selected = true;
             }
         }
         return false;
     }
 
-    function showRange(){
+    function showRange() {
         YAHOO.amptab.init();
         var element = document.getElementById("myRange");
         element.style.display = "inline";
@@ -1010,6 +1076,7 @@
         myPanel3.center();
         myPanel3.show();
     }
+
     function hideRange() {
         myPanel3.hide();
     }
@@ -1017,16 +1084,15 @@
     function hideFilter() {
         myPanel1.hide();
     }
-    function checkProjectId(x){
+
+    function checkProjectId(x) {
         var s_len = x.value.length;
         var s_charcode = 0;
-        for (var s_i=0;s_i<s_len;s_i++)
-        {
+        for (var s_i = 0; s_i < s_len; s_i++) {
             s_charcode = x.value.charCodeAt(s_i);
-            if(!((s_charcode>=48 && s_charcode<=57)))
-            {
+            if (!((s_charcode >= 48 && s_charcode <= 57))) {
                 alert("Only Numeric Values Allowed");
-                x.value='';
+                x.value = '';
                 x.focus();
                 return false;
             }
@@ -1035,8 +1101,8 @@
     }
 
 
-    function resetFormat(){
-        document.aimReportsFilterPickerForm3.action=document.aimReportsFilterPickerForm3.action+'&resetFormat=true';
+    function resetFormat() {
+        document.aimReportsFilterPickerForm3.action = document.aimReportsFilterPickerForm3.action + '&resetFormat=true';
         alert(document.aimReportsFilterPickerForm3.action);
         document.aimReportsFilterPickerForm3.submit();
     }
@@ -1054,72 +1120,72 @@
         aimReportsFilterPickerForm3.customGroupSize.value = 3;
         //alert(aimReportsFilterPickerForm3.amountinthousands.checked);
         aimReportsFilterPickerForm3.customAmountinThousands.options.selectedIndex = 0;
-        aimReportsFilterPickerForm3.calendar.value =aimReportsFilterPickerForm3.initialCal.value;
+        aimReportsFilterPickerForm3.calendar.value = aimReportsFilterPickerForm3.initialCal.value;
         initFormatPopup();
-        if(document.aimReportsFilterPickerForm3.renderStartYear){
-            document.aimReportsFilterPickerForm3.renderStartYear.value=-1;
+        if (document.aimReportsFilterPickerForm3.renderStartYear) {
+            document.aimReportsFilterPickerForm3.renderStartYear.value = -1;
         }
-        if(document.aimReportsFilterPickerForm3.renderEndYear){
-            document.aimReportsFilterPickerForm3.renderEndYear.value=-1;
+        if (document.aimReportsFilterPickerForm3.renderEndYear) {
+            document.aimReportsFilterPickerForm3.renderEndYear.value = -1;
         }
         if (aimReportsFilterPickerForm3.currency)
-            aimReportsFilterPickerForm3.currency.value=aimReportsFilterPickerForm3.defaultCurrency.value;
+            aimReportsFilterPickerForm3.currency.value = aimReportsFilterPickerForm3.defaultCurrency.value;
 
         if (aimReportsFilterPickerForm3.calendar)
-            aimReportsFilterPickerForm3.calendar.value=aimReportsFilterPickerForm3.defaultCalendar.value;
+            aimReportsFilterPickerForm3.calendar.value = aimReportsFilterPickerForm3.defaultCalendar.value;
 
     }
 
-    function initFormatPopup(){
-        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+    function initFormatPopup() {
+        var decimalSymbol = document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
 
-        if (decimalSymbol.toLowerCase()=="custom"){
-            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled=false;
+        if (decimalSymbol.toLowerCase() == "custom") {
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled = false;
 
-        }else{
-            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value="";
-            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled=true;
+        } else {
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value = "";
+            document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.disabled = true;
         }
 
-        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+        var customDecimalPlaces = document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
 
-        if (customDecimalPlaces.toLowerCase()=="-2"){
-            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled=false;
-        }else{
-            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value="";
-            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled=true;
+        if (customDecimalPlaces.toLowerCase() == "-2") {
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled = false;
+        } else {
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value = "";
+            document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.disabled = true;
         }
 
 
-        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
+        var customUseGrouping = document.aimReportsFilterPickerForm3.customUseGrouping.checked;
 
-        if (!customUseGrouping){
-            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled=true;
-        }else{
-            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled=false;
+        if (!customUseGrouping) {
+            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled = true;
+        } else {
+            document.aimReportsFilterPickerForm3.customGroupCharacter.disabled = false;
         }
-        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
-        document.aimReportsFilterPickerForm3.customGroupSize.disabled=!customUseGrouping;
-        document.aimReportsFilterPickerForm3.customGroupCharacterTxt.disabled=((!customUseGrouping) || ("custom"!=customGroupCharacter.toLowerCase()));
+        var customGroupCharacter = document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        document.aimReportsFilterPickerForm3.customGroupSize.disabled = !customUseGrouping;
+        document.aimReportsFilterPickerForm3.customGroupCharacterTxt.disabled = ((!customUseGrouping) || ("custom" != customGroupCharacter.toLowerCase()));
 
         changeFormat();
     }
 
-    function changeFormat(){
-        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
-        decimalSymbol=("custom"==decimalSymbol.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value:decimalSymbol;
+    function changeFormat() {
+        var decimalSymbol = document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+        decimalSymbol = ("custom" == decimalSymbol.toLowerCase()) ? document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value : decimalSymbol;
 
-        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
-        customDecimalPlaces=("-2"==customDecimalPlaces.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value:customDecimalPlaces;
+        var customDecimalPlaces = document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+        customDecimalPlaces = ("-2" == customDecimalPlaces.toLowerCase()) ? document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value : customDecimalPlaces;
 
-        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
-
-
-        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
-        customGroupCharacter=("custom"==customGroupCharacter.toLowerCase())?document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value:customGroupCharacter;
+        var customUseGrouping = document.aimReportsFilterPickerForm3.customUseGrouping.checked;
 
 
-        var customGroupSize=document.aimReportsFilterPickerForm3.customGroupSize.value;
+        var customGroupCharacter = document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        customGroupCharacter = ("custom" == customGroupCharacter.toLowerCase()) ? document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value : customGroupCharacter;
+
+
+        var customGroupSize = document.aimReportsFilterPickerForm3.customGroupSize.value;
 
         var amountDivisor = 1.0;
 
@@ -1131,88 +1197,86 @@
             amountDivisor = 1000.0 * 1000.0;
 
 
-        var num=Number(123456789.928 / amountDivisor);
+        var num = Number(123456789.928 / amountDivisor);
 
         //debugger;
-        var format=new Format(decimalSymbol,customDecimalPlaces,customUseGrouping,customGroupCharacter,customGroupSize);
-        document.getElementById("number").innerHTML="<B>"+num.format(format)+"</B>";
+        var format = new Format(decimalSymbol, customDecimalPlaces, customUseGrouping, customGroupCharacter, customGroupSize);
+        document.getElementById("number").innerHTML = "<B>" + num.format(format) + "</B>";
         //alert(num.format(format));
         return true;
     }
 
-    function validateFormat(){
+    function validateFormat() {
 
-        var decimalSymbol=document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
-        decimalSymbol=("custom"==decimalSymbol.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value:decimalSymbol;
+        var decimalSymbol = document.aimReportsFilterPickerForm3.customDecimalSymbol.value;
+        decimalSymbol = ("custom" == decimalSymbol.toLowerCase()) ? document.aimReportsFilterPickerForm3.customDecimalSymbolTxt.value : decimalSymbol;
 
-        var customDecimalPlaces=document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
-        customDecimalPlaces=("-2"==customDecimalPlaces.toLowerCase())?document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value:customDecimalPlaces;
+        var customDecimalPlaces = document.aimReportsFilterPickerForm3.customDecimalPlaces.value;
+        customDecimalPlaces = ("-2" == customDecimalPlaces.toLowerCase()) ? document.aimReportsFilterPickerForm3.customDecimalPlacesTxt.value : customDecimalPlaces;
 
-        var customUseGrouping=document.aimReportsFilterPickerForm3.customUseGrouping.checked;
+        var customUseGrouping = document.aimReportsFilterPickerForm3.customUseGrouping.checked;
 
-        var customGroupCharacter=document.aimReportsFilterPickerForm3.customGroupCharacter.value;
-        customGroupCharacter=("custom"==customGroupCharacter.toLowerCase())?document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value:customGroupCharacter;
+        var customGroupCharacter = document.aimReportsFilterPickerForm3.customGroupCharacter.value;
+        customGroupCharacter = ("custom" == customGroupCharacter.toLowerCase()) ? document.aimReportsFilterPickerForm3.customGroupCharacterTxt.value : customGroupCharacter;
 
-        var customGroupSize=document.aimReportsFilterPickerForm3.customGroupSize.value;
+        var customGroupSize = document.aimReportsFilterPickerForm3.customGroupSize.value;
 
-        if ((decimalSymbol==customGroupCharacter)&&(customUseGrouping)){
-            var msg='Decimal Symbol and group symbol must be diferents';
+        if ((decimalSymbol == customGroupCharacter) && (customUseGrouping)) {
+            var msg = 'Decimal Symbol and group symbol must be diferents';
             alert(msg);
             return false;
         }
-        var validNumbers="0123456789";
+        var validNumbers = "0123456789";
 
-        if (decimalSymbol=="" || customGroupCharacter==""){
-            var msg='Symbols can not be a empty, you can use the space character';
+        if (decimalSymbol == "" || customGroupCharacter == "") {
+            var msg = 'Symbols can not be a empty, you can use the space character';
             alert(msg);
             return false;
         }
 
 
-        if ((validNumbers.indexOf(decimalSymbol)!=-1)||(validNumbers.indexOf(customGroupCharacter)!=-1)){
-            var msg='Symbols can not be a number';
+        if ((validNumbers.indexOf(decimalSymbol) != -1) || (validNumbers.indexOf(customGroupCharacter) != -1)) {
+            var msg = 'Symbols can not be a number';
             alert(msg);
             return false;
         }
 
         if ((customGroupSize < 1) && (document.aimReportsFilterPickerForm3.customUseGrouping.checked == true)) {
-            var msg='The value should be greater than zero';
+            var msg = 'The value should be greater than zero';
             alert(msg);
             return false;
         }
-
 
 
         return true;
     }
 
 
-    window.onload=initScripts;
+    window.onload = initScripts;
 
 
-    var msg0="Please wait...";
+    var msg0 = "Please wait...";
 
-    var msg1="Freeze Report Heading";
+    var msg1 = "Freeze Report Heading";
 
-    var msg2="Unfreeze Report Heading";
+    var msg2 = "Unfreeze Report Heading";
 
-    var msg3="Freezing Report Heading";
+    var msg3 = "Freezing Report Heading";
 
-    var msg4="Unfreezing Report Heading";
+    var msg4 = "Unfreezing Report Heading";
 
 
-
-    function addOnloadEvent(fnc){
-        if ( typeof window.addEventListener != "undefined" )
-            window.addEventListener( "load", fnc, false );
-        else if ( typeof window.attachEvent != "undefined" ) {
-            window.attachEvent( "onload", fnc );
+    function addOnloadEvent(fnc) {
+        if (typeof window.addEventListener != "undefined")
+            window.addEventListener("load", fnc, false);
+        else if (typeof window.attachEvent != "undefined") {
+            window.attachEvent("onload", fnc);
         }
         else {
-            if ( window.onload != null ) {
+            if (window.onload != null) {
                 var oldOnload = window.onload;
-                window.onload = function ( e ) {
-                    oldOnload( e );
+                window.onload = function (e) {
+                    oldOnload(e);
                     window[fnc]();
                 };
             }
@@ -1222,165 +1286,175 @@
     }
 
 
-    var scrollingStr=readCookie('report_scrolling');
-    var scrolling=(scrollingStr==null)?false:(scrollingStr==new Number(currentReportId).toString() )?true:false;
+    var scrollingStr = readCookie('report_scrolling');
+    var scrolling = (scrollingStr == null) ? false : (scrollingStr == new Number(currentReportId).toString()) ? true : false;
 
     // For some reason freezeLink.removeListener doesn't work correctly so we need an ugly hack
-    var canMakeScroll	= false;
-    function scrollCallback (reportContextId) {
-        if ( canMakeScroll )
+    var canMakeScroll = false;
+
+    function scrollCallback(reportContextId) {
+        if (canMakeScroll)
             makeScroll();
         else
             hiddeScroll(reportContextId);
     }
+
     //END
 
 
-    function reloadpage(){
+    function reloadpage() {
         location.reload();
     }
 
-    function sendCookieAndReload (reportContextId){
+    function sendCookieAndReload(reportContextId) {
         showWaitPanel(msg3);
-        createCookie('report_scrolling',currentReportId,1);
+        createCookie('report_scrolling', currentReportId, 1);
         submitScroll(reportContextId);
     }
 
 
-    function makeScroll (){
-        var freezeLink	= new YAHOO.util.Element( "frezzlink" );
-        createCookie('report_scrolling',currentReportId,1);
+    function makeScroll() {
+        var freezeLink = new YAHOO.util.Element("frezzlink");
+        createCookie('report_scrolling', currentReportId, 1);
         showScroll();
         //document.getElementById("frezzlink").setAttribute("onClick","hiddeScroll()");
         //document.getElementById("frezzlink").setAttribute("class","settingsLink");
-        if ( freezeLink.hasClass("settingsLinkDisable") )
+        if (freezeLink.hasClass("settingsLinkDisable"))
             freezeLink.removeClass("settingsLinkDisable");
-        freezeLink.addClass( "settingsLink" );
-        canMakeScroll	= false;
+        freezeLink.addClass("settingsLink");
+        canMakeScroll = false;
         //document.getElementById("frezzlink").innerHTML=msg2;
     }
 
-    function hiddeScroll(reportContextId){
+    function hiddeScroll(reportContextId) {
         showWaitPanel(msg4);
         eraseCookie('report_scrolling');
         submitScroll(reportContextId);
     }
 
     function submitScroll(reportContextId) {
-        var filterForm		= document.getElementsByName("aimReportsFilterPickerForm3")[0];
-        filterForm.action	= "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
+        var filterForm = document.getElementsByName("aimReportsFilterPickerForm3")[0];
+        filterForm.action = "/aim/reportsFilterPicker.do?apply=true&reportContextId=" + reportContextId;
         filterForm.submit();
     }
 
-    function showWaitPanel(msgF){
+    function showWaitPanel(msgF) {
         var wait = new YAHOOAmp.widget.Panel("wait",
-            { width:"240px",
-                fixedcenter:true,
-                close:false,
-                draggable:false,
-                zindex:99,
-                modal:true,
-                visible:false,
-                underlay:"shadow"
+            {
+                width: "240px",
+                fixedcenter: true,
+                close: false,
+                draggable: false,
+                zindex: 99,
+                modal: true,
+                visible: false,
+                underlay: "shadow"
             }
         );
 
         wait.setHeader(msg0);
-        wait.setBody("<div align='center'>"+msgF+"</div>");
+        wait.setBody("<div align='center'>" + msgF + "</div>");
         wait.render(document.body);
         wait.show();
     }
 
-    var enableLink=function(){
-        if (document.getElementById("frezzlink")){
-            var freezeLink	= new YAHOO.util.Element( "frezzlink" );
+    var enableLink = function () {
+        if (document.getElementById("frezzlink")) {
+            var freezeLink = new YAHOO.util.Element("frezzlink");
             var reportContextId = freezeLink.getAttribute('reportContextId');
-            if (scrolling){
+            if (scrolling) {
                 //document.getElementById("frezzlink").setAttribute("onClick","hiddeScroll()");
                 //document.getElementById("frezzlink").setAttribute("class","settingsLink");
-                if ( freezeLink.hasClass("settingsLinkDisable") )
+                if (freezeLink.hasClass("settingsLinkDisable"))
                     freezeLink.removeClass("settingsLinkDisable");
-                freezeLink.addClass( "settingsLink" );
-                freezeLink.on("click", function() {scrollCallback(reportContextId);});
+                freezeLink.addClass("settingsLink");
+                freezeLink.on("click", function () {
+                    scrollCallback(reportContextId);
+                });
                 freezeLink.setStyle("cursor", "pointer");
-                canMakeScroll	= false;
+                canMakeScroll = false;
                 //document.getElementById("frezzlink").setAttribute("style","cursor: hand;");
-                document.getElementById("frezzlink").innerHTML=msg2;
+                document.getElementById("frezzlink").innerHTML = msg2;
                 showScroll();
-            }else{
+            } else {
                 //document.getElementById("frezzlink").setAttribute("onClick","makeScroll()");
                 //document.getElementById("frezzlink").setAttribute("class","settingsLink");
-                if ( freezeLink.hasClass("settingsLinkDisable") )
+                if (freezeLink.hasClass("settingsLinkDisable"))
                     freezeLink.removeClass("settingsLinkDisable");
-                freezeLink.addClass( "settingsLink" );
-                freezeLink.on("click", function() {sendCookieAndReload(reportContextId);});
+                freezeLink.addClass("settingsLink");
+                freezeLink.on("click", function () {
+                    sendCookieAndReload(reportContextId);
+                });
                 freezeLink.setStyle("cursor", "pointer");
-                canMakeScroll	= true;
+                canMakeScroll = true;
                 //document.getElementById("frezzlink").setAttribute("style","cursor: hand;");
-                document.getElementById("frezzlink").innerHTML=msg1;
+                document.getElementById("frezzlink").innerHTML = msg1;
             }
         }
     }
     addOnloadEvent(enableLink);
+
     //-----------------------
-    function showScroll(){
+    function showScroll() {
         var wait = new YAHOO.widget.Panel("wait",
-            { width:"240px",
-                fixedcenter:true,
-                close:false,
-                draggable:false,
-                zindex:99,
-                modal:true,
-                visible:false,
-                underlay:"shadow"
+            {
+                width: "240px",
+                fixedcenter: true,
+                close: false,
+                draggable: false,
+                zindex: 99,
+                modal: true,
+                visible: false,
+                underlay: "shadow"
             }
         );
 
         wait.setHeader(msg0);
-        wait.setBody("<div align='center'>"+msg3+"</div>");
+        wait.setBody("<div align='center'>" + msg3 + "</div>");
         wait.render(document.body);
         wait.show();
         var winH;
 
-        if (navigator.appName.indexOf("Microsoft")!=-1) {
+        if (navigator.appName.indexOf("Microsoft") != -1) {
             winH = document.body.offsetHeight;
-        }else{
-            winH=window.innerHeight;
+        } else {
+            winH = window.innerHeight;
         }
-        var call=function(){
-            var reporTable=new scrollableTable("reportTable",winH - 320);
-            reporTable.debug=false;
-            reporTable.maxRowDepth=2;
+        var call = function () {
+            var reporTable = new scrollableTable("reportTable", winH - 320);
+            reporTable.debug = false;
+            reporTable.maxRowDepth = 2;
             reporTable.scroll();
             wait.hide();
         }
 
-        window.setTimeout(call,200);
+        window.setTimeout(call, 200);
     }
 
     //----------------------------------------------------------------
-    var isscrolling=false;
-    function frezzreport(reportContextId){
+    var isscrolling = false;
+
+    function frezzreport(reportContextId) {
         //debugger;
-        if (isscrolling==false){
-            if ( $('#frezzlinkreport').hasClass("settingsLinkDisable") )
+        if (isscrolling == false) {
+            if ($('#frezzlinkreport').hasClass("settingsLinkDisable"))
                 $('#frezzlinkreport').removeClass("settingsLinkDisable");
-            $('#frezzlinkreport').addClass( "settingsLink" );
+            $('#frezzlinkreport').addClass("settingsLink");
             //$('#frezzlinkreport').bind("click", showScrollReport);
             $('#frezzlinkreport').css("cursor", "pointer");
-            canMakeScroll	= false;
+            canMakeScroll = false;
             $('#frezzlinkreport').text(msg2);
-            isscrolling=true;
+            isscrolling = true;
             showScrollReport();
-        }else{
+        } else {
             if ($('#frezzlinkreport').hasClass("settingsLinkDisable"))
                 $('#frezzlinkreport').removeClass("settingsLinkDisable");
             //$('#frezzlinkreport').bind("click", submitSettings);
-            $('#frezzlinkreport').addClass( "settingsLink" );
+            $('#frezzlinkreport').addClass("settingsLink");
             $('#frezzlinkreport').css("cursor", "pointer");
-            canMakeScroll= true;
+            canMakeScroll = true;
             $('#frezzlinkreport').text(msg1);
-            isscrolling=false;
+            isscrolling = false;
             loadingreport.show();
             submitSettings(reportContextId);
 
@@ -1388,43 +1462,42 @@
     }
 
     //-----------------------
-    function showScrollReport(){
+    function showScrollReport() {
 
         var wait = new YAHOO.widget.Panel("wait",
-            { width:"240px",
-                fixedcenter:true,
-                close:false,
-                draggable:false,
-                zindex:99,
-                modal:true,
-                visible:false,
-                underlay:"shadow"
+            {
+                width: "240px",
+                fixedcenter: true,
+                close: false,
+                draggable: false,
+                zindex: 99,
+                modal: true,
+                visible: false,
+                underlay: "shadow"
             }
         );
 
         wait.setHeader(msg0);
-        wait.setBody("<div align='center'>"+msg3+"<br>"+'<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />'+"</div>");
+        wait.setBody("<div align='center'>" + msg3 + "<br>" + '<img src="/TEMPLATE/ampTemplate/img_2/rel_interstitial_loading.gif" />' + "</div>");
         wait.render(document.body);
         wait.show();
         var winH;
 
-        if (navigator.appName.indexOf("Microsoft")!=-1) {
+        if (navigator.appName.indexOf("Microsoft") != -1) {
             winH = document.body.offsetHeight;
-        }else{
-            winH=window.innerHeight;
+        } else {
+            winH = window.innerHeight;
         }
-        var call=function(){
-            var reporTable=new scrollableTableReports("reportTable", winH - 250);
-            reporTable.debug=false;
-            reporTable.maxRowDepth=2;
+        var call = function () {
+            var reporTable = new scrollableTableReports("reportTable", winH - 250);
+            reporTable.debug = false;
+            reporTable.maxRowDepth = 2;
             reporTable.scroll();
             wait.hide();
         }
 
-        window.setTimeout(call,200);
+        window.setTimeout(call, 200);
     }
-
-
 
 
     function cleanformat() {
@@ -1442,28 +1515,34 @@
     }
 
 
-    var currentRMenu=null;
-    function reportOptions(element,id){
+    var currentRMenu = null;
+
+    function reportOptions(element, id) {
         //cargar opciones
-        if (currentRMenu!=null){
+        if (currentRMenu != null) {
             currentRMenu.destroy();
         }
-        var itemsUrl='/aim/reportMenuAction.do?action=getOptions&id='+id;
+        var itemsUrl = '/aim/reportMenuAction.do?action=getOptions&id=' + id;
 
-        var oMenu = new YAHOO.widget.Menu("reportMenu", { shadow:false, fixedcenter: false,srcElement:element,context:[element, "tl", "bl"] });
-        $.get(itemsUrl,'',function(data){
-            for (var i=0; i < data.childNodes[0].childNodes.length;i++){
-                var node=data.childNodes[0].childNodes[i]
-                var strUrl=node.getAttribute('url')+id;
-                var text=data.childNodes[0].childNodes[i].childNodes[0].nodeValue
+        var oMenu = new YAHOO.widget.Menu("reportMenu", {
+            shadow: false,
+            fixedcenter: false,
+            srcElement: element,
+            context: [element, "tl", "bl"]
+        });
+        $.get(itemsUrl, '', function (data) {
+            for (var i = 0; i < data.childNodes[0].childNodes.length; i++) {
+                var node = data.childNodes[0].childNodes[i]
+                var strUrl = node.getAttribute('url') + id;
+                var text = data.childNodes[0].childNodes[i].childNodes[0].nodeValue
                 var oItem = oMenu.addItem(new YAHOO.widget.MenuItem(text));
 
-                oItem.cfg.setProperty("url",strUrl);
+                oItem.cfg.setProperty("url", strUrl);
                 oMenu.addItem(oItem);
             }
             oMenu.render(document.body);
             oMenu.show();
-            currentRMenu=oMenu;
+            currentRMenu = oMenu;
         });
     }
 
@@ -1471,48 +1550,48 @@
 <style type="text/css">
     .mask {
         -moz-opacity: 0.8;
-        opacity:.80;
+        opacity: .80;
         filter: alpha(opacity=80);
-        background-color:#2f2f2f;
+        background-color: #2f2f2f;
     }
 
     #reportMenu {
-        width:70px;
-        background-color:#ffffff;
-        border:1px solid #376091;
+        width: 70px;
+        background-color: #ffffff;
+        border: 1px solid #376091;
     }
 
     #reportMenu ul li a {
-        width:70px;
-        font-size:9px;
-        padding:3px !important;
-        text-transform:uppercase;
-        text-decoration:none
+        width: 70px;
+        font-size: 9px;
+        padding: 3px !important;
+        text-transform: uppercase;
+        text-decoration: none
     }
 
     #reportMenu li {
-        width:70px;
+        width: 70px;
         list-style-type: none;
         margin: 0;
         padding: 0;
     }
+
     #reportMenu ul {
-        width:70px;
+        width: 70px;
         margin: 0;
         padding: 0;
     }
 
 </style>
 <script language="JavaScript">
-    function toggleSettings(){
+    function toggleSettings() {
         var currentDisplaySettings = document.getElementById('currentDisplaySettings');
         var displaySettingsButton = document.getElementById('displaySettingsButton');
-        if(currentDisplaySettings.style.display == "block"){
+        if (currentDisplaySettings.style.display == "block") {
             currentDisplaySettings.style.display = "none";
             displaySettingsButton.innerHTML = "Show current settings";
         }
-        else
-        {
+        else {
             currentDisplaySettings.style.display = "block";
             displaySettingsButton.innerHTML = "Hide current settings";
         }
@@ -1522,81 +1601,81 @@
 <script language="JavaScript" type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
 
 <div id="mySorter" class="dialog" style="padding:10px 5px;overflow: auto; display: none;">
-    <form name="aimAdvancedReportForm" method="post" action="/aim/viewNewAdvancedReport.do"><table width="400px" style="font-size: 11px;" cellpadding="2" cellspacing="2" align="center">
-        <tr>
-            <td align="right">
-                Hierarchy Level:</td>
-            <td>
-                <select name="levelPicked" class="dropdwn_sm"></select></td>
-        </tr>
-        <tr>
-            <td align="right">Sort by:</td>
-            <td>
-                <select name="levelSorter" class="dropdwn_sm"><option value="Title">Hierarchy Title</option><option value="Proposed Project Amount">Proposed Project Amount
-                    &nbsp;</option><option value="Funding--2018--Actual Commitments">Funding
-                    &nbsp;
-                    2018
-                    &nbsp;
-                    Actual Commitments
-                    &nbsp;</option><option value="Funding--2018--Actual Disbursements">Funding
-                    &nbsp;
-                    2018
-                    &nbsp;
-                    Actual Disbursements
-                    &nbsp;</option><option value="Total Costs--Actual Commitments">Total Costs
-                    &nbsp;
-                    Actual Commitments
-                    &nbsp;</option><option value="Total Costs--Actual Disbursements">Total Costs
-                    &nbsp;
-                    Actual Disbursements
-                    &nbsp;</option></select></td>
-        </tr>
-        <tr>
-            <td align="right">Sort Order:</td>
-            <td>
-                <select name="levelSortOrder" class="dropdwn_sm"><option value="ascending">Ascending</option><option value="descending">Descending</option></select></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center;">
-                <input type="hidden" name="reportContextId" value="5090" />
-                <input type="submit" name="applySorter" value="Apply Sorting" class="buttonx">
-                &nbsp;&nbsp;
-                <input type="button" class="buttonx" onclick="resetSorter(this);return false;" value="Reset" />
-            </td>
-        </tr>
-    </table>
-    </form></div>
-<div id="myFilterWrapper" style="display: none;" >
-    <div id="myFilter" style="display: none; height: 100%; overflow: hidden;" >
+    <form name="aimAdvancedReportForm" method="post" action="/aim/viewNewAdvancedReport.do">
+        <table width="400px" style="font-size: 11px;" cellpadding="2" cellspacing="2" align="center">
+            <tr>
+                <td align="right">
+                    Hierarchy Level:
+                </td>
+                <td>
+                    <select name="levelPicked" class="dropdwn_sm"></select></td>
+            </tr>
+            <tr>
+                <td align="right">Sort by:</td>
+                <td>
+                    <select name="levelSorter" class="dropdwn_sm">
+                        <option value="Title">Hierarchy Title</option>
+                        <option value="Proposed Project Amount">Proposed Project Amount
+                            &nbsp;
+                        </option>
+                        <option value="Funding--2018--Actual Commitments">Funding
+                            &nbsp;
+                            2018
+                            &nbsp;
+                            Actual Commitments
+                            &nbsp;
+                        </option>
+                        <option value="Funding--2018--Actual Disbursements">Funding
+                            &nbsp;
+                            2018
+                            &nbsp;
+                            Actual Disbursements
+                            &nbsp;
+                        </option>
+                        <option value="Total Costs--Actual Commitments">Total Costs
+                            &nbsp;
+                            Actual Commitments
+                            &nbsp;
+                        </option>
+                        <option value="Total Costs--Actual Disbursements">Total Costs
+                            &nbsp;
+                            Actual Disbursements
+                            &nbsp;
+                        </option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td align="right">Sort Order:</td>
+                <td>
+                    <select name="levelSortOrder" class="dropdwn_sm">
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="hidden" name="reportContextId" value="5090"/>
+                    <input type="submit" name="applySorter" value="Apply Sorting" class="buttonx">
+                    &nbsp;&nbsp;
+                    <input type="button" class="buttonx" onclick="resetSorter(this);return false;" value="Reset"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="myFilterWrapper" style="display: none;">
+    <div id="myFilter" style="display: none; height: 100%; overflow: hidden;">
     </div>
     <div id="myRange" class="invisible-item">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <form name="aimReportsFilterPickerForm2" method="post" action="/aim/reportsFilterPicker.do">
 
 
             <script type="text/javascript">
-                function rreset(){
-                    document.aimReportsFilterPickerForm2.renderStartYear.value=-1;
-                    document.aimReportsFilterPickerForm2.renderEndYear.value=-1;
+                function rreset() {
+                    document.aimReportsFilterPickerForm2.renderStartYear.value = -1;
+                    document.aimReportsFilterPickerForm2.renderEndYear.value = -1;
                 }
             </script>
 
@@ -1608,8 +1687,9 @@
                         <td align="center" nowrap="nowrap">Range End Year</td>
                     </tr>
                     <tr>
-                        <td width="50%" align="center" nowrap="nowrap"><br />
-                            <select name="renderStartYear" class="inp-text"><option value="-1">All</option>
+                        <td width="50%" align="center" nowrap="nowrap"><br/>
+                            <select name="renderStartYear" class="inp-text">
+                                <option value="-1">All</option>
                                 <option value="2000" selected="selected">2000</option>
                                 <option value="2001">2001</option>
                                 <option value="2002">2002</option>
@@ -1630,9 +1710,11 @@
                                 <option value="2017">2017</option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
-                                <option value="2020">2020</option></select></td>
-                        <td width="50%" align="center" nowrap="nowrap"><br />
-                            <select name="renderEndYear" class="inp-text"><option value="-1">All</option>
+                                <option value="2020">2020</option>
+                            </select></td>
+                        <td width="50%" align="center" nowrap="nowrap"><br/>
+                            <select name="renderEndYear" class="inp-text">
+                                <option value="-1">All</option>
                                 <option value="2000">2000</option>
                                 <option value="2001">2001</option>
                                 <option value="2002">2002</option>
@@ -1653,7 +1735,8 @@
                                 <option value="2017">2017</option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
-                                <option value="2020" selected="selected">2020</option></select></td>
+                                <option value="2020" selected="selected">2020</option>
+                            </select></td>
                     </tr>
                 </table>
 
@@ -1663,38 +1746,24 @@
                         <td height="40" colspan="5" align="center">
 
 
-                            <input type="hidden" name="ampReportId" value="5090" />
-                            <input type="hidden" name="reportContextId" value="5090" />
+                            <input type="hidden" name="ampReportId" value="5090"/>
+                            <input type="hidden" name="reportContextId" value="5090"/>
 
 
-                            <input type="submit" name="apply" value="Apply Ranges" onclick="return checkRangeValues()" class="dr-menu">&nbsp; <input type="button" name="reset" value="Reset" onclick="javascript:rreset();" class="dr-menu"></td>
+                            <input type="submit" name="apply" value="Apply Ranges" onclick="return checkRangeValues()"
+                                   class="dr-menu">&nbsp; <input type="button" name="reset" value="Reset"
+                                                                 onclick="javascript:rreset();" class="dr-menu"></td>
                     </tr>
                 </table>
 
             </div>
-        </form></div>
+        </form>
+    </div>
     <div id="customFormat" style="display: none;height: 372px;width: auto;">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <form name="aimReportsFilterPickerForm3" method="post" action="/aim/reportsFilterPicker.do" onsubmit="return validateFormat()">
+        <form name="aimReportsFilterPickerForm3" method="post" action="/aim/reportsFilterPicker.do"
+              onsubmit="return validateFormat()">
             <input type="hidden" name="initialCal" id="initialCal" value="4"/>
             <center>
                 <b style="font-size: 11px;">
@@ -1702,18 +1771,22 @@
                 </b>
             </center>
             <hr>
-            <table width="100%"  border="0" align="center" cellpadding="2" cellspacing="0" style="font-size:11px;">
+            <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0" style="font-size:11px;">
                 <tr>
                     <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
                         Decimal Separator&nbsp;
                     </td>
                     <td width="20%" height="18" nowrap="nowrap">
-                        <select name="customDecimalSymbol" onchange="initFormatPopup();" id="customDecimalSymbol" class="dropdwn_sm"><option value="." selected="selected">.</option>
+                        <select name="customDecimalSymbol" onchange="initFormatPopup();" id="customDecimalSymbol"
+                                class="dropdwn_sm">
+                            <option value="." selected="selected">.</option>
 
                             <option value=",">,</option>
 
-                            <option value="CUSTOM">Custom</option></select>
-                        <input type="text" name="customDecimalSymbolTxt" maxlength="1" size="5" value="." onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                            <option value="CUSTOM">Custom</option>
+                        </select>
+                        <input type="text" name="customDecimalSymbolTxt" maxlength="1" size="5" value="."
+                               onchange="initFormatPopup()" disabled="disabled" class="inputx">
                     </td>
                 </tr>
                 <tr>
@@ -1722,22 +1795,29 @@
                         &nbsp;
                     </td>
                     <td width="60%">
-                        <select name="customDecimalPlaces" onchange="initFormatPopup();" id="customDecimalPlaces" class="dropdwn_sm"><option value="-1">No Limit</option>
+                        <select name="customDecimalPlaces" onchange="initFormatPopup();" id="customDecimalPlaces"
+                                class="dropdwn_sm">
+                            <option value="-1">No Limit</option>
                             <option value="0" selected="selected">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
-                            <option value="-2">Custom</option></select>
-                        <input type="text" name="customDecimalPlacesTxt" maxlength="2" size="5" value="" onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                            <option value="-2">Custom</option>
+                        </select>
+                        <input type="text" name="customDecimalPlacesTxt" maxlength="2" size="5" value=""
+                               onchange="initFormatPopup()" disabled="disabled" class="inputx">
                     </td>
                 </tr>
                 <tr>
                     <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
                         Use Grouping Separator&nbsp;
                     </td>
-                    <td width="20%" height="18" nowrap="nowrap"><input type="checkbox" name="customUseGrouping" value="on" checked="checked" onchange="initFormatPopup();" id="customUseGrouping"></td>
+                    <td width="20%" height="18" nowrap="nowrap"><input type="checkbox" name="customUseGrouping"
+                                                                       value="on" checked="checked"
+                                                                       onchange="initFormatPopup();"
+                                                                       id="customUseGrouping"></td>
                     <td width="20%" height="18" align="left" nowrap="nowrap">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1745,12 +1825,16 @@
                         Grouping Separator&nbsp;
                     </td>
                     <td width="20%" height="18" nowrap="nowrap" style="font-size: 11px">
-                        <select name="customGroupCharacter" onchange="initFormatPopup();" id="customGroupCharacter" class="dropdwn_sm"><option value=".">.</option>
+                        <select name="customGroupCharacter" onchange="initFormatPopup();" id="customGroupCharacter"
+                                class="dropdwn_sm">
+                            <option value=".">.</option>
 
                             <option value="," selected="selected">,</option>
 
-                            <option value="CUSTOM">Custom</option></select>
-                        <input type="text" name="customGroupCharacterTxt" maxlength="1" size="5" value="" onchange="initFormatPopup()" disabled="disabled" class="inputx">
+                            <option value="CUSTOM">Custom</option>
+                        </select>
+                        <input type="text" name="customGroupCharacterTxt" maxlength="1" size="5" value=""
+                               onchange="initFormatPopup()" disabled="disabled" class="inputx">
                     </td>
                 </tr>
                 <tr>
@@ -1758,7 +1842,8 @@
                         Group Size&nbsp;
                     </td>
                     <td height="18" colspan="2" nowrap="nowrap">
-                        <input type="text" name="customGroupSize" maxlength="1" size="2" value="3" onchange="initFormatPopup();" disabled="disabled" class="inputx"></td>
+                        <input type="text" name="customGroupSize" maxlength="1" size="2" value="3"
+                               onchange="initFormatPopup();" disabled="disabled" class="inputx"></td>
                 </tr>
                 <tr>
                     <td height="18" align="right" nowrap="nowrap" style="font-size: 11px">
@@ -1766,19 +1851,23 @@
                     </td>
                     <td height="18" colspan="2" nowrap="nowrap">
 
-                        <select name="amountinthousands" onchange="initFormatPopup();" id="customAmountinThousands" class="dropdwn_sm"><option value="0" selected="selected">Amounts in Units</option>
+                        <select name="amountinthousands" onchange="initFormatPopup();" id="customAmountinThousands"
+                                class="dropdwn_sm">
+                            <option value="0" selected="selected">Amounts in Units</option>
                             <option value="1">Amounts in Thousands (000)</option>
-                            <option value="2">Amounts in Millions (000 000)</option></select>
+                            <option value="2">Amounts in Millions (000 000)</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td width="40%" height="18" align="right" nowrap="nowrap" style="font-size: 11px">
                         Example&nbsp;
                     </td>
-                    <td height="18" colspan="2" nowrap="nowrap"  style="font-weight:bold;font-size:11px">
+                    <td height="18" colspan="2" nowrap="nowrap" style="font-weight:bold;font-size:11px">
                         <div id="number" style="margin-left: 3px">
                             123,456,790
-                        </div></td>
+                        </div>
+                    </td>
                 </tr>
             </table>
 
@@ -1792,9 +1881,11 @@
             <table width="400" align="center" cellpadding="2" cellspacing="2" style="font-size:11px;">
                 <tr>
                     <td width="40%" style="text-align: right;font-size: 11px">
-                        currency&nbsp;</td>
+                        currency&nbsp;
+                    </td>
                     <td>
-                        <select name="currency" style="width: 200px" class="dropdwn_sm"><option value="47">Australian Dollar</option>
+                        <select name="currency" style="width: 200px" class="dropdwn_sm">
+                            <option value="47">Australian Dollar</option>
                             <option value="43">Canadian Dollar</option>
                             <option value="6">Chinese Yuan</option>
                             <option value="65">Danish Krone</option>
@@ -1809,7 +1900,8 @@
                             <option value="66">Special Drawing Rights</option>
                             <option value="20">Sweden Kroner</option>
                             <option value="59">Swiss Franc</option>
-                            <option value="22">Yen</option></select>
+                            <option value="22">Yen</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -1817,8 +1909,10 @@
                         Calendar&nbsp;
                     </td>
                     <td>
-                        <select name="calendar" style="width: 200px" class="dropdwn_sm"><option value="4" selected="selected">Gregorian Calendar</option>
-                            <option value="5">Nepali Fiscal Calendar</option></select>
+                        <select name="calendar" style="width: 200px" class="dropdwn_sm">
+                            <option value="4" selected="selected">Gregorian Calendar</option>
+                            <option value="5">Nepali Fiscal Calendar</option>
+                        </select>
                     </td>
                 </tr>
 
@@ -1829,7 +1923,8 @@
                     </td>
                     <td>
                         From:
-                        <select name="renderStartYear" id="renderStartYear" class="dropdwn_sm"><option value="-1">All</option>
+                        <select name="renderStartYear" id="renderStartYear" class="dropdwn_sm">
+                            <option value="-1">All</option>
                             <option value="2000" selected="selected">2000</option>
                             <option value="2001">2001</option>
                             <option value="2002">2002</option>
@@ -1850,9 +1945,11 @@
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
-                            <option value="2020">2020</option></select> &nbsp;
+                            <option value="2020">2020</option>
+                        </select> &nbsp;
                         To: &nbsp;
-                        <select name="renderEndYear" id="renderEndYear" class="dropdwn_sm"><option value="-1">All</option>
+                        <select name="renderEndYear" id="renderEndYear" class="dropdwn_sm">
+                            <option value="-1">All</option>
                             <option value="2000">2000</option>
                             <option value="2001">2001</option>
                             <option value="2002">2002</option>
@@ -1873,13 +1970,15 @@
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
-                            <option value="2020" selected="selected">2020</option></select>
+                            <option value="2020" selected="selected">2020</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <div style="color: red; font-weight: bolder;">
-                            * <span title="If you want to filter the computed range, please use Change Filters -> Other Criteria -> Date Filters">
+                            * <span
+                                title="If you want to filter the computed range, please use Change Filters -> Other Criteria -> Date Filters">
 						The range selected does not affect Totals or Computed amounts.
 					</span>
                         </div>
@@ -1891,8 +1990,8 @@
             <div>
                 <div style="margin-right: auto; margin-left: auto; text-align: center;">
 
-                    <input type="hidden" name="ampReportId" value="5090" />
-                    <input type="hidden" name="reportContextId" value="5090" />
+                    <input type="hidden" name="ampReportId" value="5090"/>
+                    <input type="hidden" name="reportContextId" value="5090"/>
 
                     <input type="hidden" name="defaultCurrency" value="21">
                     <input type="hidden" name="defaultCalendar" value="5">
@@ -1905,37 +2004,9 @@
                     <input type="button" name="applyFormat" value="Reset" onclick="ResetCustom(0);" class="buttonx">
                 </div>
             </div>
-        </form></div>
+        </form>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div id="saveTitlePanel" style="display:none">
@@ -1945,20 +2016,8 @@
     <div class="bd" id="titlePanelBody" style="padding: 10px 5px">
 
 
-
-
-
-
-
-
-
-
-
-
-
         <div class="yui-skin-sam smallish">
             <div id="AmpReports_name_holder" class="yui-navset">
-
 
 
                 <div>
@@ -1966,23 +2025,20 @@
                            th:value="${title.reportTitle}"
 
 
-
                            onkeypress="return saveReportEngine.checkEnter(event);"
 
                            style="font-size: 8pt; font-weight: bolder;"
-                           class="inp-text multilingual_input_element" />
+                           class="inp-text multilingual_input_element"/>
                 </div>
 
             </div>
         </div>
 
 
-
-
-
-        <input type="hidden" id="saveReportId" value="5090" />
+        <input type="hidden" id="saveReportId" value="5090"/>
         <div align="center">
-            <button id="dynamic_save_button" type="button" class="buttonx" onclick="$(this).attr('disabled',true);saveReportEngine.saveReport();">
+            <button id="dynamic_save_button" type="button" class="buttonx"
+                    onclick="$(this).attr('disabled',true);saveReportEngine.saveReport();">
                 Save Report
             </button>
             &nbsp;&nbsp;&nbsp;
@@ -1998,30 +2054,6 @@
         <td>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <script type="text/javascript">
 
                 function addLoadEvent(func) {
@@ -2029,7 +2061,7 @@
                     if (typeof window.onload != 'function') {
                         window.onload = func;
                     } else {
-                        window.onload = function() {
+                        window.onload = function () {
                             if (oldonload) {
                                 oldonload();
                             }
@@ -2038,46 +2070,49 @@
                     }
                 }
 
-                function addpanel(){
+                function addpanel() {
                     YAHOO.namespace("YAHOO.amp");
                     YAHOO.amp.panel = new Array(3);
-                    YAHOO.amp.panel[0]		= new YAHOO.widget.Panel("aPanel0", {
-                        width:"400px",
+                    YAHOO.amp.panel[0] = new YAHOO.widget.Panel("aPanel0", {
+                        width: "400px",
                         fixedcenter: true,
                         constraintoviewport: true,
-                        underlay:"shadow",
+                        underlay: "shadow",
                         modal: true,
-                        close:true,
-                        visible:false,
-                        draggable:true} );
+                        close: true,
+                        visible: false,
+                        draggable: true
+                    });
                     YAHOO.amp.panel[0].setHeader("Excel Export Options");
                     YAHOO.amp.panel[0].setBody("Empty");
                     YAHOO.amp.panel[0].setFooter("");
                     YAHOO.amp.panel[0].render(document.body);
                     //
-                    YAHOO.amp.panel[1]		= new YAHOO.widget.Panel("aPanel1", {
-                        width:"450px",
+                    YAHOO.amp.panel[1] = new YAHOO.widget.Panel("aPanel1", {
+                        width: "450px",
                         fixedcenter: true,
                         constraintoviewport: true,
-                        underlay:"shadow",
+                        underlay: "shadow",
                         modal: true,
-                        close:true,
-                        visible:false,
-                        draggable:true} );
+                        close: true,
+                        visible: false,
+                        draggable: true
+                    });
                     YAHOO.amp.panel[1].setHeader("Statement");
                     YAHOO.amp.panel[1].setBody("Empty");
                     YAHOO.amp.panel[1].setFooter("");
                     YAHOO.amp.panel[1].render(document.body);
                     //
-                    YAHOO.amp.panel[2]		= new YAHOO.widget.Panel("aPanel2", {
-                        width:"300px",
+                    YAHOO.amp.panel[2] = new YAHOO.widget.Panel("aPanel2", {
+                        width: "300px",
                         fixedcenter: true,
                         constraintoviewport: true,
-                        underlay:"shadow",
+                        underlay: "shadow",
                         modal: true,
-                        close:true,
-                        visible:false,
-                        draggable:true} );
+                        close: true,
+                        visible: false,
+                        draggable: true
+                    });
                     YAHOO.amp.panel[2].setHeader("Logo");
                     YAHOO.amp.panel[2].setBody("Empty");
                     YAHOO.amp.panel[2].setFooter("");
@@ -2094,22 +2129,25 @@
                     setPanelBody(panelNum, elementId);
                     showPanel(panelNum);
                 }
-                function setPanelBody(panelNum, elementId){
-                    var element				= document.getElementById(elementId);
-                    element.style.display	= "inline";
+
+                function setPanelBody(panelNum, elementId) {
+                    var element = document.getElementById(elementId);
+                    element.style.display = "inline";
                     element.parentNode.removeChild(element);
                     YAHOO.amp.panel[panelNum].setBody(element);
                 }
-                function showPanel (panelNum) {
+
+                function showPanel(panelNum) {
                     YAHOO.amp.panel[panelNum].show();
                 }
-                function hidePanel (panelNum) {
+
+                function hidePanel(panelNum) {
                     YAHOO.amp.panel[panelNum].hide();
                 }
             </script>
             <style>
                 <!--
-                .toolbar{
+                .toolbar {
                     /* width: 140px; */
                     background: #f2f2f2;
                     background-color: #f2f2f2f;
@@ -2118,12 +2156,14 @@
                     top: 10px;
                     left: 10px;
                     bottom: 100px;
-                    border:1px solid #CCCCCC;
+                    border: 1px solid #CCCCCC;
                     display: inline-block;
                     margin-bottom: 15px;
                 }
-                .toolbartable{
+
+                .toolbartable {
                 }
+
                 -->
             </style>
 
@@ -2132,43 +2172,45 @@
                 function toggleActionForm(type) {
                     var options = false;
                     if (type == null) return false;
-                    var form=document.getElementById("exportSettingsForm");
+                    var form = document.getElementById("exportSettingsForm");
                     $(form).find('#richExportRow').css('display', type == 'xls' ? 'table-row' : 'none'); // hide the "rich export" option for the non-Excel-export options
                     if (type == "xls") {
-                        form.action = "/aim"+"/xlsExport.do";
-                    } else if (type == 'richXls'){
-                        form.action = "/aim"+"/xlsExport.do?richReport=true";
+                        form.action = "/aim" + "/xlsExport.do";
+                    } else if (type == 'richXls') {
+                        form.action = "/aim" + "/xlsExport.do?richReport=true";
                     }
                     if (type == "plainXls") {
-                        form.action = "/aim"+"/xlsExport.do?plainReport=true";
+                        form.action = "/aim" + "/xlsExport.do?plainReport=true";
                     } else if (type == "pdf") {
-                        form.action = "/aim"+"/pdfExport.do";
+                        form.action = "/aim" + "/pdfExport.do";
                     }
 
 
-                    if (options){
+                    if (options) {
                         showPublicPortalModeOption(type == "xls");
                         showMyPanel(0, 'logoStatement');
                         return false;
-                    }else{
+                    } else {
                         form.submit();
                     }
 
                     form.submit();
                 }
 
-                function showPublicPortalModeOption(visible){
-                    if (visible){
-                        $("#publicPortalModeOptionRow").css("visibility","visible");
-                    }else{
-                        $("#publicPortalModeOptionRow").css("visibility","hidden");
+                function showPublicPortalModeOption(visible) {
+                    if (visible) {
+                        $("#publicPortalModeOptionRow").css("visibility", "visible");
+                    } else {
+                        $("#publicPortalModeOptionRow").css("visibility", "hidden");
                     }
                 }
             </script>
             <style>
                 @-moz-document url-prefix() {
 
-                    .imagecsv{margin-bottom:5px;}
+                    .imagecsv {
+                        margin-bottom: 5px;
+                    }
 
                 }
 
@@ -2188,9 +2230,11 @@
 
                         <td noWrap align=left valign="middle">
 
-                            <a href="#" target="_blank" onclick="toggleActionForm('pdf'); return false;" title="Download as PDF">
+                            <a href="#" target="_blank" onclick="toggleActionForm('pdf'); return false;"
+                               title="Download as PDF">
 
-                                <img src="/TEMPLATE/ampTemplate/module/aim/images/pdf_icon.gif" border="0" hspace="2" vspace="2" alt="Export to PDF">
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/pdf_icon.gif" border="0" hspace="2"
+                                     vspace="2" alt="Export to PDF">
                             </a>
 
 
@@ -2198,9 +2242,11 @@
 
                         <td noWrap align=left valign="middle">
 
-                            <a href="#" target="_blank" onclick="toggleActionForm('xls'); return false;" title="Download as XLS">
+                            <a href="#" target="_blank" onclick="toggleActionForm('xls'); return false;"
+                               title="Download as XLS">
 
-                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_icon.jpg" border="0" hspace="2" vspace="2" title="Export to Excel">
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_icon.jpg" border="0" hspace="2"
+                                     vspace="2" title="Export to Excel">
                             </a>
 
 
@@ -2208,38 +2254,34 @@
 
                         <td noWrap align=left valign="middle">
 
-                            <a href="#" target="_blank" onclick="toggleActionForm('plainXls'); return false;" title="Download as Plain XLS">
+                            <a href="#" target="_blank" onclick="toggleActionForm('plainXls'); return false;"
+                               title="Download as Plain XLS">
 
-                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_plain_icon.jpg" border="0" hspace="2" vspace="2" alt="Export to Excel as Plain Report">
+                                <img src="/TEMPLATE/ampTemplate/module/aim/images/xls_plain_icon.jpg" border="0"
+                                     hspace="2" vspace="2" alt="Export to Excel as Plain Report">
                             </a>
 
 
                         </td>
 
 
-
-
-
-
-
-
-
-
-
                         <td noWrap align=left valign="center">
 
-                            <a href="/aim/csvExport.do~view=reset~ampReportId=5090" target="_blank" title="Download as CSV"><img src="/TEMPLATE/ampTemplate/module/aim/images/csv_icon.png" border="0" hspace="2" vspace="2" class="imagecsv" alt="Export to CSV"></a>
+                            <a href="/aim/csvExport.do~view=reset~ampReportId=5090" target="_blank"
+                               title="Download as CSV"><img src="/TEMPLATE/ampTemplate/module/aim/images/csv_icon.png"
+                                                            border="0" hspace="2" vspace="2" class="imagecsv"
+                                                            alt="Export to CSV"></a>
 
 
                         </td>
 
 
-
-
                         <td noWrap align=left valign="center">
 
-                            <a href="/esrigis/mainmap.do?exportreport=true&ampReportId=5090" target="_blank" title="Export to Map">
-                                <img alt="Export to Map" src="module/aim/images/globe-icon_2.png" hspace="2" vspace="2" border="0">
+                            <a href="/esrigis/mainmap.do?exportreport=true&ampReportId=5090" target="_blank"
+                               title="Export to Map">
+                                <img alt="Export to Map" src="module/aim/images/globe-icon_2.png" hspace="2" vspace="2"
+                                     border="0">
                             </a>
 
 
@@ -2251,9 +2293,9 @@
             <br>
 
             <script type="text/javascript">
-                function openPrinter(){
+                function openPrinter() {
                     //alert('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=5090');
-                    window.open('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=5090','mywindow','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes');
+                    window.open('/viewNewAdvancedReport.do?viewFormat=print&reportContextId=5090', 'mywindow', 'toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,resizable=yes');
                 }
             </script>
 
@@ -2273,7 +2315,8 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <input type="reset" value="Close" onclick="javascript:hidePanel(1);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                            <input type="reset" value="Close" onclick="javascript:hidePanel(1);"
+                                   style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
                         </td>
                     </tr>
                 </table>
@@ -2283,7 +2326,8 @@
                 <table cellpadding="5" cellspacing="5" border="0" width="100%">
                     <tr>
                         <td align="center">
-                            <img src="/TEMPLATE/ampTemplate/module/aim/images/dgf_logo.jpg" border="0" hspace="2" vspace="2">
+                            <img src="/TEMPLATE/ampTemplate/module/aim/images/dgf_logo.jpg" border="0" hspace="2"
+                                 vspace="2">
                         </td>
                     </tr>
                     <tr>
@@ -2294,71 +2338,90 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            <input type="reset" value="Close" onclick="javascript:hidePanel(2);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                            <input type="reset" value="Close" onclick="javascript:hidePanel(2);"
+                                   style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
                         </td>
                     </tr>
                 </table>
             </div>
 
-            <div id="logoStatement" class="invisible-item" >
+            <div id="logoStatement" class="invisible-item">
                 <div align="center">
                     <form name="aimAdvancedReportForm" method="post" action="/aim/pdfExport.do" id="exportSettingsForm">
-                        <input type="hidden" name="viewParam" value="?view=reset" />
-                        <input type="hidden" name="ampReportId" value="5090" />
+                        <input type="hidden" name="viewParam" value="?view=reset"/>
+                        <input type="hidden" name="ampReportId" value="5090"/>
                         <table cellpadding="5" cellspacing="5" border="0" width="100%">
                             <tr>
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="Displays the AMP statement" onclick="javascript:showMyPanel(1, 'statementPopup');">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2"
+                                         vspace="2" title="Displays the AMP statement"
+                                         onclick="javascript:showMyPanel(1, 'statementPopup');">
                                     Statement Options
                                 </td>
                                 <td>
-                                    <select name="statementOptions"><option value="0">Disable</option>
-                                        <option value="1">Enable</option></select>
+                                    <select name="statementOptions">
+                                        <option value="0">Disable</option>
+                                        <option value="1">Enable</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px"
+                                         width="12px" border="0" hspace="2" vspace="2">
                                     Statement Position Options
                                 </td>
                                 <td>
-                                    <select name="statementPositionOptions"><option value="0">Header</option>
-                                        <option value="1">Footer</option></select>
+                                    <select name="statementPositionOptions">
+                                        <option value="0">Header</option>
+                                        <option value="1">Footer</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px"
+                                         width="12px" border="0" hspace="2" vspace="2">
                                     Date Options
                                 </td>
                                 <td>
-                                    <select name="dateOptions"><option value="0">Disable</option>
-                                        <option value="1">Enable</option></select>
+                                    <select name="dateOptions">
+                                        <option value="0">Disable</option>
+                                        <option value="1">Enable</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="Displays the Official AMP Logo" onclick="javascript:showMyPanel(2, 'logoPopup');">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2"
+                                         vspace="2" title="Displays the Official AMP Logo"
+                                         onclick="javascript:showMyPanel(2, 'logoPopup');">
                                     Logo Options
                                 </td>
                                 <td>
-                                    <select name="logoOptions"><option value="0">Disable</option>
-                                        <option value="1">Enable</option></select>
+                                    <select name="logoOptions">
+                                        <option value="0">Disable</option>
+                                        <option value="1">Enable</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px"
+                                         width="12px" border="0" hspace="2" vspace="2">
                                     Logo Position Options
                                 </td>
                                 <td>
-                                    <select name="logoPositionOptions"><option value="0">Header</option>
-                                        <option value="1">Footer</option></select>
+                                    <select name="logoPositionOptions">
+                                        <option value="0">Header</option>
+                                        <option value="1">Footer</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr id="publicPortalModeOptionRow">
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2" vspace="2" title="No header is exported and column names are machine friendly">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/help.gif" border="0" hspace="2"
+                                         vspace="2" title="No header is exported and column names are machine friendly">
                                     Public Portal Mode
                                 </td>
                                 <td>
@@ -2371,24 +2434,33 @@
 
                             <tr id="richExportRow">
                                 <td>
-                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px" width="12px" border="0" hspace="2" vspace="2">
+                                    <img src="/TEMPLATE/ampTemplate/module/aim/images/spacer.gif" height="12px"
+                                         width="12px" border="0" hspace="2" vspace="2">
                                     Rich Export Format
                                 </td>
                                 <td>
 
                                     <select name="richReport">
-                                        <option  value="true">Enable</option>
-                                        <option selected="selected"  value="false">Disable</option>
+                                        <option value="true">Enable</option>
+                                        <option selected="selected" value="false">Disable</option>
                                     </select>
                                 </td>
                             </tr>
-                            <tr><td align="center" colspan="2">&nbsp;</td></tr>
-                            <tr><td align="center" colspan="2">&nbsp;</td></tr>
+                            <tr>
+                                <td align="center" colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">&nbsp;</td>
+                            </tr>
 
                             <tr>
                                 <td align="center" colspan="2">
-                                    <input type="submit" value="Apply" onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
-                                    <input type="reset" value="Cancel" onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);" style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                                    <input type="submit" value="Apply"
+                                           onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);"
+                                           style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
+                                    <input type="reset" value="Cancel"
+                                           onclick="javascript:showPublicPortalModeOption(false);hidePanel(0);"
+                                           style="padding-bottom: 2px; padding-top: 2px;" class="dr-menu buton">
                                 </td>
                             </tr>
                         </table>
@@ -2396,254 +2468,298 @@
                 </div>
             </div>
             </div>
-            <script>
-                console.log(getSelectedFieldsNames(12));
-            </script>
-            <div class="reportname" th:text="${title.reportTitle}" style="font-size:18px; padding-left:5px; font-family:Arial, Helvetica, sans-serif; margin-bottom:10px; font-weight:bold; color:#000000;">
-                </div>
-            <table width="100%" cellpadding="3" cellspacing="1" rules="rows" frame="box" style="margin-left: 5px;border-color:#cccccc;">
+
+            <div class="reportname" th:text="${title.reportTitle}"
+                 style="font-size:18px; padding-left:5px; font-family:Arial, Helvetica, sans-serif; margin-bottom:10px; font-weight:bold; color:#000000;">
+            </div>
+            <table width="100%" cellpadding="3" cellspacing="1" rules="rows" frame="box"
+                   style="margin-left: 5px;border-color:#cccccc;">
                 <tr>
                     <td align="left" height="20px" style="padding-left: 5px;padding-left: 5px;">
-					<span  style="color: red;font-family: Arial;font-size: 10px;">
+					<span style="color: red;font-family: Arial;font-size: 10px;">
 						- Dollar US</span>
                     </td>
                 </tr>
             </table>
             <!-- not a tab, not a print, e.g. a normal report -->
-    <tr><td><div class="tab_opt_box">
-        <div class="show_hide_setting">
-            <b>
-                <a style="cursor:pointer;float:right;" onClick="toggleSettings();" id="displaySettingsButton">Show current settings</a>
-            </b>
-        </div>
-        <div class="tab_opt">
-            <div class="tab_opt_cont">
-                <a class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFilter('5090'); " >
-                    Change Filters</a>
+    <tr>
+        <td>
+            <div class="tab_opt_box">
+                <div class="show_hide_setting">
+                    <b>
+                        <a style="cursor:pointer;float:right;" onClick="toggleSettings();" id="displaySettingsButton">Show
+                            current settings</a>
+                    </b>
+                </div>
+                <div class="tab_opt">
+                    <div class="tab_opt_cont">
+                        <a class="settingsLink" style="cursor: pointer;color:#376091;" onClick="showFilter('5090'); ">
+                            Change Filters</a>
 
 
-                |<a  class="settingsLink"  style="cursor: pointer;color:#376091;" onClick="showFormat(); " >
-                Report Settings</a>
+                        |<a class="settingsLink" style="cursor: pointer;color:#376091;" onClick="showFormat(); ">
+                        Report Settings</a>
 
-                <br />
-                <div class="tab_opt_box_cont" style="display:none;" id="currentDisplaySettings">
-                    <table cellpadding="0" cellspacing="0" border="0" width="80%">
-                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
-                            <strong>
-                                Selected Filters:</strong>
+                        <br/>
+                        <div class="tab_opt_box_cont" style="display:none;" id="currentDisplaySettings">
+                            <table cellpadding="0" cellspacing="0" border="0" width="80%">
+                                <tr>
+                                    <td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
+                                        <strong>
+                                            Selected Filters:</strong>
 
 
+                                        <!-- the PropertyListable bean defined as attribute of the request -->
 
+                                        <!-- style of display -->
 
+                                        <!-- trn tags prefix -->
 
 
+                                        <!-- Display the bean in a table style -->
 
-                            <!-- the PropertyListable bean defined as attribute of the request -->
 
-                            <!-- style of display -->
+                                        <!-- Display the bean in a comma separated list style -->
 
-                            <!-- trn tags prefix -->
 
+                                        <I></I>
 
 
+                                        <i>accessType</i>: [Management]
+                                        |
 
 
+                                        <i>amountDivider</i>: [1]
+                                        |
 
 
+                                        <i>amountMultiplier</i>: [1.0]
+                                        |
 
-                            <!-- Display the bean in a table style -->
 
+                                        <i>amountinthousand</i>: [0]
+                                        |
 
-                            <!-- Display the bean in a comma separated list style -->
 
+                                        <i>calendarType</i>: [Gregorian Calendar]
+                                        |
 
 
-                            <I></I>
+                                        <i>currency</i>: [USD]
+                                        |
 
 
-                            <i>accessType</i>: [Management]
-                            |
+                                        <i>customusegroupings</i>: [true]
+                                        |
 
 
-                            <i>amountDivider</i>: [1]
-                            |
+                                        <i>decimalseparator</i>: [.]
+                                        |
 
 
-                            <i>amountMultiplier</i>: [1.0]
-                            |
+                                        <i>donorTypes</i>: [Government of Nepal]
+                                        |
 
 
-                            <i>amountinthousand</i>: [0]
-                            |
+                                        <i>groupingseparator</i>: [,]
+                                        |
 
 
-                            <i>calendarType</i>: [Gregorian Calendar]
-                            |
+                                        <i>groupingsize</i>: [3]
+                                        |
 
 
-                            <i>currency</i>: [USD]
-                            |
+                                        <i>justSearch</i>: [false]
+                                        |
 
 
-                            <i>customusegroupings</i>: [true]
-                            |
+                                        <i>maximumFractionDigits</i>: [0]
+                                        |
 
 
-                            <i>decimalseparator</i>: [.]
-                            |
+                                        <i>needsTeamFilter</i>: [true]
+                                        |
 
+                                        |
 
-                            <i>donorTypes</i>: [Government of Nepal]
-                            |
+                                        |
 
 
-                            <i>groupingseparator</i>: [,]
-                            |
+                                        <i>searchMode</i>: [0]
+                                        |
 
 
-                            <i>groupingsize</i>: [3]
-                            |
+                                        <i>selectedActivityPledgesSettings</i>: [-1]
+                                        |
 
 
-                            <i>justSearch</i>: [false]
-                            |
+                                        <i>showArchived</i>: [false]
+                                        |
 
 
-                            <i>maximumFractionDigits</i>: [0]
-                            |
+                                        <i>sortByAsc</i>: [true]
+                                        |
 
 
-                            <i>needsTeamFilter</i>: [true]
-                            |
+                                        <i>teamMemberId</i>: [1442]
+                                        |
 
-                            |
 
-                            |
+                                        <i>unitsOptions</i>: [AMOUNTS_OPTION_UNITS]
+                                        |
 
 
-                            <i>searchMode</i>: [0]
-                            |
+                                        <i>usedCurrency</i>: [USD]
+                                        |
 
 
-                            <i>selectedActivityPledgesSettings</i>: [-1]
-                            |
+                                        <i>usedCurrencyName</i>: [Dollar US]
+                                        |
 
 
-                            <i>showArchived</i>: [false]
-                            |
+                                        <i>workspaceonly</i>: [false]
+                                        |
 
 
-                            <i>sortByAsc</i>: [true]
-                            |
-
-
-                            <i>teamMemberId</i>: [1442]
-                            |
-
-
-                            <i>unitsOptions</i>: [AMOUNTS_OPTION_UNITS]
-                            |
-
-
-                            <i>usedCurrency</i>: [USD]
-                            |
-
-
-                            <i>usedCurrencyName</i>: [Dollar US]
-                            |
-
-
-                            <i>workspaceonly</i>: [false]
-                            |
-
-
-                        </td></tr>
-                        <tr><td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
-                            <strong>Selected Range:</strong>
-                            <i>Start Year:</i> 2000 |
-                            <i>End Year:</i> 2020 |
-                        </td></tr>
-                    </table>
-                </div></div>
-        </div>
-    </div></td></tr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:11px;font-family:Arial,Helvetica,sans-serif" valign="top">
+                                        <strong>Selected Range:</strong>
+                                        <i>Start Year:</i> 2000 |
+                                        <i>End Year:</i> 2020 |
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
     <!--<span>Level Sorters</span>-->
     <!--<span>Total Unique Rows</span>	-->
     <tr>
-        <td  style="padding-left: 5px;padding-left: 5px;">
+        <td style="padding-left: 5px;padding-left: 5px;">
             <table style="width: 100%">
                 <tr>
                     <td>
                         <!-- begin big report table -->
                         <div id="fixAutomaticDivWithHeight100">
-                            <table id='reportTable' class="html2ReportTable inside" width="100%" cellpadding="0" cellspacing="0">
+                            <table id='reportTable' class="html2ReportTable inside" width="100%" cellpadding="0"
+                                   cellspacing="0">
 
                                 <!-- generate report headings -->
                                 <!-- generate report headings -->
                                 <thead class="fixedHeader">
                                 <tr class="reportHeader" title='Report Headings'>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Donor Agency')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Donor</p></td>
+                                    </td>
                                     <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'AMP ID')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> AMP ID</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'AMP ID')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            AMP ID</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Project Title')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Project Title</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Project Title')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Project Title</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Activity Created By')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Created by</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Activity Created By')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Created by</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Modified Date')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Activity Updated</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Modified Date')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Activity Updated</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Location')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Location</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Location')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Location</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Primary Sector')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Primary Sector</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Primary Sector')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Primary Sector</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.headings, 'Budget Code')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Budget Code</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Budget Code')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Budget Code</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Actual Commitment 2018</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Commitment <br>Fiscal Year 2014-15</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;"> Actual Commitment 2017</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Commitment <br>Fiscal Year 2015-16</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2016</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Commitment <br>Fiscal Year 2016-17</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2015</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Commitment <br>Fiscal Year 2017-18/a></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Commitment 2014</a></td>
+
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Commitment<br> Fiscal Year 2018-19</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2018</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Disbursement <br>Fiscal Year 2014-15</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2017</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Disbursement <br>Fiscal Year 2015-16</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2016</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Disbursement<br> Fiscal Year 2016-17</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2015</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Disbursement <br>Fiscal Year 2017-18</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Actual Disbursement 2014</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Actual Disbursement <br>Fiscal Year 2018-19</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Total Commitment</a></td>
+
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Total Commitment</p></td>
                                     </td>
-                                    <td  height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
-                                        <a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" >Total Disbursement</a></td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Total Disbursement</p></td>
                                     </td>
 
                                     <!--<td height="20px" nowrap="nowrap" align="center" class="reportHeader"  th:each="value:${title.headings}">-->
 
-                                        <!--<a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>-->
+                                    <!--<a href="#" style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;" th:text="${value}"></a></td>-->
 
                                     <!-- subcolumn name: Actual Commitments, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 1 %> -->
 
@@ -2653,25 +2769,73 @@
                                 <tbody>
                                 <div>
                                     <tr th:each="myValue:${data}">
-                                        <td th:text="${myValue.ampid}" th:if="${#arrays.contains(title.headings, 'AMP ID')}"></td>
-                                        <td th:text="${myValue.project_title}" th:if="${#arrays.contains(title.headings, 'Project Title')}"></td>
-                                        <td th:text="${myValue.creator}"  th:if="${#arrays.contains(title.headings, 'created')}"></td>
-                                        <td th:text="${myValue.modified_date}" th:if="${#arrays.contains(title.headings, 'Modified Date')}"></td>
-                                        <td th:text="${myValue.locationname}" th:if="${#arrays.contains(title.headings, 'Location')}"></td>
-                                        <td th:text="${myValue.primary_sector}" th:if="${#arrays.contains(title.headings, 'Primary Sector')}"></td>
-                                        <td th:text="${myValue.budget_code}" th:if="${#arrays.contains(title.headings, 'Budget Code')}"></td>
-                                        <td th:text="${myValue.first_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.second_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.third_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.four_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.first__disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.second_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.third_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.four_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
-                                        <td th:text="${myValue.first_commitment+myValue.second_commitment+myValue.third_commitment+myValue.four_commitment+myValue.five_commitment}" th:if="${#arrays.contains(title.footers, 'Actual Commitments')}"></td>
-                                        <td th:text="${myValue.first_disbursement+myValue.second_disbursement+myValue.third_disbursement+myValue.four_disbursement+myValue.five_disbursement}" th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}"></td>
+                                        <td th:text="${myValue.donorname}"
+                                            th:if="${#arrays.contains(title.headings, 'Donor Agency')}"></td>
+                                        <td th:text="${myValue.ampid}"
+                                            th:if="${#arrays.contains(title.headings, 'AMP ID')}"></td>
+                                        <td th:text="${myValue.project_title}"
+                                            th:if="${#arrays.contains(title.headings, 'Project Title')}"></td>
+                                        <td th:text="${myValue.creator}"
+                                            th:if="${#arrays.contains(title.headings, 'created')}"></td>
+                                        <td th:text="${myValue.modified_date}"
+                                            th:if="${#arrays.contains(title.headings, 'Modified Date')}"></td>
+                                        <td th:text="${myValue.locationname}"
+                                            th:if="${#arrays.contains(title.headings, 'Location')}"></td>
+                                        <td th:text="${myValue.primary_sector}"
+                                            th:if="${#arrays.contains(title.headings, 'Primary Sector')}"></td>
+                                        <td th:text="${myValue.budget_code}"
+                                            th:if="${#arrays.contains(title.headings, 'Budget Code')}"></td>
+
+                                        <td th:with="myValue.five_commitment=${myValue.five_commitment==null?0:myValue.five_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <th:block th:text="${myValue.five_commitment}"/>
+                                        </td>
+                                        <td th:with="myValue.four_commitment=${myValue.four_commitment==null?0:myValue.four_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <th:block th:text="${myValue.four_commitment}"/>
+                                        </td>
+                                        <td th:with="myValue.third_commitment=${myValue.third_commitment==null?0:myValue.third_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <th:block th:text="${myValue.third_commitment}"/>
+                                        </td>
+                                        <td th:with="myValue.second_commitment=${myValue.second_commitment==null?0:myValue.second_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <th:block th:text="${myValue.second_commitment}"/>
+                                        </td>
+                                        <td th:with="myValue.first_commitment=${myValue.first_commitment==null?0:myValue.first_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <th:block th:text="${myValue.first_commitment}"/>
+                                        </td>
+                                        <td th:with="myValue.five_disbursement=${myValue.five_disbursement==null?0:myValue.five_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <th:block th:text="${myValue.five_disbursement}"/>
+                                        </td>
+                                        <td th:with="myValue.four_disbursement=${myValue.four_disbursement==null?0:myValue.four_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <th:block th:text="${myValue.four_disbursement}"/>
+                                        </td>
+                                        <td th:with="myValue.third_disbursement=${myValue.third_disbursement==null?0:myValue.third_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <th:block th:text="${myValue.third_disbursement}"/>
+                                        </td>
+                                        <td th:with="myValue.second_disbursement=${myValue.second_disbursement==null?0:myValue.second_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <th:block th:text="${myValue.second_disbursement}"/>
+                                        </td>
+
+                                        <td th:with="myValue.first_disbursement=${myValue.first_disbursement==null?0:myValue.first_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <th:block th:text="${myValue.first_disbursement}"/>
+                                        </td>
+                                        <td th:with="sum1=${myValue.first_commitment+myValue.second_commitment+myValue.third_commitment+myValue.four_commitment+myValue.five_commitment}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Commitments')}">
+                                            <h7 th:text="${sum1}"></h7>
+                                        </td>
+                                        <td th:with="sum2=${myValue.first_disbursement+myValue.second_disbursement+myValue.third_disbursement+myValue.four_disbursement+myValue.five_disbursement}"
+                                            th:if="${#arrays.contains(title.footers, 'Actual Disbursements')}">
+                                            <h7 th:text="${sum2}"></h7>
+                                        </td>
+
                                     </tr>
                                 </div>
                                 </tbody>
@@ -2688,28 +2852,7 @@
         <td style="padding-left: 5px;padding-right: 5px">
 
 
-
-
-
-
-
             <!-- paginator, viewFormat = html2 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <!-- html2 paginator: visibleRows = 2, recordsPerPage = 100  -->
@@ -2719,18 +2862,39 @@
             </div>
 
 
-
-
-
-
         </td>
     </tr>
 </table>
 </td>
 </tr>
 </table>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="https://datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+<script src="https://datatables.net/download/build/nightly/jquery.dataTables.js"></script>
+<script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
 <script language="JavaScript">
     loadingreport.hide();
+    $(document).ready(function () {
+
+        var table;
+        if ($("#reportTable>thead>tr").find('td').eq(0).html().replace(/<[^>]*>/g, "").trim() == "Donor") {
+            table = $("#reportTable").DataTable({
+                "order":[[2,"desc"]],
+                rowsGroup: [0],
+                pageLength: '10',
+            });
+        } else {
+
+            table = $("#reportTable").DataTable({
+
+                pageLength: '10'
+
+            });
+
+        }
+    });
+
 </script>
 
 </body>
