@@ -2880,7 +2880,7 @@
         var table;
         if ($("#reportTable>thead>tr").find('td').eq(0).html().replace(/<[^>]*>/g, "").trim() == "Donor") {
             table = $("#reportTable").DataTable({
-                "order":[[2,"desc"]],
+
                 rowsGroup: [0],
                 pageLength: '10',
             });
