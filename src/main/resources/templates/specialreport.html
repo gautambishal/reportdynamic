@@ -2869,27 +2869,67 @@
 </tr>
 </table>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="https://datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
-<script src="https://datatables.net/download/build/nightly/jquery.dataTables.js"></script>
-<script src="https://cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
-<script src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
+<link href="//cdn.datatables.net/rowgroup/1.0.4/css/rowGroup.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="//datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="//datatables.net/download/build/nightly/jquery.dataTables.js"></script>
+<script src="//cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
+<script src="//cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+
+
 <script language="JavaScript">
     loadingreport.hide();
     $(document).ready(function () {
 
         var table;
+        var columns = [3,4, 5,6,7,8];
         if ($("#reportTable>thead>tr").find('td').eq(0).html().replace(/<[^>]*>/g, "").trim() == "Donor") {
             table = $("#reportTable").DataTable({
 
                 rowsGroup: [0],
                 pageLength: '10',
+                rowGroup: {
+                    endRender: function(rows, group) {
+                        var result = '';
+                        columns.forEach(function(column) {
+                            var ageAvg = rows
+                                .data()
+                                .pluck(column)
+                                .reduce(function(a, b) {
+                                    return a + b * 1;
+                                }, 0);
+                            result += "<td>"+ (Number.isNaN(ageAvg)?0:ageAvg) + "</td>";
+
+                        });
+
+                        return "<tr class='group'><td colspan='2'></td><td>"+group+"</td>"  + result+"</tr>";
+                    },
+                    startRender: null
+                },
+
             });
         } else {
 
             table = $("#reportTable").DataTable({
 
-                pageLength: '10'
+                pageLength: '10',
+                rowGroup: {
 
+                    endRender: function(rows, group) {
+                        var result = '';
+                        columns.forEach(function(column) {
+                            var ageAvg = rows
+                                .data()
+                                .pluck(column)
+                                .reduce(function(a, b) {
+                                    return a + b * 1;
+                                }, 0);
+                            result += 'column ' + column + ': ' + ageAvg + "</br>";
+                        });
+
+                        return group + "</br>" + result;
+                    },
+                    startRender: null
+                },
             });
 
         }
