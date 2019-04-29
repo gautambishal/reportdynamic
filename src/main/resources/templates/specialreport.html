@@ -2890,6 +2890,7 @@
                 rowGroup: {
                     endRender: function(rows, group) {
                         var result = '';
+
                         columns.forEach(function(column) {
                             var ageAvg = rows
                                 .data()
@@ -2900,8 +2901,13 @@
                             result += "<td>"+ (Number.isNaN(ageAvg)?0:ageAvg) + "</td>";
 
                         });
+                        return $('<tr/>')
+                            .append( '<td colspan="2"></td>' )
+                            .append( '<td>'+group+'</td>' )
+                            .append( result );
 
-                        return "<tr class='group'><td colspan='2'></td><td>"+group+"</td>"  + result+"</tr>";
+
+                        // return "<td colspan='2'></td><td>"+group+"</td>"  + result;
                     },
                     startRender: null
                 },
