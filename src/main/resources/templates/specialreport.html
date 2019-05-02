@@ -18,7 +18,11 @@
 
 
     </title>
-
+    <style>
+        .space_down{
+            border-bottom: 1px solid white;
+        }
+    </style>
     <script type="text/javascript" src="/repository/aim/view/scripts/util.js"></script>
     <script type="text/javascript" src="/repository/aim/view/scripts/common.js"></script>
     <script type="text/javascript" src="/repository/aim/view/scripts/dscript120.js"></script>
@@ -2658,6 +2662,11 @@
                                         <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
                                             Donor</p></td>
                                     </td>
+                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
+                                        th:if="${#arrays.contains(title.headings, 'Activity Created By')}">
+                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
+                                            Created by</p></td>
+                                    </td>
                                     <!-- subcolumn name: Activity Created On, width: 1, columnDepth: 1, columnSpan: 1, newRowSpan: 3 %> -->
                                     <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
                                         th:if="${#arrays.contains(title.headings, 'AMP ID')}">
@@ -2669,11 +2678,7 @@
                                         <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
                                             Project Title</p></td>
                                     </td>
-                                    <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
-                                        th:if="${#arrays.contains(title.headings, 'Activity Created By')}">
-                                        <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
-                                            Created by</p></td>
-                                    </td>
+
                                     <td height="20px" nowrap="nowrap" align="center" class="reportHeader"
                                         th:if="${#arrays.contains(title.headings, 'Modified Date')}">
                                         <p style="font-family: Arial;font-size: 11px;text-decoration: none;color: black;cursor:pointer;">
@@ -2771,12 +2776,13 @@
                                     <tr th:each="myValue:${data}">
                                         <td th:text="${myValue.donorname}"
                                             th:if="${#arrays.contains(title.headings, 'Donor Agency')}"></td>
+                                        <td th:text="${myValue.creator}"
+                                            th:if="${#arrays.contains(title.headings, 'Activity Created By')}"></td>
                                         <td th:text="${myValue.ampid}"
                                             th:if="${#arrays.contains(title.headings, 'AMP ID')}"></td>
                                         <td th:text="${myValue.project_title}"
                                             th:if="${#arrays.contains(title.headings, 'Project Title')}"></td>
-                                        <td th:text="${myValue.creator}"
-                                            th:if="${#arrays.contains(title.headings, 'created')}"></td>
+
                                         <td th:text="${myValue.modified_date}"
                                             th:if="${#arrays.contains(title.headings, 'Modified Date')}"></td>
                                         <td th:text="${myValue.locationname}"
@@ -2874,6 +2880,16 @@
 <script src="//datatables.net/download/build/nightly/jquery.dataTables.js"></script>
 <script src="//cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
 <script src="//cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
+<script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+
+<link rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
 
 
 <script language="JavaScript">
@@ -2881,61 +2897,125 @@
     $(document).ready(function () {
 
         var table;
-        var columns = [3,4, 5,6,7,8];
+        var columns = [3,4,5,6,7,8];
         if ($("#reportTable>thead>tr").find('td').eq(0).html().replace(/<[^>]*>/g, "").trim() == "Donor") {
             table = $("#reportTable").DataTable({
 
-                rowsGroup: [0],
+                rowsGroup: [0, 1],
                 pageLength: '10',
+
                 rowGroup: {
-                    endRender: function(rows, group) {
+                    dataSrc: [1],
+                    endRender: function (rows, group) {
                         var result = '';
 
-                        columns.forEach(function(column) {
+                        columns.forEach(function (column) {
                             var ageAvg = rows
                                 .data()
                                 .pluck(column)
-                                .reduce(function(a, b) {
+                                .reduce(function (a, b) {
                                     return a + b * 1;
                                 }, 0);
-                            result += "<td>"+ (Number.isNaN(ageAvg)?0:ageAvg) + "</td>";
+                            result += "<td  class='space_down'>" + (Number.isNaN(ageAvg) ? 0 : ageAvg) + "</td>";
 
                         });
                         return $('<tr/>')
-                            .append( '<td colspan="2"></td>' )
-                            .append( '<td>'+group+'</td>' )
-                            .append( result );
+                            .append('<td  class="space_down"></td>')
+                            .append('<td  class="space_down">' + group + '</td>')
+                            .append('<td  class="space_down"></td>')
+                            .append(result)
+                            .append('<td  class="space_down"></td>');
 
 
                         // return "<td colspan='2'></td><td>"+group+"</td>"  + result;
                     },
                     startRender: null
                 },
+                buttons: [
+                    {
+                        titleAttr: "Download as PDF",
+                        extend: "pdfHtml5",
+                        className: "custom-btn fa fa-file-pdf-o pdf",
+                        text: "",
+
+                    },
+                    {
+                        titleAttr: "Download as Excel",
+                        extend: "excelHtml5",
+                        className: "custom-btn fa fa-file-excel-o excel",
+                        text: "",
+
+                    },
+                    {
+                        titleAttr: "Download as CSV",
+                        extend: "csvHtml5",
+                        className: "custom-btn fa fa-file-text-o",
+                        text: "",
+
+                    },
+                    {
+                        titleAttr: "Print",
+                        extend: "print",
+                        className: "custom-btn fa fa-print print",
+                        text: ""
+                    }
+                ],
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({page: 'current'}).nodes();
+                    var last = null;
+                    var subTotal = new Array();
+                    var groupID = -1;
+                    var aData = new Array();
+                    var index = 0;
+
+                    api.column(0, {page: 'current'}).data().each(function (group, i) {
+
+
+                        var vals = api.row(api.row($(rows).eq(i)).index()).data();
+                        var salary = vals[5] ? parseFloat(vals[5]) : 0;
+
+                        if (typeof aData[group] == 'undefined') {
+                            aData[group] = new Array();
+                            aData[group].rows = [];
+                            aData[group].salary = [];
+                        }
+
+                        aData[group].rows.push(i);
+                        aData[group].salary.push(salary);
+
+                    });
+
+
+                    var idx = 0;
+
+
+                    for (var office in aData) {
+
+                        idx = Math.max.apply(Math, aData[office].rows);
+
+                        var sum = 0;
+                        $.each(aData[office].salary, function (k, v) {
+                            sum = sum + v;
+                        });
+                        console.log(aData[office].salary);
+                        $(rows).eq(idx).after(
+                            '<tr class="group" style="margin-top:10px;"><td colspan="4">' + office + '</td>' +
+                            '<td colspan="5">' + sum + '</td></tr>'
+                        );
+
+                    }
+                    ;
+
+                }
 
             });
+
         } else {
 
             table = $("#reportTable").DataTable({
 
                 pageLength: '10',
-                rowGroup: {
-
-                    endRender: function(rows, group) {
-                        var result = '';
-                        columns.forEach(function(column) {
-                            var ageAvg = rows
-                                .data()
-                                .pluck(column)
-                                .reduce(function(a, b) {
-                                    return a + b * 1;
-                                }, 0);
-                            result += 'column ' + column + ': ' + ageAvg + "</br>";
-                        });
-
-                        return group + "</br>" + result;
-                    },
-                    startRender: null
-                },
             });
 
         }
